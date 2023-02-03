@@ -10,7 +10,7 @@
 <body>
     <nav class="nav">
       <div class="nav__btn">
-        <button href="#" onclick="openCreditPopup()">Crédit</button>
+        <button id="btn-credit" href="#" onclick="creditPopup()">Crédit</button>
       </div>
     </nav>
     <main class="home">
@@ -18,8 +18,25 @@
       <img class="home__img" src="/assets/images/tableaux/chandelle.webp" alt="Tableau de Saint Sébastien soigné par Irène">
         <a href="/game.html">Commencer le jeu</a>
     </main>
-    <div class="popup">
+
+    <div class="popup" id="popup-credit">
+      <button id="close-credit" onclick="creditPopup()">fermer</button>
       <span>Hello bitch</span>
     </div>
+
+    <script>
+      const popup = document.getElementById("popup-credit");
+      const btn_credit = document.getElementById("btn-credit");
+
+      function creditPopup() {
+        popup.classList.toggle("popup--open");
+        if (popup.className.includes("popup--open")) {
+          btn_credit.style.display = "none";
+        }
+        else{
+          btn_credit.style.display = "block";
+        }
+      }
+    </script>
 </body>
 </html>

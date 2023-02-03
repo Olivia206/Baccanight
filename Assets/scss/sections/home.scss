@@ -19,6 +19,8 @@
   }
   .home__img{
     width: 100%;
+    border-radius: 10px;
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
     margin: 1rem 4rem;
   }
 }
