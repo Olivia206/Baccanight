@@ -1,20 +1,15 @@
-import Screen from './screens/Screen';
-import Game from './screens/Game';
+import Section from './screens/section.js';
 
 export default class ScreenManager {
     constructor () {
         this.screens = {
-            game: new Game('#screen-manager-game'),
+            section: new Section('#screen-manager-game')
         };
-
-        document.querySelectorAll('.js-screen').forEach((screen) => {
-            this.screens[screen.getAttribute('id')] = new Panel(screen);
-        });
 
         this.bindEvents();
         this.handleHash();
     }
-
+    
     bindEvents () {
         document.querySelectorAll('[data-open-screen]').forEach((btn) => {
             let screen = btn.getAttribute('data-open-screen');

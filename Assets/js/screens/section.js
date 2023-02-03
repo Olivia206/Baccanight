@@ -1,7 +1,6 @@
-import { gsap } from 'gsap';
-
-export default class Screen {
+export default class Section {
     constructor (selector, opened = false) {
+        this.index = 0;
         if (typeof selector === 'string') {
             this.dom = document.querySelector(selector);
         } else {
@@ -17,6 +16,7 @@ export default class Screen {
 
     init () {
         // Override
+        console.log('lalala')
     }
 
     open (immediate = false) {

@@ -1,4 +1,4 @@
-import ScreenManager from './ScreenManager';
+import ScreenManager from './ScreenManager.js';
 
 (function () {
     window.onload = () => {
