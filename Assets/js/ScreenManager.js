@@ -1,9 +1,10 @@
-
+import Screen from './screens/Screen';
 import Game from './screens/Game';
+
 export default class ScreenManager {
     constructor () {
         this.screens = {
-            game: new Game('#screen-manager-game')
+            game: new Game('#screen-manager-game'),
         };
 
         document.querySelectorAll('.js-screen').forEach((screen) => {
