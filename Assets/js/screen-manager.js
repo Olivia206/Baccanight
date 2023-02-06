@@ -14,12 +14,14 @@ function goToNextSection(idCurrentSection, idNextSection) {
 
 sections.forEach((section)=>{
 
- let btn = section.querySelector('[data-open-screen]');
- let idNextSection = btn.getAttribute('data-open-screen');
+  let btn = section.querySelector('[data-open-screen]');
+  if (btn) {
+    let idNextSection = btn.getAttribute('data-open-screen');
 
- btn.addEventListener('click', ()=>{
-  console.log(idCurrentSection);
-  idCurrentSection = goToNextSection(idCurrentSection, idNextSection);
- })
+    btn.addEventListener('click', ()=>{
+     console.log(idCurrentSection);
+     idCurrentSection = goToNextSection(idCurrentSection, idNextSection);
+    })
+  }
 
 })
