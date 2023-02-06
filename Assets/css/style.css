@@ -4,10 +4,6 @@ button.control {
   padding: 11px 16px;
   text-transform: uppercase;
 }
-button.control.disabled {
-  opacity: 0.7;
-  pointer-events: none;
-}
 
 *,
 *::before,
@@ -15,6 +11,11 @@ button.control.disabled {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.disabled {
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .screen {

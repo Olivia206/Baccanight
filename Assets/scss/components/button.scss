@@ -4,9 +4,5 @@ button {
         margin-top: 44px;
         padding: 11px 16px;
         text-transform: uppercase;
-        &.disabled {
-            opacity: .7;
-            pointer-events: none;
-        }
     }
 }
