@@ -15,13 +15,35 @@ function gameControls(control){
 }
 
 function updatePv(playerAction, botAction) {
-  if(playerAction === "attack" && botAction === "defence"){
-    pvBot -= 10;
+  if(playerAction === "attack" && botAction === "defence" || playerAction === "ultimate" && botAction === "defence"){
+    if(playerAction === "attack"){
+      pvBot -= 10;
+    }
+    else{
+      pvBot -= 25;
+    }
+    pvPlayer -= 0;
     console.log("attack vs defence pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
   }
-  else{
-    pvBot -= 25;
+  else if(playerAction === "attack" && botAction === "attack" || playerAction === "ultimate" && botAction === "attack"){
+    if(playerAction === "attack"){
+      pvBot -= 25;
+    }
+    else{
+      pvBot -= 35;
+    }
+    pvPlayer -= 25;
     console.log("attack vs attack pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
+  }
+  else if(playerAction === "defence" && botAction === "attack"){
+      pvBot -= 0;
+      pvPlayer -= 10;
+      console.log("defence vs attack pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
+  }
+  else{
+      pvBot -= 0;
+      pvPlayer -= 0;
+      console.log("defence vs defence pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
   }
 }
 
