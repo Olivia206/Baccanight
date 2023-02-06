@@ -6,27 +6,31 @@ export default class Screen  {
 
         this.sections = document.querySelectorAll('.js-screen');
         this.setup(this.sections);
-        
+
     }
 
     setup () {
-        this.sections.forEach((section) => {
-            this.btn = section.querySelector('[data-open-screen]');
-            let screen = this.btn.getAttribute('data-open-screen');
+        this.sections.forEach((currentSection) => {
+            this.btn = currentSection.querySelector('[data-open-screen]');
+            console.log(this.btn.getAttribute('data-open-screen'));
+            let nextScreen = this.btn.getAttribute('data-open-screen');
+            console.log(nextScreen)
 
-            this.btn.addEventListener('click', this.navigate.bind(section, screen));
+            this.btn.addEventListener('click', ()=>{
+              this.navigate.bind(currentSection, nextScreen);
+            });
         });
     }
 
-    navigate (section, screen) {
-        this.goToNextScreen(screen);
-        this.closeCurrentScreen(section);
-    }   
+    navigate (currentSection, nextScreen) {
+        this.goToNextScreen(nextScreen);
+        this.closeCurrentScreen(currentSection);
+    }
 
 
     goToNextScreen (screen) {
         document.getElementById(this.toString(screen)).classList.add("is-visible");
-        
+
         // if (this.isOpened) {
         //     return false;
         // }
@@ -42,7 +46,7 @@ export default class Screen  {
         // });
     }
 
-    closeCurrentScreen (section) {
+    closeCurrentScreen (currentSection) {
 
         // if (!this.isOpened) {
         //     return false;
@@ -50,7 +54,7 @@ export default class Screen  {
 
         // this.isOpened = false;
 
-        section.classList.remove('is-visible');
+        currentSection.classList.remove('is-visible');
 
         // gsap.to(this.dom, {
         //     opacity: 0,
