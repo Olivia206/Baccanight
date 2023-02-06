@@ -22,6 +22,7 @@ export const startGame = function() {
       updatePv(player, bot);
     } else {
       console.log("Victoire !");
+      controls.classList.add("disabled");
     }
   }
 
