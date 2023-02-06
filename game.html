@@ -18,11 +18,9 @@
           <button>Appuyez pour continuer</button>
         </div>
         <div>
-          Sans comprendre ce que cela signifie, la conservatrice n’a pu que renforcer la sécurité…
-          <br><br>
-          Mais il se trame quelque chose de louche entre ces anciens murs, et cela, les tableaux qui les ornent le savent parfaitement.
-          <br><br>
-          Réveillé par la mystérieuse magie de la *Baccanight*, vous vous libérez de votre prison d’huile pour protéger votre pair et sa lanterne.
+          <p>Sans comprendre ce que cela signifie, la conservatrice n’a pu que renforcer la sécurité…</p>
+          <p>Mais il se trame quelque chose de louche entre ces anciens murs, et cela, les tableaux qui les ornent le savent parfaitement.</p>
+          <p>Réveillé par la mystérieuse magie de la *Baccanight*, vous vous libérez de votre prison d’huile pour protéger votre pair et sa lanterne.</p>
           <a  href="#screen-character" data-open-screen="screen-character">Appuyez pour continuer</a>
         </div>
       </div>
@@ -50,7 +48,38 @@
       </div>
       
       <div class="screen js-screen" id="screen-game">
-        screen jeu
+        <div class="header">
+          <button>Menu</button>
+          <div class="character character__good">
+            <div class="character-sprite">
+              <img src="/assets/images/character-2.svg" alt="">
+            </div>
+            <div class="character-lifebar">
+              <div class="lifebar-gauge">
+                <div>100%</div>
+              </div>
+              ♥
+            </div>
+          </div>
+          <div class="characters">
+            <div class="character character__evil">
+              <div class="character-sprite">
+                <img src="/assets/images/character-1.svg" alt="">
+              </div>
+              <div class="character-lifebar">
+                <div class="lifebar-gauge">
+                  <div>100%</div>
+                </div>
+                ♥
+              </div>
+            </div>
+          </div>
+          <div class="controls">
+            <button class="control">Attaque</button>
+            <button class="control">Attaque spéciale</button>
+            <button class="control">Défense</button>
+          </div>
+        </div>
         <a  href="#screen-ending" data-open-screen="screen-ending">Victoire, suivant, à définir</a>
       </div>
 
@@ -61,5 +90,4 @@
   </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-<script src="/assets/js/main.js" type="module"></script>
 </html>
