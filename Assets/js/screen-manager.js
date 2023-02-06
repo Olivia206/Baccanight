@@ -12,13 +12,13 @@ export const screen = function() {
     return idNextSection;
   }
 
-  sections.forEach((section)=>{
+  sections.forEach((section) => {
 
     let btn = section.querySelector('[data-open-screen]');
     if (btn) {
       let idNextSection = btn.getAttribute('data-open-screen');
 
-      btn.addEventListener('click', ()=>{
+      btn.addEventListener('click', () => {
       console.log(idCurrentSection);
       idCurrentSection = goToNextSection(idCurrentSection, idNextSection);
       })

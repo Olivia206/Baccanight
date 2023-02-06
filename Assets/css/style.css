@@ -19,9 +19,10 @@ button.control {
 }
 
 .screen {
-  min-height: 100vh;
-  width: 100%;
   display: none;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
 }
 .screen.is-visible {
   display: block;
@@ -51,6 +52,21 @@ button.control {
 }
 .screen .characters .character .lifebar-gauge div {
   background: blue;
+}
+
+.tutorials .tutorial {
+  background-color: beige;
+  height: 60vh;
+  left: 50%;
+  opacity: 0;
+  padding: 40px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+.tutorials .tutorial.is-visible {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

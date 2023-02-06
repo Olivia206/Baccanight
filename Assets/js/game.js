@@ -3,7 +3,8 @@ export const startGame = function() {
   let pvBot = 100;
 
   let counterAttack = 0;
-  let counterDefense = 0;
+  let counterDefence = 0;
+  let counterUltimate = 0;
 
   const damageAttack = 25,
         damageUltimateAttack = 35,
@@ -68,20 +69,35 @@ export const startGame = function() {
     if(btnAttr == "attack"){
       counterAttack += 1;
 
+      if (counterAttack === 1) {
+        displayTutorial(btnAttr);
+      }
+
       playerAction = "attack";
       return playerAction;
     }
     else if(btnAttr == "defence"){
-      if (counterDefense === 3) {
+      if (counterDefence === 3) {
         control.classList.add("disabled");
       } 
       else {
-        counterDefense += 1;
+        counterDefence += 1;
+
+        if (counterDefence === 1) {
+          displayTutorial(btnAttr);
+        }
+
         playerAction = "defence";
         return playerAction;
       }
     }
     else {
+      counterUltimate += 1;
+
+      if (counterUltimate === 1) {
+        displayTutorial(btnAttr);
+      }
+
       playerAction = "ultimate";
       control.classList.add("disabled");
       return playerAction;
@@ -98,6 +114,18 @@ export const startGame = function() {
     else{
       botAction = "defence";
       return botAction;
+    }
+  }
+
+  function displayTutorial(type) {
+    if (type === "attack") {
+      document.querySelector(".tutorial__attack").classList.add("is-visible");
+
+    } else if (type === "defence") {
+      document.querySelector(".tutorial__defence").classList.add("is-visible");
+    }
+    else {
+      document.querySelector(".tutorial__ultimate").classList.add("is-visible");
     }
   }
 
