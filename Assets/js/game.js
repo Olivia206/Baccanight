@@ -23,7 +23,6 @@ export const startGame = function() {
     } else {
       console.log("Victoire !");
     }
-    console.log(counterAttack)
   }
 
   function updatePv(playerAction, botAction) {
