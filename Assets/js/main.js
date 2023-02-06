@@ -1,7 +1,5 @@
-// import Screen from './screen-manager.js';
+import { screen } from './screen-manager.js';
+import { startGame } from './game.js';
 
-// (function () {
-//     window.onload = () => {
-//         new Screen();
-//     };
-// }());
+screen();
+startGame();
