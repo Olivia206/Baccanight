@@ -23,6 +23,18 @@
         span {
             font-weight: bold;
             margin-bottom: 20px;
+            
         }
     }
+    .characters {
+        .character {
+            .lifebar-gauge {
+                background: red;
+                div {
+                    background: blue;
+                }
+            }
+        }
+    }
+
 }

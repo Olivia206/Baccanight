@@ -53,25 +53,25 @@
 
       <div class="screen js-screen is-visible" id="screen-game">
         <div class="header">
-          <div class="character character__good">
-            <div class="character-sprite">
-              <img src="/assets/images/character-2.svg" alt="">
-            </div>
-            <div class="character-lifebar">
-              <div class="lifebar-gauge">
-                <div>100%</div>
-              </div>
-              ♥
-            </div>
-          </div>
           <div class="characters">
+            <div class="character character__good">
+              <div class="character-sprite">
+                <img src="/assets/images/character-2.svg" alt="">
+              </div>
+              <div class="character-lifebar">
+                <div class="lifebar-gauge lifebar-good">
+                  <div style="width: 100%;">pv</div>
+                </div>
+                ♥
+              </div>
+            </div>
             <div class="character character__evil">
               <div class="character-sprite">
                 <img src="/assets/images/character-1.svg" alt="">
               </div>
               <div class="character-lifebar">
-                <div class="lifebar-gauge">
-                  <div>100%</div>
+                <div class="lifebar-gauge lifebar-evil">
+                  <div style="width: 100%">pv</div>
                 </div>
                 ♥
               </div>
@@ -79,7 +79,7 @@
           </div>
           <div class="controls">
             <button class="control" data-spell="attack" title="Attaque">Attaque</button>
-            <button class="control" data-spell="ultimate" title="Attaque spéciale">Attaque spéciale</button>
+            <button class="control ultimate disabled" data-spell="ultimate" title="Attaque spéciale">Attaque spéciale</button>
             <button class="control" data-spell="defence" title="Défense">Défense</button>
           </div>
         </div>

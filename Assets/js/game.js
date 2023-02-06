@@ -1,44 +1,55 @@
 export const startGame = function() {
   let pvPlayer = 100;
   let pvBot = 100;
-  const damageAttack = 25;
-  const damageUltimateAttack = 35;
-  const defence = 15;
 
-  const controls = document.querySelectorAll(".control");
+  let counterAttack = 0;
+  let counterDefense = 0;
+
+  const damageAttack = 25,
+        damageUltimateAttack = 35,
+        damageDefence = 10;
+
+  const lifebarPlayer = document.querySelector(".lifebar-good div"),
+        lifebarBot = document.querySelector(".lifebar-evil div"), 
+        controls = document.querySelectorAll(".control"),
+        btnUltimate = document.querySelector(".ultimate");
 
   function gameControls(control){
     let bot = botActions();
     let player = playerActions(control);
 
-    updatePv(player, bot);
-
+    if (pvBot > 0) {
+      updatePv(player, bot);
+    } else {
+      console.log("Victoire !");
+    }
+    console.log(counterAttack)
   }
 
   function updatePv(playerAction, botAction) {
     if(playerAction === "attack" && botAction === "defence" || playerAction === "ultimate" && botAction === "defence"){
       if(playerAction === "attack"){
-        pvBot -= 10;
+        pvBot -= damageDefence;
       }
       else{
-        pvBot -= 25;
+        pvBot -= damageAttack;
       }
       pvPlayer -= 0;
       console.log("attack vs defence pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
     }
     else if(playerAction === "attack" && botAction === "attack" || playerAction === "ultimate" && botAction === "attack"){
       if(playerAction === "attack"){
-        pvBot -= 25;
+        pvBot -= damageAttack;
       }
       else{
-        pvBot -= 35;
+        pvBot -= damageUltimateAttack;
       }
-      pvPlayer -= 25;
+      pvPlayer -= damageAttack;
       console.log("attack vs attack pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
     }
     else if(playerAction === "defence" && botAction === "attack"){
         pvBot -= 0;
-        pvPlayer -= 10;
+        pvPlayer -= damageDefence;
         console.log("defence vs attack pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
     }
     else{
@@ -46,6 +57,8 @@ export const startGame = function() {
         pvPlayer -= 0;
         console.log("defence vs defence pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
     }
+    lifebarPlayer.style.width = pvPlayer + "%";
+    lifebarBot.style.width = pvBot + "%";
   }
 
   function playerActions(control) {
@@ -53,15 +66,24 @@ export const startGame = function() {
     let playerAction = null;
 
     if(btnAttr == "attack"){
+      counterAttack += 1;
+
       playerAction = "attack";
       return playerAction;
     }
     else if(btnAttr == "defence"){
-      playerAction = "defence";
-      return playerAction;
+      if (counterDefense === 3) {
+        control.classList.add("disabled");
+      } 
+      else {
+        counterDefense += 1;
+        playerAction = "defence";
+        return playerAction;
+      }
     }
-    else{
+    else {
       playerAction = "ultimate";
+      control.classList.add("disabled");
       return playerAction;
     }
   }
@@ -81,6 +103,9 @@ export const startGame = function() {
 
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
+      if (counterAttack != 0 && counterAttack % 2  == 0) {
+        btnUltimate.classList.remove("disabled");
+      }
       gameControls(control);
     })
   });
