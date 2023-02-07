@@ -51,7 +51,7 @@ button.control {
   position: relative;
   width: 100%;
 }
-.screen:not(__game) {
+.screen:not(.screen__game) {
   background-image: linear-gradient(90deg, rgba(114, 94, 236, 0.2) 0%, rgba(15, 22, 88, 0.2) 100%);
 }
 .screen.is-visible {
@@ -71,7 +71,6 @@ button.control {
 }
 .screen__text div a {
   display: block;
-  margin-top: 60px;
 }
 .screen__dialog {
   align-items: flex-end;
@@ -117,6 +116,17 @@ button.control {
 .screen__game .characters .character .character-lifebar .lifebar-gauge div {
   height: 9px;
   background: blue;
+}
+.screen a {
+  background: white;
+  border-radius: 20px;
+  color: #070F2B;
+  font-size: 18px;
+  margin-top: 60px;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .tutorial,

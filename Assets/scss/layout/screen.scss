@@ -9,7 +9,7 @@
     min-height: 100vh;
     position: relative;
     width: 100%;
-    &:not(__game) {
+    &:not(&__game) {
         background-image: $gradient;
     }
     &.is-visible {
@@ -27,7 +27,6 @@
             }
             a {
                 display: block;
-                margin-top: 60px;
             }
         }
     }
@@ -77,7 +76,17 @@
             }
         }
     }
-
+    a {
+        background: white;
+        border-radius: 20px;
+        color: $primary;
+        font-size: 18px;
+        margin-top: 60px;
+        padding: 10px 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
 }
 .tutorial,
 .modal {
