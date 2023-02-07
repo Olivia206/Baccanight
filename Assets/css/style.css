@@ -43,12 +43,12 @@ button.control {
   text-transform: uppercase;
 }
 
-.btns-popup {
+header {
   position: fixed;
   top: 0;
   left: 0;
 }
-.btns-popup span {
+header span {
   color: white;
 }
 
