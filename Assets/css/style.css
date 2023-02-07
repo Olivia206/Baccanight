@@ -1,8 +1,3 @@
-@font-face {
-  font-display: swap;
-  font-family: "Cherry Bomb";
-  src: url(/assets/fonts/cherrybombone-regular.ttf);
-}
 *,
 *::before,
 *::after {
@@ -15,6 +10,12 @@ body {
   background-color: #0B132F;
 }
 
+@font-face {
+  font-display: swap;
+  font-family: "Cherry Bomb";
+  font-weight: normal;
+  src: url(/assets/fonts/cherrybombone-regular.ttf);
+}
 body {
   font-size: 16px;
 }
