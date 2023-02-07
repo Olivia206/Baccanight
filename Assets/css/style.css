@@ -98,6 +98,9 @@ button.control {
   padding: 2rem 2rem;
   width: auto;
 }
+.nav .nav__btn span {
+  color: #fff;
+}
 
 .home {
   position: relative;
@@ -106,7 +109,7 @@ button.control {
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding: 0 2rem;
+  padding: 2rem 2rem 0 2rem;
   height: calc(100vh - 5.5rem);
 }
 .home .logo {
