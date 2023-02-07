@@ -1,5 +1,5 @@
 export const screen = function() {
-  let idCurrentSection = "screen-narrative";
+  let idCurrentSection = "screen-narrative-1";
   const sections = document.querySelectorAll(".js-screen");
 
   function goToNextSection(idCurrentSection, idNextSection) {
