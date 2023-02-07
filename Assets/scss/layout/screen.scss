@@ -47,14 +47,12 @@
 .tutorials {
     .tutorial {
         background-color: beige;
-        height: 60vh;
         left: 50%;
         opacity: 0;
         padding: 40px;
         position: fixed;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 80%;
         &.is-visible {
             opacity: 1;
         }
