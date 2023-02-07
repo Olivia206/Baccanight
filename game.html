@@ -25,14 +25,16 @@
 
   <main>
     <section id="screen-manager-game">
-      <div class="screen js-screen is-visible" id="screen-narrative-1">
+      <div class="screen screen__text js-screen is-visible" id="screen-narrative-1">
         <div>
-          <p>Plus tôt dans la journée, la conservatrice des Beaux Arts s’est avancée, inquiète, au milieu des galeries du musée. Sa voix fébrile a évoqué une lettre de menace, promettant un cambriolage particulier :</p>
+          <p>Plus tôt dans la journée, la conservatrice des Beaux Arts s’est avancée, inquiète, au milieu des galeries du musée.</p>
+          <p>Sa voix fébrile a évoqué une lettre de menace, promettant un cambriolage particulier :</p>
           <p>« J’ÉTEINDRAI LA FLAMME DE LA LANTERNE DU MUSÉE. »</p>
-          <a  href="#screen-narrative-2" data-open-screen="screen-narrative-2">parler au méchant</a>
+          <a  href="#screen-narrative-2" data-open-screen="screen-narrative-2">Continuer</a>
         </div>
-        </div>
-        <div class="screen js-screen is-visible" id="screen-narrative-2">
+      </div>
+
+      <div class="screen screen__text js-screen" id="screen-narrative-2">
         <div>
           <p>Sans comprendre ce que cela signifie, la conservatrice n’a pu que renforcer la sécurité…</p>
           <p>Mais il se trame quelque chose de louche entre ces anciens murs, et cela, les tableaux qui les ornent le savent parfaitement.</p>
@@ -40,12 +42,13 @@
           <a  href="#screen-character" data-open-screen="screen-character">Appuyez pour continuer</a>
         </div>
       </div>
-      <div class="screen js-screen" id="screen-character">
+
+      <div class="screen screen__text js-screen" id="screen-character">
         screen personnage
         <a  href="#screen-dialog-1" data-open-screen="screen-dialog-1">parler au méchant</a>
       </div>
 
-      <div class="screen js-screen" id="screen-dialog-1">
+      <div class="screen screen__text js-screen" id="screen-dialog-1">
         <div>
           <span>Eustache De Pinthure</span>
           <p>GRR ! Vous ne m’arrêterez JAMAIS, vous n’êtes qu’un vulgaire musicien fait de peinture !</p>
@@ -53,7 +56,7 @@
         <a  href="#screen-dialog-2" data-open-screen="screen-dialog-2">Défier en duel !</a>
       </div>
 
-      <div class="screen js-screen" id="screen-dialog-2">
+      <div class="screen screen__text js-screen" id="screen-dialog-2">
         <div>
           <span>Eustache De Pinthure</span>
           <p>J’éteindrai cette immonde lanterne coûte que coûte !</p>
@@ -61,7 +64,7 @@
         <a  href="#screen-game" data-open-screen="screen-game">Défier en duel !</a>
       </div>
 
-      <div class="screen js-screen is-visible" id="screen-game">
+      <div class="screen screen__game js-screen" id="screen-game">
         <div class="header"></div>
           <div class="characters">
             <div class="character character__good">
@@ -106,7 +109,7 @@
         </div>
       </div>
 
-      <div class="screen js-screen" id="screen-ending">
+      <div class="screen screen__text js-screen" id="screen-ending">
         screen ending
       </div>
     </section>

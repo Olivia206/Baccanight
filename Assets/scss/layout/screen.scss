@@ -4,17 +4,33 @@
 }
 
 .screen {
+    color: white;
     display: none;
     min-height: 100vh;
     position: relative;
     width: 100%;
     &.is-visible {
-        display: block;
+        display: flex;
+        flex-direction: column;
+    }
+    &__text {
+        align-items: center;
+        justify-content: center;
+        padding: 57px;
+        div {
+            text-align: center;
+            p + p {
+                margin-top: 40px;
+            }
+            a {
+                display: block;
+                margin-top: 60px;
+            }
+        }
     }
     &__dialog {
         align-items: flex-end;
         background-size: cover;
-        color: white;
         display: flex;
         flex-direction: column;
         height: 100vh;

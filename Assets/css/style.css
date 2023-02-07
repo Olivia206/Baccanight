@@ -41,18 +41,34 @@ button.control {
 }
 
 .screen {
+  color: white;
   display: none;
   min-height: 100vh;
   position: relative;
   width: 100%;
 }
 .screen.is-visible {
+  display: flex;
+  flex-direction: column;
+}
+.screen__text {
+  align-items: center;
+  justify-content: center;
+  padding: 57px;
+}
+.screen__text div {
+  text-align: center;
+}
+.screen__text div p + p {
+  margin-top: 40px;
+}
+.screen__text div a {
   display: block;
+  margin-top: 60px;
 }
 .screen__dialog {
   align-items: flex-end;
   background-size: cover;
-  color: white;
   display: flex;
   flex-direction: column;
   height: 100vh;
