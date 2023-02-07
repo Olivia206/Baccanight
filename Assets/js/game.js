@@ -15,7 +15,8 @@ export const startGame = function() {
         controls = document.querySelectorAll(".control"),
         btnUltimate = document.querySelector(".control__ultimate"),
         btnAttack = document.querySelector(".control__attack"),
-        btnDefence = document.querySelector(".control__defence");
+        btnDefence = document.querySelector(".control__defence"),
+        modalVictory = document.querySelector(".modal__victory");
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
@@ -30,7 +31,7 @@ export const startGame = function() {
     if (pvBot > 0) {
       updatePv(player, bot);
     } else {
-      console.log("Victoire !");
+      modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
   }
