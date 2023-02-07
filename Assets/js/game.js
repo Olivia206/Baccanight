@@ -19,6 +19,17 @@ export const startGame = function() {
         btnAttack = document.querySelector(".control__attack"),
         btnDefence = document.querySelector(".control__defence"),
         modalVictory = document.querySelector(".modal__victory");
+    
+const animTEstPath = '/assets/js/animations/anim-melodie.lottie';
+
+this.animation = lottie.loadAnimation({
+  container: this.element.querySelector('.character__good'),
+  path: animTEstPath,
+  renderer: 'canvas',
+  loop: true,
+  autoplay: false
+});
+
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
@@ -76,6 +87,7 @@ export const startGame = function() {
 
     if(btnAttr == "attack"){
       counterAttack += 1;
+      animTEst();
 
       if (counterAttack === 1) {
         toggleTutorial(btnAttr);
@@ -139,6 +151,10 @@ export const startGame = function() {
     else {
       document.querySelector(".tutorial__ultimate").classList.toggle("is-visible");
     }
+  }
+
+  function animTEst() {
+    animation.play();
   }
 
   controls.forEach(control => {
