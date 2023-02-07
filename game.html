@@ -5,24 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <script type="module" src="./assets/js/main.js"></script>
   <title>Game</title>
 </head>
 <body>
-
+  
   <header>
     <div class="btns-popup" id="btn-menu">
       <span>Menu</span>
     </div>
   </header>
-
+  
   <div class="popup" id="popup-menu">
     <div class="popup__btn btns-popup" id="close-menu">
       <span>Fermer</span>
     </div>
     <span>Menu</span>
   </div>
-
+  
   <main>
     <section id="screen-manager-game">
       <div class="screen screen__text js-screen is-visible" id="screen-narrative-1">
@@ -33,7 +32,7 @@
           <a  href="#screen-narrative-2" data-open-screen="screen-narrative-2">Continuer</a>
         </div>
       </div>
-
+      
       <div class="screen screen__text js-screen" id="screen-narrative-2">
         <div>
           <p>Sans comprendre ce que cela signifie, la conservatrice n’a pu que renforcer la sécurité…</p>
@@ -42,12 +41,12 @@
           <a  href="#screen-character" data-open-screen="screen-character">Continuer</a>
         </div>
       </div>
-
+      
       <div class="screen screen__text js-screen" id="screen-character">
         screen personnage
         <a  href="#screen-dialog-1" data-open-screen="screen-dialog-1">parler au méchant</a>
       </div>
-
+      
       <div class="screen screen__text js-screen" id="screen-dialog-1">
         <div>
           <span>Eustache De Pinthure</span>
@@ -55,7 +54,7 @@
         </div>
         <a  href="#screen-dialog-2" data-open-screen="screen-dialog-2">Continuer</a>
       </div>
-
+      
       <div class="screen screen__text js-screen" id="screen-dialog-2">
         <div>
           <span>Eustache De Pinthure</span>
@@ -63,35 +62,35 @@
         </div>
         <a  href="#screen-game" data-open-screen="screen-game">Défier en duel !</a>
       </div>
-
+      
       <div class="screen screen__game js-screen" id="screen-game">
-          <div class="characters">
-            <div class="character character__good">
-              <div class="character-sprite">
-                <img src="/assets/images/character-2.svg" alt="">
-              </div>
-              <div class="character-lifebar">
-                <div class="lifebar-gauge lifebar-good">
-                  <div style="width: 100%;"></div>
-                </div>
-              </div>
+        <div class="characters">
+          <div class="character character__good">
+            <div class="character-sprite">
+              <img src="/assets/images/character-2.svg" alt="">
             </div>
-            <div class="character character__evil">
-              <div class="character-sprite">
-                <img src="/assets/images/character-1.svg" alt="">
-              </div>
-              <div class="character-lifebar">
-                <div class="lifebar-gauge lifebar-evil">
-                  <div style="width: 100%"></div>
-                </div>
+            <div class="character-lifebar">
+              <div class="lifebar-gauge lifebar-good">
+                <div style="width: 100%;"></div>
               </div>
             </div>
           </div>
-          <div class="controls">
-            <button class="control control__attack" data-spell="attack" title="Attaque">Attaque</button>
-            <button class="control control__ultimate disabled" data-spell="ultimate" title="Attaque spéciale">Attaque spéciale</button>
-            <button class="control control__defence disabled" data-spell="defence" title="Défense">Défense</button>
+          <div class="character character__evil">
+            <div class="character-sprite">
+              <img src="/assets/images/character-1.svg" alt="">
+            </div>
+            <div class="character-lifebar">
+              <div class="lifebar-gauge lifebar-evil">
+                <div style="width: 100%"></div>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="controls">
+          <button class="control control__attack" data-spell="attack" title="Attaque">Attaque</button>
+          <button class="control control__ultimate disabled" data-spell="ultimate" title="Attaque spéciale">Attaque spéciale</button>
+          <button class="control control__defence disabled" data-spell="defence" title="Défense">Défense</button>
+        </div>
         <div class="tutorials">
           <div class="tutorial tutorial__attack">
             <p>Ceci est une attaque</p>
@@ -108,7 +107,7 @@
           <a  href="#screen-ending" data-open-screen="screen-ending">Victoire, suivant, à définir</a>
         </div>
       </div>
-
+      
       <div class="screen screen__text js-screen" id="screen-ending">
         screen ending
         <a href="/index.html">Revenir à l'accueil</a>
@@ -117,6 +116,6 @@
   </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-<!-- <script src="/assets/js/screen-manager.js"></script>
-<script src="/assets/js/game.js"></script> -->
-</html>
+<script type="module" src="./assets/js/main.js"></script>
+  </html>
+  
