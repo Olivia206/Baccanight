@@ -9,7 +9,12 @@ $red : #9C2424;
 
 // FONTS
 
-$font : "Cherry Bomb", arial, sans-serif;
+@font-face {
+  font-display: swap;
+  font-family: "Cherry Bomb";
+  src: url(/assets/fonts/cherrybombone-regular.ttf);
+}
+$font : "Cherry Bomb";
 
 
 // SHADOWS

@@ -1,16 +1,38 @@
-button.control {
-  border-radius: 20px;
-  margin-top: 44px;
-  padding: 11px 16px;
-  text-transform: uppercase;
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Cherry Bomb";
+  src: url(/assets/fonts/cherrybombone-regular.ttf);
+}
+body {
+  font-family: "Cherry Bomb";
+  background-color: #070F2B;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  text-shadow: -3px 0px 0px #838383, -6px -2px 0px #5E6D89;
+}
+.logo .logo__first-syllabe {
+  opacity: 0.8;
+}
+.logo .logo__big-letter {
+  font-size: 4rem;
+}
+
+button.control {
+  border-radius: 20px;
+  margin-top: 44px;
+  padding: 11px 16px;
+  text-transform: uppercase;
 }
 
 .disabled {
@@ -74,24 +96,43 @@ button.control {
   align-items: center;
   justify-content: flex-end;
   padding: 2rem 2rem;
-  margin-bottom: 6rem;
   width: auto;
+}
+.nav .nav__btn span {
+  color: #fff;
 }
 
 .home {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding: 0 2rem;
+  padding: 2rem 2rem 0 2rem;
+  height: calc(100vh - 5.5rem);
 }
-.home h1 {
-  text-transform: uppercase;
-  font-family: Arial, Helvetica, sans-serif;
+.home .logo {
+  color: #FFFFFF;
+}
+.home .play__btn {
+  position: absolute;
+  bottom: 5rem;
+}
+.home .play__btn .play__link {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #070F2B;
 }
 .home .home__img {
-  width: 100%;
+  width: 90%;
   border-radius: 10px;
   filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
   margin: 1rem 4rem;

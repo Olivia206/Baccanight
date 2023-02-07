@@ -1,11 +1,13 @@
+@import "base/reset";
+
 @import "abstracts/utils";
 @import "abstracts/fonts";
 @import "abstracts/variables";
 @import "abstracts/typography";
 
-@import "components/button";
+@import "base/default";
 
-@import "base/reset";
+@import "components/button";
 
 @import "layout/screen";
 
