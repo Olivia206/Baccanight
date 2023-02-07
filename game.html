@@ -5,55 +5,104 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <title>La Bacca'nuit au musée • Le jeu</title>
+  <script type="module" src="./assets/js/main.js"></script>
+  <title>Game</title>
 </head>
 <body>
 
+  <header>
+    <button>Menu</button>
+  </header>
+
   <main>
-    
-    <section class="screen" id="screen-narrative">
-      <div>
-        <p>Plus tôt dans la journée, la conservatrice des Beaux Arts s’est avancée, inquiète, au milieu des galeries du musée. Sa voix fébrile a évoqué une lettre de menace, promettant un cambriolage particulier :</p>
-        <p>« J’ÉTEINDRAI LA FLAMME DE LA LANTERNE DU MUSÉE. »</p>
-        <button>Appuyez pour continuer</button>
+    <section id="screen-manager-game">
+      <!-- <div class="screen js-screen is-visible" id="screen-narrative">
+        <div>
+          <p>Plus tôt dans la journée, la conservatrice des Beaux Arts s’est avancée, inquiète, au milieu des galeries du musée. Sa voix fébrile a évoqué une lettre de menace, promettant un cambriolage particulier :</p>
+          <p>« J’ÉTEINDRAI LA FLAMME DE LA LANTERNE DU MUSÉE. »</p>
+          <button>Appuyez pour continuer</button>
+        </div>
+        <div>
+          <p>Sans comprendre ce que cela signifie, la conservatrice n’a pu que renforcer la sécurité…</p>
+          <p>Mais il se trame quelque chose de louche entre ces anciens murs, et cela, les tableaux qui les ornent le savent parfaitement.</p>
+          <p>Réveillé par la mystérieuse magie de la *Baccanight*, vous vous libérez de votre prison d’huile pour protéger votre pair et sa lanterne.</p>
+          <a  href="#screen-character" data-open-screen="screen-character">Appuyez pour continuer</a>
+        </div>
       </div>
-      <div>
-        Sans comprendre ce que cela signifie, la conservatrice n’a pu que renforcer la sécurité…
-        <br><br>
-        Mais il se trame quelque chose de louche entre ces anciens murs, et cela, les tableaux qui les ornent le savent parfaitement. 
-        <br><br>
-        Réveillé par la mystérieuse magie de la *Baccanight*, vous vous libérez de votre prison d’huile pour protéger votre pair et sa lanterne.
-        <button>Appuyez pour continuer</button>
+
+      <div class="screen js-screen" id="screen-character">
+        screen personnage
+        <a  href="#screen-dialog" data-open-screen="screen-dialog-1">parler au méchant</a>
       </div>
-      <div class="screen-narrative__dialog">
+
+      <div class="screen js-screen" id="screen-dialog-1">
         <div>
           <span>Eustache De Pinthure</span>
           <p>GRR ! Vous ne m’arrêterez JAMAIS, vous n’êtes qu’un vulgaire musicien fait de peinture !</p>
         </div>
-        <button>Appuyez pour continuer</button>
+        <a  href="#screen-game" data-open-screen="screen-dialog-2">Défier en duel !</a>
       </div>
-      <div></div>
-      <div class="screen-narrative__dialog">
+
+      <div class="screen js-screen" id="screen-dialog-2">
         <div>
           <span>Eustache De Pinthure</span>
           <p>J’éteindrai cette immonde lanterne coûte que coûte !</p>
         </div>
-        <button>Le provoquer en duel !</button>
+        <a  href="#screen-game" data-open-screen="screen-game">Défier en duel !</a>
+      </div> -->
+
+      <div class="screen js-screen is-visible" id="screen-game">
+        <div class="header"></div>
+          <div class="characters">
+            <div class="character character__good">
+              <div class="character-sprite">
+                <img src="/assets/images/character-2.svg" alt="">
+              </div>
+              <div class="character-lifebar">
+                <div class="lifebar-gauge lifebar-good">
+                  <div style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="character character__evil">
+              <div class="character-sprite">
+                <img src="/assets/images/character-1.svg" alt="">
+              </div>
+              <div class="character-lifebar">
+                <div class="lifebar-gauge lifebar-evil">
+                  <div style="width: 100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="controls">
+            <button class="control control__attack" data-spell="attack" title="Attaque">Attaque</button>
+            <button class="control control__ultimate disabled" data-spell="ultimate" title="Attaque spéciale">Attaque spéciale</button>
+            <button class="control control__defence disabled" data-spell="defence" title="Défense">Défense</button>
+          </div>
+        <div class="tutorials">
+          <div class="tutorial tutorial__attack">
+            <p>Ceci est une attaque</p>
+          </div>
+          <div class="tutorial tutorial__defence">
+            <p>Ceci est une défense</p>
+          </div>
+          <div class="tutorial tutorial__ultimate">
+            <p>Ceci est une attaque spéciale</p>
+          </div>
+        </div>
+        <div class="modal modal__victory">
+          <a  href="#screen-ending" data-open-screen="screen-ending">Victoire, suivant, à définir</a>
+        </div>
+      </div>
+
+      <div class="screen js-screen" id="screen-ending">
+        screen ending
       </div>
     </section>
-
-    <section class="screen" id="screen-character">
-
-    </section>
-
-    <section class="screen" id="screen-game">
-
-    </section>
-
-    <section class="screen" id="screen-ending">
-
-    </section>
-
   </main>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<!-- <script src="/assets/js/screen-manager.js"></script>
+<script src="/assets/js/game.js"></script> -->
 </html>

@@ -1,6 +1,72 @@
+button.control {
+  border-radius: 20px;
+  margin-top: 44px;
+  padding: 11px 16px;
+  text-transform: uppercase;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
 .screen {
-  height: 100vh;
+  display: none;
+  min-height: 100vh;
+  position: relative;
   width: 100%;
+}
+.screen.is-visible {
+  display: block;
+}
+.screen__dialog {
+  align-items: flex-end;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-end;
+  padding: 28px;
+}
+.screen__dialog:first-child {
+  background-image: url("/assets/images/dialog-1.svg");
+}
+.screen__dialog:last-child {
+  background-image: url("/assets/images/dialog-2.svg");
+}
+.screen__dialog span {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.screen .characters .character .lifebar-gauge {
+  background: red;
+}
+.screen .characters .character .lifebar-gauge div {
+  background: blue;
+}
+
+.tutorial,
+.modal {
+  background-color: beige;
+  left: 50%;
+  opacity: 0;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.tutorial.is-visible,
+.modal.is-visible {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
