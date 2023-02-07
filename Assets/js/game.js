@@ -1,5 +1,3 @@
-import {lottie} from "@lottiefiles/lottie-player";
-
 export const startGame = function() {
   let pvPlayer = 100;
   let pvBot = 100;
@@ -19,11 +17,11 @@ export const startGame = function() {
         btnAttack = document.querySelector(".control__attack"),
         btnDefence = document.querySelector(".control__defence"),
         modalVictory = document.querySelector(".modal__victory");
-    
+
 const animTEstPath = '/assets/js/animations/anim-melodie.lottie';
 
-this.animation = lottie.loadAnimation({
-  container: this.element.querySelector('.character__good'),
+var animation = lottie.loadAnimation({
+  container: document.querySelector('.character__good'),
   path: animTEstPath,
   renderer: 'canvas',
   loop: true,
