@@ -115,6 +115,15 @@ header span {
   flex-direction: column-reverse;
   width: fit-content;
 }
+.screen__game .characters .character .character-sprite#character-good-sprite {
+  position: relative;
+}
+.screen__game .characters .character .character-sprite#character-good-sprite svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: fill;
+}
 .screen__game .characters .character .character-lifebar {
   margin-bottom: 20px;
   width: 100%;
