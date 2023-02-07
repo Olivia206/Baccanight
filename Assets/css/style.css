@@ -139,6 +139,7 @@ button.control {
 }
 
 .popup {
+  z-index: 50;
   display: none;
   position: fixed;
   top: 50%;
@@ -158,6 +159,10 @@ button.control {
 }
 .popup--open {
   display: block;
+}
+.popup .large-popup {
+  width: 100%;
+  border-radius: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -18,39 +18,18 @@
       </div>
     </main>
     <nav class="nav">
-      <div class="nav__btn" id="btn-credit">
+      <div class="nav__btn btns-popup" id="btn-credit">
         <span>Crédits</span>
       </div>
     </nav>
 
     <div class="popup" id="popup-credit">
-      <div class="popup__btn" id="close-credit">
+      <div class="popup__btn btns-popup" id="close-credit">
         <span>Fermer</span>
       </div>
       <span>Crédits</span>
     </div>
 
-    <script>
-      const popup = document.getElementById("popup-credit");
-      const btn_credit = document.getElementById("btn-credit");
-      const btn_popup = document.getElementById("close-credit");
-
-      btn_credit.addEventListener("click", ()=>{
-        creditPopup();
-      })
-      btn_popup.addEventListener("click", ()=>{
-        creditPopup();
-      })
-
-      function creditPopup() {
-        popup.classList.toggle("popup--open");
-        if (popup.className.includes("popup--open")) {
-          btn_credit.style.display = "none";
-        }
-        else{
-          btn_credit.style.display = "block";
-        }
-      }
-    </script>
+    <script src="/assets/js/popup.js"></script>
 </body>
 </html>
