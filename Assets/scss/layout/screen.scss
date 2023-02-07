@@ -90,6 +90,7 @@
         margin-top: 60px;
         padding: 10px 20px;
         text-decoration: none;
+        text-align: center;
         text-transform: uppercase;
     }
 }
@@ -109,8 +110,5 @@
         opacity: 1;
         transform: translate(-50%, 0%) scale(1);
         transition-delay: .2s;
-    }
-    a {
-        margin-top: 0;
     }
 }

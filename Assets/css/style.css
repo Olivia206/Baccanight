@@ -141,6 +141,7 @@ header span {
   margin-top: 60px;
   padding: 10px 20px;
   text-decoration: none;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -162,10 +163,6 @@ header span {
   opacity: 1;
   transform: translate(-50%, 0%) scale(1);
   transition-delay: 0.2s;
-}
-.tutorial a,
-.modal a {
-  margin-top: 0;
 }
 
 .nav {
