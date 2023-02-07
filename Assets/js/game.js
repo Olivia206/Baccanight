@@ -17,13 +17,13 @@ export const startGame = function() {
         btnAttack = document.querySelector(".control__attack"),
         btnDefence = document.querySelector(".control__defence"),
         modalVictory = document.querySelector(".modal__victory");
-    
+
   const animTEstPath = '/assets/js/animations/anim-melodie.json';
 
-  this.animation = lottie.loadAnimation({
-    container: this.element.querySelector('.character__good'),
+ var animation = lottie.loadAnimation({
+    container: document.querySelector('#character-good-sprite'),
     path: animTEstPath,
-    renderer: 'canvas',
+    renderer: 'svg',
     loop: true,
     autoplay: false
   });
@@ -151,7 +151,9 @@ export const startGame = function() {
   }
 
   function animTEst() {
+    console.log("test test test");
     animation.play();
+    console.log("After play");
   }
 
   controls.forEach(control => {
