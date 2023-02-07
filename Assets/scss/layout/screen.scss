@@ -10,7 +10,7 @@
     position: relative;
     width: 100%;
     &:not(&__game) {
-        background-image: $gradient;
+        background-image: $gradient-light;
     }
     &.is-visible {
         display: flex;
@@ -52,6 +52,7 @@
     }
     &__game {
         justify-content: flex-end;
+        padding: 40px;
         .characters {
             display: flex;
             justify-content: space-between;
@@ -61,15 +62,19 @@
                 flex-direction: column-reverse;
                 width: fit-content;
                 .character-lifebar {
+                    margin-bottom: 20px;
                     width: 100%;
                     .lifebar-gauge {
                         align-items: center;
+                        background: white;
+                        border-radius: 20px;
                         display: flex;
                         height: 14px;
-                        background: red;
+                        padding: 0 2px;
                         div {
+                            background-image: $gradient;
+                            border-radius: 5px;
                             height: 9px;
-                            background: blue;
                         }
                     }
                 }
@@ -80,24 +85,32 @@
         background: white;
         border-radius: 20px;
         color: $primary;
+        display: inline-flex;
         font-size: 18px;
         margin-top: 60px;
         padding: 10px 20px;
         text-decoration: none;
         text-transform: uppercase;
-        white-space: nowrap;
     }
 }
 .tutorial,
 .modal {
-    background-color: beige;
+    background-color: transparentize($color: beige, $amount: .2);
+    color: $primary;
     left: 50%;
     opacity: 0;
     padding: 40px;
     position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 10%;
+    transform: translate(-50%, -2%) scale(.9);
+    width: 90%;
+    transition: transform .5s ease, opacity .4s ease;
     &.is-visible {
         opacity: 1;
+        transform: translate(-50%, 0%) scale(1);
+        transition-delay: .2s;
+    }
+    a {
+        margin-top: 0;
     }
 }
