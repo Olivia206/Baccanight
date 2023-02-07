@@ -1,0 +1,62 @@
+.disabled {
+    opacity: .7;
+    pointer-events: none;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    &.is-visible {
+        display: block;
+    }
+    &__dialog {
+        align-items: flex-end;
+        background-size: cover;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: flex-end;
+        padding: 28px;
+        &:first-child {
+            background-image: url("/assets/images/dialog-1.svg");
+        }
+        &:last-child {
+            background-image: url("/assets/images/dialog-2.svg");
+        }
+        span {
+            font-weight: bold;
+            margin-bottom: 20px;
+            
+        }
+    }
+    .characters {
+        .character {
+            .lifebar-gauge {
+                background: red;
+                div {
+                    background: blue;
+                }
+            }
+        }
+    }
+
+}
+.tutorials {
+    .tutorial {
+        background-color: beige;
+        height: 60vh;
+        left: 50%;
+        opacity: 0;
+        padding: 40px;
+        position: fixed;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        &.is-visible {
+            opacity: 1;
+        }
+    }
+}
