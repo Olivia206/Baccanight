@@ -1,0 +1,16 @@
+body{
+  font-family: $font;
+  background-color: $primary;
+}
+
+.logo{
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  text-shadow: $text-shadow;
+  .logo__first-syllabe{
+    opacity: 0.8;
+  }
+  .logo__big-letter{
+    font-size: 4rem;
+  }
+}
