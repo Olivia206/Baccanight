@@ -103,8 +103,11 @@ export const startGame = function() {
     else {
       counterUltimate += 1;
 
-      if (counterUltimate === 1) {
+      if (counterUltimate === 0) {
+      } else if (counterUltimate === 1) {
         toggleTutorial(btnAttr);
+        btnAttack.classList.remove("disabled");
+        btnDefence.classList.remove("disabled");
       }
 
       playerAction = "ultimate";
@@ -156,8 +159,6 @@ export const startGame = function() {
         btnUltimate.classList.remove("disabled");
 
         toggleTutorial("ultimate");
-        btnAttack.classList.remove("disabled");
-        btnDefence.classList.remove("disabled");
       }
       console.log( counterAttack,counterDefence, counterUltimate)
       gameControls(control);
