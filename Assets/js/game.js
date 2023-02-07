@@ -20,7 +20,7 @@ export const startGame = function() {
         btnDefence = document.querySelector(".control__defence"),
         modalVictory = document.querySelector(".modal__victory");
     
-  const animTEstPath = '/assets/js/animations/anim-melodie.lottie';
+  const animTEstPath = '/assets/js/animations/anim-melodie.json';
 
   this.animation = lottie.loadAnimation({
     container: this.element.querySelector('.character__good'),
