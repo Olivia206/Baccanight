@@ -13,7 +13,15 @@ export const startGame = function() {
   const lifebarPlayer = document.querySelector(".lifebar-good div"),
         lifebarBot = document.querySelector(".lifebar-evil div"), 
         controls = document.querySelectorAll(".control"),
-        btnUltimate = document.querySelector(".ultimate");
+        btnUltimate = document.querySelector(".control__ultimate"),
+        btnAttack = document.querySelector(".control__attack"),
+        btnDefence = document.querySelector(".control__defence");
+
+  if (counterAttack === 0) {
+    toggleTutorial("attack");
+  } else if (counterAttack === 1 && counterDefence === 0) {
+    toggleTutorial("defence");
+  }
 
   function gameControls(control){
     let bot = botActions();
@@ -70,7 +78,8 @@ export const startGame = function() {
       counterAttack += 1;
 
       if (counterAttack === 1) {
-        displayTutorial(btnAttr);
+        toggleTutorial("attack");
+        toggleTutorial("defence");
       }
 
       playerAction = "attack";
@@ -84,7 +93,7 @@ export const startGame = function() {
         counterDefence += 1;
 
         if (counterDefence === 1) {
-          displayTutorial(btnAttr);
+          toggleTutorial("defence");
         }
 
         playerAction = "defence";
@@ -95,7 +104,7 @@ export const startGame = function() {
       counterUltimate += 1;
 
       if (counterUltimate === 1) {
-        displayTutorial(btnAttr);
+        toggleTutorial(btnAttr);
       }
 
       playerAction = "ultimate";
@@ -117,15 +126,15 @@ export const startGame = function() {
     }
   }
 
-  function displayTutorial(type) {
+  function toggleTutorial(type) {
     if (type === "attack") {
-      document.querySelector(".tutorial__attack").classList.add("is-visible");
+      document.querySelector(".tutorial__attack").classList.toggle("is-visible");
 
     } else if (type === "defence") {
-      document.querySelector(".tutorial__defence").classList.add("is-visible");
+      document.querySelector(".tutorial__defence").classList.toggle("is-visible");
     }
     else {
-      document.querySelector(".tutorial__ultimate").classList.add("is-visible");
+      document.querySelector(".tutorial__ultimate").classList.toggle("is-visible");
     }
   }
 
@@ -133,7 +142,13 @@ export const startGame = function() {
     control.addEventListener("click", ()=>{
       if (counterAttack != 0 && counterAttack % 2  == 0) {
         btnUltimate.classList.remove("disabled");
+      } else if (counterAttack === 0) {
+        btnDefence.classList.remove("disabled");
+        btnAttack.classList.add("disabled");
+      } else if (counterDefence === 0) {
+        btnAttack.classList.remove("disabled");
       }
+      console.log( counterAttack,counterDefence)
       gameControls(control);
     })
   });
