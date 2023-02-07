@@ -9,6 +9,9 @@
     min-height: 100vh;
     position: relative;
     width: 100%;
+    &:not(__game) {
+        background-image: $gradient;
+    }
     &.is-visible {
         display: flex;
         flex-direction: column;

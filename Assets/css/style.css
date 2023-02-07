@@ -1,3 +1,8 @@
+@font-face {
+  font-display: swap;
+  font-family: "Cherry Bomb";
+  src: url(/assets/fonts/cherrybombone-regular.ttf);
+}
 *,
 *::before,
 *::after {
@@ -6,11 +11,10 @@
   padding: 0;
 }
 
-@font-face {
-  font-display: swap;
-  font-family: "Cherry Bomb";
-  src: url(/assets/fonts/cherrybombone-regular.ttf);
+body {
+  background-color: #0B132F;
 }
+
 body {
   font-family: "Cherry Bomb";
   background-color: #070F2B;
@@ -46,6 +50,9 @@ button.control {
   min-height: 100vh;
   position: relative;
   width: 100%;
+}
+.screen:not(__game) {
+  background-image: linear-gradient(90deg, rgba(114, 94, 236, 0.2) 0%, rgba(15, 22, 88, 0.2) 100%);
 }
 .screen.is-visible {
   display: flex;
