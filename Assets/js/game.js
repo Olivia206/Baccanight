@@ -78,11 +78,11 @@ export const startGame = function() {
       counterAttack += 1;
 
       if (counterAttack === 1) {
-        toggleTutorial("attack");
+        toggleTutorial(btnAttr);
         toggleTutorial("defence");
       }
 
-      playerAction = "attack";
+      playerAction = btnAttr;
       return playerAction;
     }
     else if(btnAttr == "defence"){
@@ -93,10 +93,10 @@ export const startGame = function() {
         counterDefence += 1;
 
         if (counterDefence === 1) {
-          toggleTutorial("defence");
+          toggleTutorial(btnAttr);
         }
 
-        playerAction = "defence";
+        playerAction = btnAttr;
         return playerAction;
       }
     }
@@ -142,13 +142,24 @@ export const startGame = function() {
     control.addEventListener("click", ()=>{
       if (counterAttack != 0 && counterAttack % 2  == 0) {
         btnUltimate.classList.remove("disabled");
-      } else if (counterAttack === 0) {
+      } 
+      else if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
         btnAttack.classList.add("disabled");
-      } else if (counterDefence === 0) {
+      } 
+      else if (counterDefence === 0) {
         btnAttack.classList.remove("disabled");
+      } 
+      else if (counterAttack === 1 && counterDefence === 1) {
+        btnAttack.classList.add("disabled");
+        btnDefence.classList.add("disabled");
+        btnUltimate.classList.remove("disabled");
+
+        toggleTutorial("ultimate");
+        btnAttack.classList.remove("disabled");
+        btnDefence.classList.remove("disabled");
       }
-      console.log( counterAttack,counterDefence)
+      console.log( counterAttack,counterDefence, counterUltimate)
       gameControls(control);
     })
   });
