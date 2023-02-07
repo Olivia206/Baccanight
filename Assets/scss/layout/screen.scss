@@ -48,12 +48,28 @@
             
         }
     }
-    .characters {
-        .character {
-            .lifebar-gauge {
-                background: red;
-                div {
-                    background: blue;
+    &__game {
+        justify-content: flex-end;
+        .characters {
+            display: flex;
+            justify-content: space-between;
+            .character {
+                align-items: center;
+                display: flex;
+                flex-direction: column-reverse;
+                width: fit-content;
+                .character-lifebar {
+                    width: 100%;
+                    .lifebar-gauge {
+                        align-items: center;
+                        display: flex;
+                        height: 14px;
+                        background: red;
+                        div {
+                            height: 9px;
+                            background: blue;
+                        }
+                    }
                 }
             }
         }

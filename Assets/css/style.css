@@ -85,10 +85,30 @@ button.control {
   font-weight: bold;
   margin-bottom: 20px;
 }
-.screen .characters .character .lifebar-gauge {
+.screen__game {
+  justify-content: flex-end;
+}
+.screen__game .characters {
+  display: flex;
+  justify-content: space-between;
+}
+.screen__game .characters .character {
+  align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+  width: fit-content;
+}
+.screen__game .characters .character .character-lifebar {
+  width: 100%;
+}
+.screen__game .characters .character .character-lifebar .lifebar-gauge {
+  align-items: center;
+  display: flex;
+  height: 14px;
   background: red;
 }
-.screen .characters .character .lifebar-gauge div {
+.screen__game .characters .character .character-lifebar .lifebar-gauge div {
+  height: 9px;
   background: blue;
 }
 
