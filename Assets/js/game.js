@@ -25,12 +25,13 @@ export const startGame = function() {
   }
 
   function gameControls(control){
-    let bot = botActions();
-    let player = playerActions(control);
-
+    
     if (pvBot > 0) {
+      let bot = botActions();
+      let player = playerActions(control);
       updatePv(player, bot);
     } else {
+      console.log(pvBot)
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
@@ -45,7 +46,6 @@ export const startGame = function() {
         pvBot -= damageAttack;
       }
       pvPlayer -= 0;
-      console.log("attack vs defence pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
     }
     else if(playerAction === "attack" && botAction === "attack" || playerAction === "ultimate" && botAction === "attack"){
       if(playerAction === "attack"){
@@ -55,17 +55,14 @@ export const startGame = function() {
         pvBot -= damageUltimateAttack;
       }
       pvPlayer -= damageAttack;
-      console.log("attack vs attack pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
     }
     else if(playerAction === "defence" && botAction === "attack"){
         pvBot -= 0;
         pvPlayer -= damageDefence;
-        console.log("defence vs attack pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
     }
     else{
         pvBot -= 0;
         pvPlayer -= 0;
-        console.log("defence vs defence pvBot "+ pvBot + "  pvPlayer " + pvPlayer);
     }
     lifebarPlayer.style.width = pvPlayer + "%";
     lifebarBot.style.width = pvBot + "%";
@@ -144,7 +141,7 @@ export const startGame = function() {
 
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
-      if (counterAttack != 0 && counterAttack % 2  == 0) {
+      if (counterAttack != 0 && counterAttack % 3  == 0) {
         btnUltimate.classList.remove("disabled");
       } 
       else if (counterAttack === 0) {
@@ -161,7 +158,6 @@ export const startGame = function() {
 
         toggleTutorial("ultimate");
       }
-      console.log( counterAttack,counterDefence, counterUltimate)
       gameControls(control);
     })
   });
