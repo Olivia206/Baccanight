@@ -69,4 +69,54 @@ button.control {
   opacity: 1;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 2rem;
+  margin-bottom: 6rem;
+  width: auto;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+.home h1 {
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.home .home__img {
+  width: 100%;
+  border-radius: 10px;
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+  margin: 1rem 4rem;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  min-height: 70%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+}
+.popup #close-credit {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.popup--open {
+  display: block;
+}
+
 /*# sourceMappingURL=style.css.map */
