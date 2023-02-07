@@ -6,10 +6,6 @@
   padding: 0;
 }
 
-body {
-  background-color: #0B132F;
-}
-
 @font-face {
   font-display: swap;
   font-family: "Cherry Bomb";
@@ -22,7 +18,7 @@ body {
 
 body {
   font-family: "Cherry Bomb";
-  background-color: #070F2B;
+  background-color: #0B132F;
 }
 
 .logo {
