@@ -1,5 +1,3 @@
-import {lottie} from "lottiefiles/lottie-player";
-
 export const startGame = function() {
   let pvPlayer = 100;
   let pvBot = 100;
