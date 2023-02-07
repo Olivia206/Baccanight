@@ -39,6 +39,15 @@ button.control {
   text-transform: uppercase;
 }
 
+.btns-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.btns-popup span {
+  color: white;
+}
+
 .disabled {
   opacity: 0.7;
   pointer-events: none;
