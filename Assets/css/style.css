@@ -76,18 +76,18 @@ button.control {
   background: blue;
 }
 
-.tutorials .tutorial {
+.tutorial,
+.modal {
   background-color: beige;
-  height: 60vh;
   left: 50%;
   opacity: 0;
   padding: 40px;
-  position: fixed;
+  position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
 }
-.tutorials .tutorial.is-visible {
+.tutorial.is-visible,
+.modal.is-visible {
   opacity: 1;
 }
 
