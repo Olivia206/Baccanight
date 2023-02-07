@@ -183,14 +183,18 @@ header span {
 }
 
 .home {
-  position: relative;
+  align-items: center;
+  background-image: url("/assets/images/ellipse.svg");
+  background-size: contain;
+  background-position: 10% 50%;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  padding: 2rem 2rem 0 2rem;
   height: calc(100vh - 5.5rem);
+  justify-content: flex-start;
+  padding: 2rem 2rem 0 2rem;
+  position: relative;
+  text-align: center;
 }
 .home .logo {
   color: #FFFFFF;
