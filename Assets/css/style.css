@@ -32,13 +32,53 @@ body {
 .logo .logo__big-letter {
   font-size: 4rem;
 }
-
-button.control {
-  border-radius: 20px;
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.controls .control {
+  align-items: center;
+  background-color: white;
+  border-radius: 100%;
+  color: #070F2B;
+  display: flex;
+  height: 70px;
+  justify-content: center;
   margin-top: 44px;
-  padding: 11px 16px;
-  position: relative;
+  text-align: center;
   text-transform: uppercase;
+  width: 70px;
+}
+.controls .control:not(.disabled) {
+  filter: grayscale(0);
+}
+.controls span {
+  display: none;
+}
+.controls .control-inner {
+  height: 120px;
+  width: 120px;
+  transform: rotate(-86deg);
+}
+.controls .control-inner * {
+  display: block;
+}
+.controls .control-inner svg {
+  position: relative;
+  height: 150px;
+  width: 150px;
+}
+.controls .control-inner svg circle {
+  fill: transparent;
+  height: 100%;
+  stroke: #D74B4B;
+  stroke-dasharray: 440;
+  stroke-dashoffset: calc(440 - 440 * var(--num) / 100);
+  stroke-width: 10px;
+  transform: translate(13%, 13%);
+  transition: stroke-dashoffset 1.5s ease-in-out;
+  width: 100%;
 }
 button.control .counter {
   background: red;
@@ -60,6 +100,7 @@ header span {
 }
 
 .disabled {
+  filter: grayscale(1);
   opacity: 0.7;
   pointer-events: none;
 }

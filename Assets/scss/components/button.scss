@@ -1,18 +1,48 @@
-button {
-    &.control {
-        border-radius: 20px;
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    .control {
+        align-items: center;
+        background-color: white;
+        border-radius: 100%;
+        color: $primary;
+        display: flex;
+        height: 70px;
+        justify-content: center;
         margin-top: 44px;
-        padding: 11px 16px;
-        position: relative;
+        text-align: center;
         text-transform: uppercase;
-        .counter {
-            background: red;
-            border-radius: 100%;
-            bottom: 0;
-            padding: 10px;
-            position: absolute;
-            right: 0;
-            transform: translate(50%, 50%);
+        width: 70px;
+        &:not(.disabled) {
+            filter: grayscale(0);
+        }
+    }
+    span {
+        display: none;
+    }
+    .control-inner {
+        height: 120px;
+        width: 120px;
+        transform: rotate(-86deg);
+        * {
+            display: block;
+        }
+        svg {
+            position: relative;
+            height: 150px;
+            width: 150px;
+            circle {
+                fill: transparent; 
+                height: 100%;
+                stroke: #D74B4B; 
+                stroke-dasharray: 440;
+                stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+                stroke-width: 10px;
+                transform: translate(13%, 13%);
+                transition: stroke-dashoffset 1.5s ease-in-out;
+                width: 100%;
+            }
         }
     }
 }
