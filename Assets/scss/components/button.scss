@@ -5,6 +5,9 @@
     .control {
         align-items: center;
         background-color: white;
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
         border-radius: 100%;
         color: $primary;
         display: flex;
@@ -16,6 +19,15 @@
         width: 70px;
         &:not(.disabled) {
             filter: grayscale(0);
+        }
+        &__attack {
+            background-image: url('/assets/images/icons/control-attack.svg');
+        }
+        &__defence {
+            background-image: url('/assets/images/icons/control-defence.svg');
+        }
+        &__ultimate {
+            background-image: url('/assets/images/icons/control-ultimate.svg');
         }
     }
     span:first-of-type {
@@ -29,6 +41,7 @@
         bottom: 0;
         color: white;
         display: flex;
+        font-size: 15px;
         height: 35px;
         justify-content: center;
         position: absolute;
