@@ -1,5 +1,3 @@
-// import {lottie} from "@lottiefiles/lottie-player";
-
 export const startGame = function() {
   let pvPlayer = 100;
   let pvBot = 100;
@@ -7,6 +5,7 @@ export const startGame = function() {
   let counterAttack = 0;
   let counterDefence = 0;
   let counterUltimate = 0;
+  let maxDefence = 3;
 
   const damageAttack = 25,
         damageUltimateAttack = 35,
@@ -18,7 +17,19 @@ export const startGame = function() {
         btnUltimate = document.querySelector(".control__ultimate"),
         btnAttack = document.querySelector(".control__attack"),
         btnDefence = document.querySelector(".control__defence"),
-        modalVictory = document.querySelector(".modal__victory");
+        modalVictory = document.querySelector(".modal__victory"),
+        counterDefenceContent = document.querySelector(".counter"),
+        progressBar = document.querySelector(".control-progress");
+
+  const animTEstPath = '/assets/js/animations/anim-melodie.json';
+
+ var animation = lottie.loadAnimation({
+    container: document.querySelector('#character-good-sprite'),
+    path: animTEstPath,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false
+  });
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
@@ -27,13 +38,13 @@ export const startGame = function() {
   }
 
   function gameControls(control){
-
+    
     if (pvBot > 0) {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
-    } else {
-      console.log(pvBot)
+    }
+    if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
@@ -76,21 +87,31 @@ export const startGame = function() {
 
     if(btnAttr == "attack"){
       counterAttack += 1;
+      animTEst();
 
       if (counterAttack === 1) {
         toggleTutorial(btnAttr);
         toggleTutorial("defence");
+      }
+      if (counterAttack != 0 && counterAttack % 2 == 0) {
+        progressBar.style.cssText += '--num: 100';
+      } else {
+        progressBar.style.cssText += '--num: 27';
       }
 
       playerAction = btnAttr;
       return playerAction;
     }
     else if(btnAttr == "defence"){
-      if (counterDefence === 3) {
+      maxDefence -= 1;
+      counterDefenceContent.innerHTML = "x" + maxDefence;
+
+      if (counterDefence === 2) {
         control.classList.add("disabled");
       }
       else {
         counterDefence += 1;
+
 
         if (counterDefence === 1) {
           toggleTutorial(btnAttr);
@@ -102,8 +123,10 @@ export const startGame = function() {
     }
     else {
       counterUltimate += 1;
+      progressBar.style.cssText += '--num: 0';
 
       if (counterUltimate === 0) {
+        progressBar.style.cssText += '--num: 0';
       } else if (counterUltimate === 1) {
         toggleTutorial(btnAttr);
         btnAttack.classList.remove("disabled");
@@ -139,6 +162,10 @@ export const startGame = function() {
     else {
       document.querySelector(".tutorial__ultimate").classList.toggle("is-visible");
     }
+  }
+
+  function animTEst() {
+    animation.play();
   }
 
   controls.forEach(control => {

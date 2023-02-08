@@ -37,7 +37,7 @@
         <div>
           <p>Sans comprendre ce que cela signifie, la conservatrice n’a pu que renforcer la sécurité…</p>
           <p>Mais il se trame quelque chose de louche entre ces anciens murs, et cela, les tableaux qui les ornent le savent parfaitement.</p>
-          <p>Réveillé par la mystérieuse magie de la *Baccanight*, vous vous libérez de votre prison d’huile pour protéger votre pair et sa lanterne.</p>
+          <p>Réveillé par la mystérieuse magie de la <i>Baccanight</i>, vous vous libérez de votre prison d’huile pour protéger votre pair et sa lanterne.</p>
           <a  href="#screen-character" data-open-screen="screen-character">Continuer</a>
         </div>
       </div>
@@ -66,7 +66,7 @@
       <div class="screen screen__game js-screen" id="screen-game">
         <div class="characters">
           <div class="character character__good">
-            <div class="character-sprite">
+            <div class="character-sprite" id="character-good-sprite">
               <img src="/assets/images/character-2.svg" alt="">
             </div>
             <div class="character-lifebar">
@@ -87,9 +87,21 @@
           </div>
         </div>
         <div class="controls">
-          <button class="control control__attack" data-spell="attack" title="Attaque">Attaque</button>
-          <button class="control control__ultimate disabled" data-spell="ultimate" title="Attaque spéciale">Attaque spéciale</button>
-          <button class="control control__defence disabled" data-spell="defence" title="Défense">Défense</button>
+          <div class="control control__attack" data-spell="attack" title="Attaque">
+            <span>Attaque</span>
+          </div>
+          <div class="control control__ultimate disabled" data-spell="ultimate" title="Attaque spéciale">
+            <span>Attaque spéciale</span>
+            <div class="control-inner">
+              <svg class="control-progress" xmlns="http://www.w3.org/2000/svg" version="1.1" style="--num: 0;">
+                <circle cx="40" cy="40" r="40" stroke-linecap="round" />
+              </svg>
+            </div>
+          </div>
+          <div class="control control__defence disabled" data-spell="defence" title="Défense">
+              <span>Défense</span>
+              <span class="counter">x3</span>
+          </div>
         </div>
         <div class="tutorials">
           <div class="tutorial tutorial__attack">
@@ -116,6 +128,7 @@
   </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.10/lottie.js"></script>
 <script type="module" src="./assets/js/main.js"></script>
 <script src="/assets/js/popup.js"></script>
   </html>
