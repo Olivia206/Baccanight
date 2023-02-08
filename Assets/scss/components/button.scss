@@ -1,8 +1,80 @@
-button {
-    &.control {
-        border-radius: 20px;
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    @media (min-width: 920px) {
+        justify-content: center;
+        gap: 40px;
+    }
+    .control {
+        align-items: center;
+        background-color: white;
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+        color: $primary;
+        display: flex;
+        height: 70px;
+        justify-content: center;
         margin-top: 44px;
-        padding: 11px 16px;
+        text-align: center;
         text-transform: uppercase;
+        width: 70px;
+        &:not(.disabled) {
+            filter: grayscale(0);
+        }
+        &__attack {
+            background-image: url('/assets/images/icons/control-attack.svg');
+        }
+        &__defence {
+            background-image: url('/assets/images/icons/control-defence.svg');
+        }
+        &__ultimate {
+            background-image: url('/assets/images/icons/control-ultimate.svg');
+        }
+    }
+    span:first-of-type {
+        display: none;
+    }
+    .counter {
+        align-items: center;
+        background: $green;
+        border: 3px solid white;
+        border-radius: 100%;
+        bottom: 0;
+        color: white;
+        display: flex;
+        font-size: 15px;
+        height: 35px;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        transform: translate(5px, 5px);
+        width: 35px;
+    }
+    .control-inner {
+        height: 120px;
+        width: 120px;
+        transform: rotate(-86deg);
+        * {
+            display: block;
+        }
+        svg {
+            position: relative;
+            height: 150px;
+            width: 150px;
+            circle {
+                fill: transparent; 
+                height: 100%;
+                stroke: #D74B4B; 
+                stroke-dasharray: 440;
+                stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+                stroke-width: 10px;
+                transform: translate(13%, 13%);
+                transition: stroke-dashoffset 1.5s ease-in-out;
+                width: 100%;
+            }
+        }
     }
 }

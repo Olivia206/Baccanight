@@ -5,6 +5,7 @@ export const startGame = function() {
   let counterAttack = 0;
   let counterDefence = 0;
   let counterUltimate = 0;
+  let maxDefence = 3;
 
   const damageAttack = 25,
         damageUltimateAttack = 35,
@@ -16,7 +17,9 @@ export const startGame = function() {
         btnUltimate = document.querySelector(".control__ultimate"),
         btnAttack = document.querySelector(".control__attack"),
         btnDefence = document.querySelector(".control__defence"),
-        modalVictory = document.querySelector(".modal__victory");
+        modalVictory = document.querySelector(".modal__victory"),
+        counterDefenceContent = document.querySelector(".counter"),
+        progressBar = document.querySelector(".control-progress");
 
   const animTEstPath = '/assets/js/animations/anim-melodie.json';
   const animEvilPath = '/assets/js/animations/anim-mechant.json';
@@ -43,13 +46,13 @@ export const startGame = function() {
   }
 
   function gameControls(control){
-
+    
     if (pvBot > 0) {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
-    } else {
-      console.log(pvBot)
+    }
+    if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
@@ -94,21 +97,35 @@ export const startGame = function() {
       counterAttack += 1;
       animTEst();
 
+      if (counterAttack != 0 && counterAttack % 2  == 0) {
+        btnUltimate.classList.remove("disabled");
+      }
       if (counterAttack === 1) {
         toggleTutorial(btnAttr);
         toggleTutorial("defence");
+      }
+      if (counterAttack != 0 && counterAttack % 2 == 0) {
+        progressBar.style.cssText += '--num: 100';
+      } else {
+        progressBar.style.cssText += '--num: 27';
       }
 
       playerAction = btnAttr;
       return playerAction;
     }
     else if(btnAttr == "defence"){
-      if (counterDefence === 3) {
+      maxDefence -= 1;
+      counterDefenceContent.innerHTML = "x" + maxDefence;
+
+      if (counterDefence === 2) {
         control.classList.add("disabled");
       }
       else {
         counterDefence += 1;
 
+        if (counterAttack != 2) {
+          btnDefence.classList.add("disabled");
+        }
         if (counterDefence === 1) {
           toggleTutorial(btnAttr);
         }
@@ -119,8 +136,10 @@ export const startGame = function() {
     }
     else {
       counterUltimate += 1;
+      progressBar.style.cssText += '--num: 0';
 
       if (counterUltimate === 0) {
+        progressBar.style.cssText += '--num: 0';
       } else if (counterUltimate === 1) {
         toggleTutorial(btnAttr);
         btnAttack.classList.remove("disabled");
@@ -159,7 +178,6 @@ export const startGame = function() {
   }
 
   function animTEst() {
-    console.log("test test test");
     animation.play();
     animationEvil.play();
     console.log("After play");
@@ -167,10 +185,7 @@ export const startGame = function() {
 
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
-      if (counterAttack != 0 && counterAttack % 3  == 0) {
-        btnUltimate.classList.remove("disabled");
-      }
-      else if (counterAttack === 0) {
+      if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
         btnAttack.classList.add("disabled");
       }
@@ -179,7 +194,6 @@ export const startGame = function() {
       }
       else if (counterAttack === 1 && counterDefence === 1) {
         btnAttack.classList.add("disabled");
-        btnDefence.classList.add("disabled");
         btnUltimate.classList.remove("disabled");
 
         toggleTutorial("ultimate");
