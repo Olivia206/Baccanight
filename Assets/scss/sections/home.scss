@@ -32,7 +32,7 @@
     flex: 1;
     overflow: hidden;
     padding-top: 15%;
-    @media (min-width: 920px) {
+    @media (min-width: 600px) {
       padding-top: 5%;
     }
     &::before {
@@ -46,7 +46,7 @@
       position: absolute;
       width: 100%;
       z-index: 2;
-      @media (min-width: 920px) {
+      @media (min-width: 600px) {
         background-size: contain;
         height: 35%;
       }
@@ -73,7 +73,7 @@
       filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
       margin: 1rem 4rem;
       z-index: 1;
-      @media (max-width: 920px) {
+      @media (max-width: 600px) {
         width: 100%;
       }
     }
