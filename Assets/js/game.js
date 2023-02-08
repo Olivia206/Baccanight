@@ -19,10 +19,18 @@ export const startGame = function() {
         modalVictory = document.querySelector(".modal__victory");
 
   const animTEstPath = '/assets/js/animations/anim-melodie.json';
+  const animEvilPath = '/assets/js/animations/anim-mechant.json';
 
  var animation = lottie.loadAnimation({
     container: document.querySelector('#character-good-sprite'),
     path: animTEstPath,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false
+  });
+ var animationEvil = lottie.loadAnimation({
+    container: document.querySelector('#character-evil-sprite'),
+    path: animEvilPath,
     renderer: 'svg',
     loop: false,
     autoplay: false
@@ -153,6 +161,7 @@ export const startGame = function() {
   function animTEst() {
     console.log("test test test");
     animation.play();
+    animationEvil.play();
     console.log("After play");
   }
 

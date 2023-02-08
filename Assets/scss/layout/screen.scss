@@ -56,21 +56,30 @@
         .characters {
             display: flex;
             justify-content: space-between;
-            .character {
-                align-items: center;
-                display: flex;
-                flex-direction: column-reverse;
-                width: fit-content;
 
-                .character-sprite#character-good-sprite{
-                  position: relative;
-                  svg{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    object-fit: fill;
-                  }
+            .character {
+              position: relative;
+              width: fit-content;
+
+              .character-sprite{
+                position: absolute;
+                height: 250px;
+                aspect-ratio: 175/140;
+                overflow-x: hidden;
+                svg{
+                  position: absolute;
+                  left: 0;
                 }
+
+                &#character-good-sprite{
+                  left: -50px;
+                  bottom: 0;
+                }
+                &#character-evil-sprite{
+                  right: -50px;
+                  bottom: 0;
+                }
+              }
                 .character-lifebar {
                     margin-bottom: 20px;
                     width: 100%;

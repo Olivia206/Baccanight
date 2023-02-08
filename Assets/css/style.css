@@ -110,19 +110,26 @@ header span {
   justify-content: space-between;
 }
 .screen__game .characters .character {
-  align-items: center;
-  display: flex;
-  flex-direction: column-reverse;
+  position: relative;
   width: fit-content;
 }
-.screen__game .characters .character .character-sprite#character-good-sprite {
-  position: relative;
-}
-.screen__game .characters .character .character-sprite#character-good-sprite svg {
+.screen__game .characters .character .character-sprite {
   position: absolute;
-  top: 0;
+  height: 250px;
+  aspect-ratio: 175/140;
+  overflow-x: hidden;
+}
+.screen__game .characters .character .character-sprite svg {
+  position: absolute;
   left: 0;
-  object-fit: fill;
+}
+.screen__game .characters .character .character-sprite#character-good-sprite {
+  left: -50px;
+  bottom: 0;
+}
+.screen__game .characters .character .character-sprite#character-evil-sprite {
+  right: -50px;
+  bottom: 0;
 }
 .screen__game .characters .character .character-lifebar {
   margin-bottom: 20px;
@@ -137,7 +144,7 @@ header span {
   padding: 0 2px;
 }
 .screen__game .characters .character .character-lifebar .lifebar-gauge div {
-  background-image: linear-gradient(90deg, rgb(114, 94, 236) 0%, rgb(15, 22, 88) 100%);
+  background-image: linear-gradient(90deg, #725eec 0%, #0f1658 100%);
   border-radius: 5px;
   height: 9px;
 }
