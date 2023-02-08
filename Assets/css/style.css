@@ -32,24 +32,6 @@ body {
 .logo .logo__big-letter {
   font-size: 4rem;
 }
-
-button.control {
-  border-radius: 20px;
-  margin-top: 44px;
-  padding: 11px 16px;
-  position: relative;
-  text-transform: uppercase;
-}
-button.control .counter {
-  background: red;
-  border-radius: 100%;
-  bottom: 0;
-  padding: 10px;
-  position: absolute;
-  right: 0;
-  transform: translate(50%, 50%);
-}
-
 .controls {
   display: flex;
   justify-content: space-between;
@@ -97,6 +79,15 @@ button.control .counter {
   transform: translate(13%, 13%);
   transition: stroke-dashoffset 1.5s ease-in-out;
   width: 100%;
+}
+button.control .counter {
+  background: red;
+  border-radius: 100%;
+  bottom: 0;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  transform: translate(50%, 50%);
 }
 
 header {

@@ -5,6 +5,7 @@ export const startGame = function() {
   let counterAttack = 0;
   let counterDefence = 0;
   let counterUltimate = 0;
+  let maxDefence = 3;
 
   const damageAttack = 25,
         damageUltimateAttack = 35,
@@ -16,7 +17,9 @@ export const startGame = function() {
         btnUltimate = document.querySelector(".control__ultimate"),
         btnAttack = document.querySelector(".control__attack"),
         btnDefence = document.querySelector(".control__defence"),
-        modalVictory = document.querySelector(".modal__victory");
+        modalVictory = document.querySelector(".modal__victory"),
+        counterDefenceContent = document.querySelector(".counter"),
+        progressBar = document.querySelector(".control-progress");
 
   const animTEstPath = '/assets/js/animations/anim-melodie.json';
 
@@ -35,16 +38,16 @@ export const startGame = function() {
   }
 
   function gameControls(control){
-
+    
     if (pvBot > 0) {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
-    } else {
+    }
+    if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
-  }
 
   function updatePv(playerAction, botAction) {
     if(playerAction === "attack" && botAction === "defence" || playerAction === "ultimate" && botAction === "defence"){
@@ -99,11 +102,15 @@ export const startGame = function() {
       return playerAction;
     }
     else if(btnAttr == "defence"){
-      if (counterDefence === 3) {
+      maxDefence -= 1;
+      counterDefenceContent.innerHTML = "x" + maxDefence;
+
+      if (counterDefence === 2) {
         control.classList.add("disabled");
       }
       else {
         counterDefence += 1;
+
 
         if (counterDefence === 1) {
           toggleTutorial(btnAttr);
@@ -183,7 +190,3 @@ export const startGame = function() {
     })
   });
 }
-
-
-
-/// progressBar = document.querySelector(".control-progress")
