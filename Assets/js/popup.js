@@ -1,5 +1,5 @@
 const btns_popup = document.querySelectorAll(".btns-popup");
-
+console.log(btns_popup);
 const popupCredit = document.getElementById("popup-credit");
 const popupMenu = document.getElementById("popup-menu");
 
@@ -10,10 +10,12 @@ btns_popup.forEach(btn => {
   btn.addEventListener("click", ()=>{
     console.log("btns");
     if(popupCredit){
+      console.log("hello credit");
       popup(popupCredit, btn_open_credit)
     }
 
     if (popupMenu) {
+      console.log("hello");
       popup(popupMenu, btn_open_menu)
     }
   })

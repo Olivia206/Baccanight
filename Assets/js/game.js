@@ -1,4 +1,4 @@
-import {lottie} from "@lottiefiles/lottie-player";
+// import {lottie} from "@lottiefiles/lottie-player";
 
 export const startGame = function() {
   let pvPlayer = 100;
