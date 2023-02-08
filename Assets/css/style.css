@@ -83,7 +83,7 @@ body {
 }
 .controls .counter {
   align-items: center;
-  background: #2E8916;
+  background: #599C47;
   border: 3px solid white;
   border-radius: 100%;
   bottom: 0;
@@ -259,17 +259,65 @@ main section {
 
 .tutorial,
 .modal {
-  background-color: rgba(245, 245, 220, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
   color: #070F2B;
   left: 50%;
   opacity: 0;
   max-width: 600px;
-  padding: 40px;
+  padding: 20px;
   position: absolute;
   top: 10%;
   transform: translate(-50%, -2%) scale(0.9);
   width: 90%;
   transition: transform 0.5s ease, opacity 0.4s ease;
+}
+@media (min-width: 920px) {
+  .tutorial,
+.modal {
+    padding: 40px;
+  }
+}
+.tutorial__attack p strong,
+.modal__attack p strong {
+  color: #6D9EBF;
+}
+.tutorial__ultimate p strong,
+.modal__ultimate p strong {
+  color: #B72D2D;
+}
+.tutorial__defence p strong,
+.modal__defence p strong {
+  color: #599C47;
+}
+.tutorial p,
+.modal p {
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.tutorial p strong,
+.modal p strong {
+  display: block;
+  font-size: 28px;
+  margin-top: 20px;
+}
+@media (min-width: 920px) {
+  .tutorial p strong,
+.modal p strong {
+    margin-top: 15px;
+  }
+}
+.tutorial p + p,
+.modal p + p {
+  font-size: 14px;
+  margin-top: 20px;
+}
+@media (min-width: 920px) {
+  .tutorial p + p,
+.modal p + p {
+    margin-top: 10px;
+  }
 }
 .tutorial.is-visible,
 .modal.is-visible {

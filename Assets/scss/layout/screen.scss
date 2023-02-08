@@ -124,17 +124,56 @@ main
 }
 .tutorial,
 .modal {
-    background-color: transparentize($color: beige, $amount: .2);
+    background-color: transparentize($color: white, $amount: .1);
+    border-radius: 10px;
     color: $primary;
     left: 50%;
     opacity: 0;
     max-width: 600px;
-    padding: 40px;
+    padding: 20px;
     position: absolute;
     top: 10%;
     transform: translate(-50%, -2%) scale(.9);
     width: 90%;
     transition: transform .5s ease, opacity .4s ease;
+    @media (min-width: 920px) {
+        padding: 40px;
+    }
+    &__attack {
+        p strong{
+            color: $blue;
+        }
+    }
+    &__ultimate {
+        p strong {
+            color: $red;
+        }
+    }
+    &__defence {
+        p strong {
+            color: $green;
+        }
+    }
+    p {
+        font-size: 24px;
+        text-align: center;
+        text-transform: uppercase;
+        strong {
+            display: block;
+            font-size: 28px;
+            margin-top: 20px;
+            @media (min-width: 920px) {
+                margin-top: 15px;
+            }
+        }
+        + p {
+            font-size: 14px;
+            margin-top: 20px;
+            @media (min-width: 920px) {
+                margin-top: 10px;
+            }
+        }
+    }
     &.is-visible {
         opacity: 1;
         transform: translate(-50%, 0%) scale(1);
