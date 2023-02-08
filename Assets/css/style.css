@@ -33,10 +33,16 @@ body {
   font-size: 4rem;
 }
 
-button.control {
+.controls {
+  display: flex;
+}
+.controls .control {
+  background-color: white;
+  color: #070F2B;
   border-radius: 20px;
   margin-top: 44px;
   padding: 11px 16px;
+  text-align: center;
   text-transform: uppercase;
 }
 
