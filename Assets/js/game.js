@@ -16,8 +16,7 @@ export const startGame = function() {
         btnUltimate = document.querySelector(".control__ultimate"),
         btnAttack = document.querySelector(".control__attack"),
         btnDefence = document.querySelector(".control__defence"),
-        modalVictory = document.querySelector(".modal__victory"),
-        progressBar = document.querySelector(".control-progress");
+        modalVictory = document.querySelector(".modal__victory");
 
   const animTEstPath = '/assets/js/animations/anim-melodie.json';
 
@@ -42,7 +41,6 @@ export const startGame = function() {
       let player = playerActions(control);
       updatePv(player, bot);
     } else {
-      console.log(pvBot)
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
@@ -84,8 +82,6 @@ export const startGame = function() {
     let playerAction = null;
 
     if(btnAttr == "attack"){
-      console.log(counterUltimate, counterAttack)
-
       counterAttack += 1;
       animTEst();
 
@@ -161,9 +157,7 @@ export const startGame = function() {
   }
 
   function animTEst() {
-    console.log("test test test");
     animation.play();
-    console.log("After play");
   }
 
   controls.forEach(control => {
@@ -189,3 +183,7 @@ export const startGame = function() {
     })
   });
 }
+
+
+
+/// progressBar = document.querySelector(".control-progress")
