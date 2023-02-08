@@ -112,7 +112,9 @@ export const startGame = function() {
       else {
         counterDefence += 1;
 
-
+        if (counterAttack != 2) {
+          btnDefence.classList.add("disabled");
+        }
         if (counterDefence === 1) {
           toggleTutorial(btnAttr);
         }
@@ -182,7 +184,6 @@ export const startGame = function() {
       }
       else if (counterAttack === 1 && counterDefence === 1) {
         btnAttack.classList.add("disabled");
-        btnDefence.classList.add("disabled");
         btnUltimate.classList.remove("disabled");
 
         toggleTutorial("ultimate");
