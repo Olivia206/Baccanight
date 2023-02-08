@@ -24,7 +24,7 @@ export const startGame = function() {
     container: document.querySelector('#character-good-sprite'),
     path: animTEstPath,
     renderer: 'svg',
-    loop: true,
+    loop: false,
     autoplay: false
   });
 
