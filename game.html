@@ -8,23 +8,23 @@
   <title>Game</title>
 </head>
 <body>
-  
+
   <header>
     <div class="btns-popup" id="btn-menu">
       <span>Menu</span>
     </div>
   </header>
-  
+
   <div class="popup" id="popup-menu">
     <div class="popup__btn btns-popup" id="close-menu">
       <span>Fermer</span>
     </div>
     <span>Menu</span>
   </div>
-  
+
   <main>
     <section id="screen-manager-game">
-      <div class="screen screen__text js-screen is-visible" id="screen-narrative-1">
+      <!-- <div class="screen screen__text js-screen is-visible" id="screen-narrative-1">
         <div>
           <p>Plus tôt dans la journée, la conservatrice des Beaux Arts s’est avancée, inquiète, au milieu des galeries du musée.</p>
           <p>Sa voix fébrile a évoqué une lettre de menace, promettant un cambriolage particulier :</p>
@@ -32,7 +32,7 @@
           <a  href="#screen-narrative-2" data-open-screen="screen-narrative-2">Continuer</a>
         </div>
       </div>
-      
+
       <div class="screen screen__text js-screen" id="screen-narrative-2">
         <div>
           <p>Sans comprendre ce que cela signifie, la conservatrice n’a pu que renforcer la sécurité…</p>
@@ -41,12 +41,12 @@
           <a  href="#screen-character" data-open-screen="screen-character">Continuer</a>
         </div>
       </div>
-      
+
       <div class="screen screen__text js-screen" id="screen-character">
         screen personnage
         <a  href="#screen-dialog-1" data-open-screen="screen-dialog-1">parler au méchant</a>
       </div>
-      
+
       <div class="screen screen__text js-screen" id="screen-dialog-1">
         <div>
           <span>Eustache De Pinthure</span>
@@ -54,7 +54,7 @@
         </div>
         <a  href="#screen-dialog-2" data-open-screen="screen-dialog-2">Continuer</a>
       </div>
-      
+
       <div class="screen screen__text js-screen" id="screen-dialog-2">
         <div>
           <span>Eustache De Pinthure</span>
@@ -62,11 +62,12 @@
         </div>
         <a  href="#screen-game" data-open-screen="screen-game">Défier en duel !</a>
       </div>
-      
-      <div class="screen screen__game js-screen" id="screen-game">
+      -->
+
+      <div class="screen screen__game js-screen is-visible" id="screen-game">
         <div class="characters">
           <div class="character character__good">
-            <div class="character-sprite">
+            <div class="character-sprite" id="character-good-sprite">
               <img src="/assets/images/character-2.svg" alt="">
             </div>
             <div class="character-lifebar">
@@ -107,7 +108,7 @@
           <a  href="#screen-ending" data-open-screen="screen-ending">Victoire, suivant, à définir</a>
         </div>
       </div>
-      
+
       <div class="screen screen__text js-screen" id="screen-ending">
         screen ending
         <a href="/index.html">Revenir à l'accueil</a>
@@ -116,6 +117,6 @@
   </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.10/lottie.js"></script>
 <script type="module" src="./assets/js/main.js"></script>
   </html>
-  

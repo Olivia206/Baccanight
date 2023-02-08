@@ -1,5 +1,3 @@
-import {lottie} from "@lottiefiles/lottie-player";
-
 export const startGame = function() {
   let pvPlayer = 100;
   let pvBot = 100;
@@ -20,6 +18,16 @@ export const startGame = function() {
         btnDefence = document.querySelector(".control__defence"),
         modalVictory = document.querySelector(".modal__victory");
 
+  const animTEstPath = '/assets/js/animations/anim-melodie.json';
+
+ var animation = lottie.loadAnimation({
+    container: document.querySelector('#character-good-sprite'),
+    path: animTEstPath,
+    renderer: 'svg',
+    loop: true,
+    autoplay: false
+  });
+
   if (counterAttack === 0) {
     toggleTutorial("attack");
   } else if (counterAttack === 1 && counterDefence === 0) {
@@ -32,8 +40,8 @@ export const startGame = function() {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
-    } else {
-      console.log(pvBot)
+    }
+    if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
@@ -76,6 +84,7 @@ export const startGame = function() {
 
     if(btnAttr == "attack"){
       counterAttack += 1;
+      animTEst();
 
       if (counterAttack === 1) {
         toggleTutorial(btnAttr);
@@ -139,6 +148,12 @@ export const startGame = function() {
     else {
       document.querySelector(".tutorial__ultimate").classList.toggle("is-visible");
     }
+  }
+
+  function animTEst() {
+    console.log("test test test");
+    animation.play();
+    console.log("After play");
   }
 
   controls.forEach(control => {
