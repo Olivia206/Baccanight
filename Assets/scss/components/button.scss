@@ -18,8 +18,23 @@
             filter: grayscale(0);
         }
     }
-    span {
+    span:first-of-type {
         display: none;
+    }
+    .counter {
+        align-items: center;
+        background: $green;
+        border: 3px solid white;
+        border-radius: 100%;
+        bottom: 0;
+        color: white;
+        display: flex;
+        height: 35px;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        transform: translate(5px, 5px);
+        width: 35px;
     }
     .control-inner {
         height: 120px;

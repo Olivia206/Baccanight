@@ -48,6 +48,7 @@ export const startGame = function() {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
+  }
 
   function updatePv(playerAction, botAction) {
     if(playerAction === "attack" && botAction === "defence" || playerAction === "ultimate" && botAction === "defence"){

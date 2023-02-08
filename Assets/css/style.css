@@ -32,6 +32,7 @@ body {
 .logo .logo__big-letter {
   font-size: 4rem;
 }
+
 .controls {
   display: flex;
   justify-content: space-between;
@@ -53,8 +54,23 @@ body {
 .controls .control:not(.disabled) {
   filter: grayscale(0);
 }
-.controls span {
+.controls span:first-of-type {
   display: none;
+}
+.controls .counter {
+  align-items: center;
+  background: #2E8916;
+  border: 3px solid white;
+  border-radius: 100%;
+  bottom: 0;
+  color: white;
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  transform: translate(5px, 5px);
+  width: 35px;
 }
 .controls .control-inner {
   height: 120px;
@@ -79,15 +95,6 @@ body {
   transform: translate(13%, 13%);
   transition: stroke-dashoffset 1.5s ease-in-out;
   width: 100%;
-}
-button.control .counter {
-  background: red;
-  border-radius: 100%;
-  bottom: 0;
-  padding: 10px;
-  position: absolute;
-  right: 0;
-  transform: translate(50%, 50%);
 }
 
 header {

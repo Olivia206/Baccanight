@@ -63,7 +63,7 @@
         <a  href="#screen-game" data-open-screen="screen-game">Défier en duel !</a>
       </div>
 
-      <div class="screen screen__game js-screen is-visible" id="screen-game">
+      <div class="screen screen__game js-screen" id="screen-game">
         <div class="characters">
           <div class="character character__good">
             <div class="character-sprite" id="character-good-sprite">
@@ -88,7 +88,7 @@
         </div>
         <div class="controls">
           <div class="control control__attack" data-spell="attack" title="Attaque">
-            <div class="control-inner"><span>Attaque</span></div>
+            <span>Attaque</span>
           </div>
           <div class="control control__ultimate disabled" data-spell="ultimate" title="Attaque spéciale">
             <span>Attaque spéciale</span>
@@ -99,7 +99,8 @@
             </div>
           </div>
           <div class="control control__defence disabled" data-spell="defence" title="Défense">
-            <div class="control-inner"><span>Défense</span></div>
+              <span>Défense</span>
+              <span class="counter">x3</span>
           </div>
         </div>
         <div class="tutorials">
