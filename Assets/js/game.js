@@ -37,13 +37,12 @@ export const startGame = function() {
   }
 
   function gameControls(control){
-    console.log(maxDefence)
     
     if (pvBot > 0) {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
-    } 
+    }
     if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
