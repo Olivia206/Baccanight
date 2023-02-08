@@ -8,7 +8,8 @@ export const startGame = function() {
 
   const damageAttack = 25,
         damageUltimateAttack = 35,
-        damageDefence = 10;
+        damageDefence = 10,
+        maxDefence = 3;
 
   const lifebarPlayer = document.querySelector(".lifebar-good div"),
         lifebarBot = document.querySelector(".lifebar-evil div"),
@@ -16,7 +17,8 @@ export const startGame = function() {
         btnUltimate = document.querySelector(".control__ultimate"),
         btnAttack = document.querySelector(".control__attack"),
         btnDefence = document.querySelector(".control__defence"),
-        modalVictory = document.querySelector(".modal__victory");
+        modalVictory = document.querySelector(".modal__victory"),
+        counterDefenceContent = document.querySelector(".counter");
 
   const animTEstPath = '/assets/js/animations/anim-melodie.json';
 
@@ -24,7 +26,7 @@ export const startGame = function() {
     container: document.querySelector('#character-good-sprite'),
     path: animTEstPath,
     renderer: 'svg',
-    loop: true,
+    loop: false,
     autoplay: false
   });
 
@@ -35,13 +37,11 @@ export const startGame = function() {
   }
 
   function gameControls(control){
-
     if (pvBot > 0) {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
     } else {
-      console.log(pvBot)
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
@@ -95,7 +95,8 @@ export const startGame = function() {
       return playerAction;
     }
     else if(btnAttr == "defence"){
-      if (counterDefence === 3) {
+
+      if (counterDefence === 2) {
         control.classList.add("disabled");
       }
       else {
@@ -104,6 +105,7 @@ export const startGame = function() {
         if (counterDefence === 1) {
           toggleTutorial(btnAttr);
         }
+        counterDefenceContent.innerHTML = "x" + (maxDefence - 1);
 
         playerAction = btnAttr;
         return playerAction;
@@ -151,9 +153,7 @@ export const startGame = function() {
   }
 
   function animTEst() {
-    console.log("test test test");
     animation.play();
-    console.log("After play");
   }
 
   controls.forEach(control => {

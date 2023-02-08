@@ -37,7 +37,17 @@ button.control {
   border-radius: 20px;
   margin-top: 44px;
   padding: 11px 16px;
+  position: relative;
   text-transform: uppercase;
+}
+button.control .counter {
+  background: red;
+  border-radius: 100%;
+  bottom: 0;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  transform: translate(50%, 50%);
 }
 
 header {
