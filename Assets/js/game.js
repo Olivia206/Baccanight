@@ -39,12 +39,11 @@ export const startGame = function() {
 
   function gameControls(control){
     
-    if (pvBot > 0) {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
-    }
-    if (pvBot <= 0) {
+
+      if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
@@ -77,8 +76,12 @@ export const startGame = function() {
         pvBot -= 0;
         pvPlayer -= 0;
     }
+    if (pvBot <= 0) {
+      lifebarBot.style.width = "0%";
+    } else {
+      lifebarBot.style.width = pvBot + "%";
+    }
     lifebarPlayer.style.width = pvPlayer + "%";
-    lifebarBot.style.width = pvBot + "%";
   }
 
   function playerActions(control) {
