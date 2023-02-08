@@ -40,8 +40,8 @@ export const startGame = function() {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
-    } else {
-      console.log(pvBot)
+    }
+    if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
