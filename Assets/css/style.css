@@ -280,12 +280,12 @@ main section {
 .home {
   align-items: center;
   background-image: url("/assets/images/ellipse.svg");
-  background-size: contain;
-  background-position: 10% 50%;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 5.5rem);
+  height: 100vh;
   justify-content: flex-start;
   padding: 2rem 2rem 0 2rem;
   position: relative;
@@ -294,11 +294,43 @@ main section {
 .home .logo {
   color: #FFFFFF;
 }
-.home .play__btn {
+.home > section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  padding-top: 15%;
+}
+@media (min-width: 920px) {
+  .home > section {
+    padding-top: 5%;
+  }
+}
+.home > section::before {
+  content: "";
+  background-image: url("/assets/images/home-gradient.svg");
+  background-position: bottom;
+  background-size: cover;
+  bottom: 0;
+  height: 50%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+@media (min-width: 920px) {
+  .home > section::before {
+    background-size: contain;
+    height: 35%;
+  }
+}
+.home > section .play__btn {
   position: absolute;
   bottom: 5rem;
+  z-index: 5;
 }
-.home .play__btn .play__link {
+.home > section .play__btn .play__link {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -310,11 +342,16 @@ main section {
   text-decoration: none;
   color: #070F2B;
 }
-.home .home__img {
-  width: 90%;
+.home > section .home__img {
   border-radius: 10px;
   filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
   margin: 1rem 4rem;
+  z-index: 1;
+}
+@media (max-width: 920px) {
+  .home > section .home__img {
+    width: 100%;
+  }
 }
 
 .popup {
