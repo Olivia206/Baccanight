@@ -107,6 +107,7 @@ main
     a {
         background: white;
         border-radius: 20px;
+        box-shadow: $btn-shadow;
         color: $primary;
         display: table;
         font-size: 18px;
@@ -115,6 +116,10 @@ main
         text-decoration: none;
         text-align: center;
         text-transform: uppercase;
+        transition: box-shadow .3s ease;
+        &:hover {
+            box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
+        }
     }
 }
 .tutorial,

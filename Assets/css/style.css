@@ -51,14 +51,20 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 100%;
+  box-shadow: -1px 3px 0px #C3C3C3;
   color: #070F2B;
+  cursor: pointer;
   display: flex;
   height: 70px;
   justify-content: center;
   margin-top: 44px;
   text-align: center;
   text-transform: uppercase;
+  transition: box-shadow 0.3s ease;
   width: 70px;
+}
+.controls .control:hover {
+  box-shadow: 0px 0px 0px #C3C3C3;
 }
 .controls .control:not(.disabled) {
   filter: grayscale(0);
@@ -236,6 +242,7 @@ main section {
 .screen a {
   background: white;
   border-radius: 20px;
+  box-shadow: -1px 5px 0px #C4C4C4;
   color: #070F2B;
   display: table;
   font-size: 18px;
@@ -244,6 +251,10 @@ main section {
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
+  transition: box-shadow 0.3s ease;
+}
+.screen a:hover {
+  box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
 }
 
 .tutorial,
