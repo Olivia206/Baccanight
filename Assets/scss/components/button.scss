@@ -2,6 +2,10 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    @media (min-width: 920px) {
+        justify-content: center;
+        gap: 40px;
+    }
     .control {
         align-items: center;
         background-color: white;

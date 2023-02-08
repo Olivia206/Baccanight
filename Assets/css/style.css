@@ -38,6 +38,12 @@ body {
   justify-content: space-between;
   gap: 20px;
 }
+@media (min-width: 920px) {
+  .controls {
+    justify-content: center;
+    gap: 40px;
+  }
+}
 .controls .control {
   align-items: center;
   background-color: white;
@@ -126,6 +132,11 @@ header span {
   pointer-events: none;
 }
 
+main section {
+  height: 100vh;
+  width: 100%;
+}
+
 .screen {
   color: white;
   display: none;
@@ -140,6 +151,13 @@ header span {
   display: flex;
   flex-direction: column;
 }
+@media (min-width: 920px) {
+  .screen > div {
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+  }
+}
 .screen__text {
   align-items: center;
   justify-content: center;
@@ -152,7 +170,9 @@ header span {
   margin-top: 40px;
 }
 .screen__text div a {
-  display: block;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
 .screen__dialog {
   align-items: flex-end;
@@ -217,9 +237,9 @@ header span {
   background: white;
   border-radius: 20px;
   color: #070F2B;
-  display: inline-flex;
+  display: table;
   font-size: 18px;
-  margin-top: 60px;
+  margin: 60px auto 0;
   padding: 10px 20px;
   text-decoration: none;
   text-align: center;
@@ -232,6 +252,7 @@ header span {
   color: #070F2B;
   left: 50%;
   opacity: 0;
+  max-width: 600px;
   padding: 40px;
   position: absolute;
   top: 10%;
