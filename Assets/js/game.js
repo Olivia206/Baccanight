@@ -5,11 +5,11 @@ export const startGame = function() {
   let counterAttack = 0;
   let counterDefence = 0;
   let counterUltimate = 0;
+  let maxDefence = 3;
 
   const damageAttack = 25,
         damageUltimateAttack = 35,
-        damageDefence = 10,
-        maxDefence = 3;
+        damageDefence = 10;
 
   const lifebarPlayer = document.querySelector(".lifebar-good div"),
         lifebarBot = document.querySelector(".lifebar-evil div"),
@@ -37,6 +37,8 @@ export const startGame = function() {
   }
 
   function gameControls(control){
+    console.log(maxDefence)
+    
     if (pvBot > 0) {
       let bot = botActions();
       let player = playerActions(control);
@@ -95,6 +97,8 @@ export const startGame = function() {
       return playerAction;
     }
     else if(btnAttr == "defence"){
+      maxDefence -= 1;
+      counterDefenceContent.innerHTML = "x" + maxDefence;
 
       if (counterDefence === 2) {
         control.classList.add("disabled");
@@ -102,10 +106,10 @@ export const startGame = function() {
       else {
         counterDefence += 1;
 
+
         if (counterDefence === 1) {
           toggleTutorial(btnAttr);
         }
-        counterDefenceContent.innerHTML = "x" + (maxDefence - 1);
 
         playerAction = btnAttr;
         return playerAction;
@@ -114,8 +118,7 @@ export const startGame = function() {
     else {
       counterUltimate += 1;
 
-      if (counterUltimate === 0) {
-      } else if (counterUltimate === 1) {
+      if (counterUltimate === 1) {
         toggleTutorial(btnAttr);
         btnAttack.classList.remove("disabled");
         btnDefence.classList.remove("disabled");
