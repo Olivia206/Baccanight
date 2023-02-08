@@ -89,6 +89,9 @@ export const startGame = function() {
       counterAttack += 1;
       animTEst();
 
+      if (counterAttack != 0 && counterAttack % 2  == 0) {
+        btnUltimate.classList.remove("disabled");
+      }
       if (counterAttack === 1) {
         toggleTutorial(btnAttr);
         toggleTutorial("defence");
@@ -172,10 +175,7 @@ export const startGame = function() {
 
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
-      if (counterAttack != 0 && counterAttack % 3  == 0) {
-        btnUltimate.classList.remove("disabled");
-      }
-      else if (counterAttack === 0) {
+      if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
         btnAttack.classList.add("disabled");
       }
