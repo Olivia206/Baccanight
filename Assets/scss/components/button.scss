@@ -54,6 +54,9 @@ div.btn {
     &.btn__game::before {
         content: '#{$icon-game}';
     }
+    &.btn__character::before {
+        content: '#{$icon-character}';
+    }
 }
 
 .controls {

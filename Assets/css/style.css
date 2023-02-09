@@ -108,6 +108,9 @@ div.btn__credits::before {
 .btn-primary.btn__game::before {
   content: "\e903";
 }
+.btn-primary.btn__character::before {
+  content: "\e904";
+}
 
 .controls {
   display: flex;
@@ -199,28 +202,29 @@ div.btn__credits::before {
 }
 
 .popup {
-  z-index: 50;
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 70%;
-  min-height: 70%;
-  transform: translate(-50%, -50%);
   background-color: #ffffff;
   border-radius: 10px;
+  color: #070F2B;
+  display: none;
   filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+  left: 50%;
+  min-height: 70%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  z-index: 50;
 }
 .popup--open {
   display: block;
 }
 .popup.large-popup {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
   background-color: #0B132F;
   background-image: linear-gradient(90deg, rgba(114, 94, 236, 0.2) 0%, rgba(15, 22, 88, 0.2) 100%);
+  border-radius: 0;
   color: #FFFFFF;
+  height: 100%;
+  width: 100%;
 }
 .popup.large-popup a, .popup.large-popup button {
   background: none;
@@ -615,7 +619,7 @@ main section {
 }
 @media (min-width: 600px) {
   .character-page {
-    padding-top: 120px;
+    padding-top: 70px;
   }
 }
 .character-page main {
