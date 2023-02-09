@@ -82,6 +82,16 @@ main
     &__game {
         justify-content: flex-end;
         padding: 40px;
+        background-image: url("/assets/images/background-museum.svg");
+        background-size: cover;
+        &::after{
+            content: '';
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: linear-gradient(90deg, rgba(22,29,65,1) 0%, rgba(20,33,110,1) 18%, rgba(255,255,255,1) 100%);
+        }
         .characters {
             display: flex;
             justify-content: space-between;

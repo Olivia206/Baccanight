@@ -306,6 +306,8 @@ main section {
 .screen__game {
   justify-content: flex-end;
   padding: 40px;
+  background-image: url("/assets/images/background-museum.svg");
+  background-size: cover;
 }
 .screen__game .characters {
   display: flex;
