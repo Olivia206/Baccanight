@@ -47,13 +47,13 @@ body {
   font-size: 4rem;
 }
 
-.btns-popup {
+div.btns-popup {
   cursor: pointer;
   text-align: center;
   font-family: "Roboto";
   text-transform: uppercase;
 }
-.btns-popup::before {
+div.btns-popup::before {
   align-items: center;
   background-color: white;
   border-radius: 100%;
@@ -75,14 +75,14 @@ body {
   height: 44px;
   width: 44px;
 }
-.btns-popup:hover::before {
+div.btns-popup:hover::before {
   box-shadow: 0px 0px 0px #C3C3C3;
 }
 
-.btn__menu::before, .btn__close::before {
+div.btn__menu::before, div.btn__close::before {
   content: "\e900";
 }
-.btn__credits::before {
+div.btn__credits::before {
   content: "\e901";
 }
 
@@ -173,6 +173,29 @@ body {
   transform: translate(13%, 13%);
   transition: stroke-dashoffset 1.5s ease-in-out;
   width: 100%;
+}
+
+.large-popup a, .large-popup button {
+  background: none;
+  border: none;
+  color: #070F2B;
+  cursor: pointer;
+  background: white;
+  border-radius: 20px;
+  box-shadow: -1px 5px 0px #C4C4C4;
+  color: #070F2B;
+  display: table;
+  font-family: "Cherry Bomb";
+  font-size: 18px;
+  margin: 60px auto 0;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: box-shadow 0.3s ease;
+}
+.large-popup a:hover, .large-popup button:hover {
+  box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
 }
 
 header {

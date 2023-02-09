@@ -1,4 +1,4 @@
-.btns-popup {
+div.btns-popup {
     cursor: pointer;
     text-align: center;
     font-family: $font-secondary;
@@ -29,7 +29,7 @@
         box-shadow:  0px 0px 0px #C3C3C3;;
     }
 }
-.btn {
+div.btn {
     &__menu,
     &__close {
         &::before {
