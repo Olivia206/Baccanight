@@ -1,0 +1,40 @@
+.character-page {
+  main {
+    padding: 25px;
+    @media (min-width: 600px) {
+      padding: 50px;
+    }
+  }
+  p {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+  }
+  h2 {
+    font-family: $font-secondary;
+    text-transform: uppercase;
+  }
+  hgroup {
+    margin: 0 auto;
+    width: fit-content;
+    @media (min-width: 600px) {
+      padding: 50px;
+      p {
+        text-align: right;
+      }
+    }
+    p {
+      width: 100%;
+    }
+  }
+  section {
+    &.character-about {
+      @media (min-width: 600px) {
+        display: flex;
+      }
+    }
+  }
+}
