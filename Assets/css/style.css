@@ -382,12 +382,18 @@ main section {
   background-size: cover;
 }
 .screen__game::after {
+  z-index: 1;
   content: "";
-  top: 0;
+  position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
-  background: linear-gradient(90deg, rgb(22, 29, 65) 0%, rgb(20, 33, 110) 18%, rgb(255, 255, 255) 100%);
+  opacity: 0.9;
+  background-image: url("/assets/images/gradientGameBottom.svg");
+  top: 65px;
+}
+.screen__game > * {
+  z-index: 2;
 }
 .screen__game .characters {
   display: flex;
