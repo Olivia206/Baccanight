@@ -403,6 +403,7 @@ main section {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
   position: relative;
   margin-bottom: auto;
   margin-top: 5rem;
@@ -415,6 +416,7 @@ main section {
   align-items: center;
   background: white;
   border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
   display: flex;
   height: 14px;
   padding: 0 2px;

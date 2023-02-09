@@ -105,6 +105,7 @@ main
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 2rem;
             position: relative;
             margin-bottom: auto;
             margin-top: 5rem;
@@ -115,6 +116,7 @@ main
                     align-items: center;
                     background: white;
                     border-radius: 20px;
+                    box-shadow: 0px 4px 4px 0px #00000040;
                     display: flex;
                     height: 14px;
                     padding: 0 2px;
