@@ -105,9 +105,6 @@ main
         > * {
             z-index: 2;
         }
-<<<<<<< HEAD
-
-=======
         .lifebars {
             display: flex;
             align-items: center;
@@ -151,14 +148,15 @@ main
                 width: 90px;
             }
         }
->>>>>>> ce678c848a2d7ca719d45fd24d882ee371c8989d
         .characters {
             display: flex;
             justify-content: space-between;
-            .character-sprite{
-                
+            position: relative;
+            bottom: 50px;
+
+            .character__good, .character__evil{
                 img{
-                    width: 50px;
+                    width: 110px;
                 }
             }
             .character {
@@ -170,6 +168,7 @@ main
                 .character-sprite#character-good-sprite{
                   position: relative;
                   svg{
+                    display: none;
                     position: absolute;
                     top: 0;
                     left: 0;
