@@ -49,13 +49,21 @@ main
             background-size: cover;
             &::before{
                 background: transparentize($color: $body-background, $amount: 0.5);
+                content: '';
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                right: 0;
+                left: 0;
+            }
+            > * {
+                position: relative;
             }
         }
     }
     &__dialog {
         align-items: flex-end;
         background-size: cover;
-        display: flex;
         flex-direction: column;
         height: 100vh;
         justify-content: flex-end;

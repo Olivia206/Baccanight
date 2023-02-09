@@ -275,11 +275,19 @@ main section {
 }
 .screen__text:not(.screen__dialog)::before {
   background: rgba(11, 19, 47, 0.5);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.screen__text:not(.screen__dialog) > * {
+  position: relative;
 }
 .screen__dialog {
   align-items: flex-end;
   background-size: cover;
-  display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: flex-end;
@@ -331,7 +339,7 @@ main section {
   padding: 0 2px;
 }
 .screen__game .characters .character .character-lifebar .lifebar-gauge div {
-  background-image: linear-gradient(90deg, rgb(114, 94, 236) 0%, rgb(15, 22, 88) 100%);
+  background-image: linear-gradient(90deg, #725eec 0%, #0f1658 100%);
   border-radius: 5px;
   height: 9px;
 }
