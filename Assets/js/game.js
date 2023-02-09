@@ -22,18 +22,10 @@ export const startGame = function() {
         progressBar = document.querySelector(".control-progress");
 
   const animTEstPath = '/assets/js/animations/anim-melodie.json';
-  const animEvilPath = '/assets/js/animations/anim-mechant.json';
 
  var animation = lottie.loadAnimation({
     container: document.querySelector('#character-good-sprite'),
     path: animTEstPath,
-    renderer: 'svg',
-    loop: false,
-    autoplay: false
-  });
- var animationEvil = lottie.loadAnimation({
-    container: document.querySelector('#character-evil-sprite'),
-    path: animEvilPath,
     renderer: 'svg',
     loop: false,
     autoplay: false
@@ -179,7 +171,6 @@ export const startGame = function() {
 
   function animTEst() {
     animation.play();
-    animationEvil.play();
     console.log("After play");
   }
 
