@@ -478,6 +478,10 @@ main section {
     padding: 40px;
   }
 }
+.tutorial__victory,
+.modal__victory {
+  z-index: 25;
+}
 .tutorial__attack p strong,
 .modal__attack p strong {
   color: #6D9EBF;

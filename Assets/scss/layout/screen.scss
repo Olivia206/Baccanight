@@ -177,6 +177,9 @@ main
     @media (min-width: 920px) {
         padding: 40px;
     }
+    &__victory {
+        z-index: 25;
+    }
     &__attack {
         p strong{
             color: $blue;
