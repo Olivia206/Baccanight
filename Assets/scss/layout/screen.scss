@@ -13,6 +13,7 @@ main
     color: white;
     display: none;
     height: 100vh;
+    max-height: 100vh;
     position: relative;
     width: 100%;
     &:not(&__game) {
