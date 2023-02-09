@@ -1,9 +1,12 @@
-div.btns-popup {
+div.btns-popup,
+.btn-primary {
     cursor: pointer;
     text-align: center;
     font-family: $font-secondary;
+    text-decoration: none;
     text-transform: uppercase;
     span {
+        color: white;
         font-size: 16px;
         letter-spacing: .5px;
     }
@@ -42,6 +45,14 @@ div.btn {
     }
     &__credits::before {
         content: '#{$icon-credits}';
+    }
+}
+.btn-primary {
+    &.btn__home::before {
+        content: '#{$icon-home}';
+    }
+    &.btn__game::before {
+        content: '#{$icon-game}';
     }
 }
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -52,17 +53,22 @@ body {
   font-size: 4rem;
 }
 
-div.btns-popup {
+div.btns-popup,
+.btn-primary {
   cursor: pointer;
   text-align: center;
   font-family: "Roboto";
+  text-decoration: none;
   text-transform: uppercase;
 }
-div.btns-popup span {
+div.btns-popup span,
+.btn-primary span {
+  color: white;
   font-size: 16px;
   letter-spacing: 0.5px;
 }
-div.btns-popup::before {
+div.btns-popup::before,
+.btn-primary::before {
   align-items: center;
   background-color: white;
   border-radius: 100%;
@@ -84,7 +90,8 @@ div.btns-popup::before {
   height: 44px;
   width: 44px;
 }
-div.btns-popup:hover::before {
+div.btns-popup:hover::before,
+.btn-primary:hover::before {
   box-shadow: 0px 0px 0px #C3C3C3;
 }
 
@@ -93,6 +100,13 @@ div.btn__menu::before, div.btn__close::before {
 }
 div.btn__credits::before {
   content: "\e901";
+}
+
+.btn-primary.btn__home::before {
+  content: "\e902";
+}
+.btn-primary.btn__game::before {
+  content: "\e903";
 }
 
 .controls {
@@ -280,11 +294,17 @@ header span {
   color: white;
 }
 
-.game-page header {
-  z-index: 20;
+body:not(.homepage) header {
+  left: 0;
   position: fixed;
-  top: 20px;
-  left: 20px;
+  padding: 20px;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
+body:not(.homepage) header nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 .homepage {
@@ -565,45 +585,188 @@ main section {
   transition-delay: 0.2s;
 }
 
+.character-page {
+  font-family: "Roboto";
+  padding-top: 150px;
+}
+.character-page header {
+  background-color: #070F2B;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.character-page header .btn-primary {
+  display: flex;
+  align-items: center;
+}
+.character-page header .btn-primary::before {
+  margin: 0;
+}
+.character-page header .btn-primary span {
+  margin-left: 10px;
+}
+@media (min-width: 600px) {
+  .character-page {
+    padding-top: 120px;
+  }
+}
 .character-page main {
   padding: 25px;
+  margin: 0 auto;
+  max-width: 900px;
 }
 @media (min-width: 600px) {
   .character-page main {
     padding: 50px;
   }
 }
-.character-page p {
+.character-page main section {
+  padding: 25px 0;
+}
+@media (min-width: 600px) {
+  .character-page main section {
+    padding: 50px 0;
+  }
+}
+.character-page main section:first-of-type {
+  padding-top: 0;
+}
+.character-page main p {
   font-size: 16px;
 }
-.character-page h1 {
+.character-page main h1 {
   font-size: 50px;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
 }
-.character-page h2 {
-  font-family: "Roboto";
+.character-page main h2 {
+  font-family: "Cherry Bomb";
+  margin-bottom: 20px;
   text-transform: uppercase;
+  text-align: center;
 }
-.character-page hgroup {
+.character-page main hgroup {
   margin: 0 auto;
   width: fit-content;
+  margin-bottom: 50px;
+}
+.character-page main hgroup p {
+  text-align: center;
+  width: 100%;
 }
 @media (min-width: 600px) {
-  .character-page hgroup {
-    padding: 50px;
-  }
-  .character-page hgroup p {
+  .character-page main hgroup p {
+    font-size: 24px;
     text-align: right;
+    text-transform: uppercase;
   }
 }
-.character-page hgroup p {
-  width: 100%;
+.character-page section {
+  height: auto;
 }
 @media (min-width: 600px) {
   .character-page section.character-about {
     display: flex;
   }
+  .character-page section.character-about > div {
+    flex: 1;
+  }
+}
+.character-page section.character-about .character-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 4rem;
+}
+@media (min-width: 600px) {
+  .character-page section.character-about .character-illustration {
+    margin-right: 4rem;
+    margin-bottom: 0;
+  }
+}
+.character-page section.character-about .character-illustration::before, .character-page section.character-about .character-illustration::after {
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  border: 1px solid rgba(105, 111, 255, 0.2784313725);
+  content: "";
+  position: absolute;
+  z-index: 1;
+}
+.character-page section.character-about .character-illustration::before {
+  background: rgba(75, 152, 183, 0.15);
+  border-radius: 100%;
+  height: 100%;
+}
+.character-page section.character-about .character-illustration::after {
+  background-color: rgba(75, 152, 183, 0.15);
+  height: 80%;
+}
+.character-page section.character-about .character-illustration img {
+  position: relative;
+  z-index: 2;
+}
+.character-page section.character-about .character-skills .character-stats {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.character-page section.character-about .character-skills .character-stats span {
+  text-transform: uppercase;
+}
+.character-page section.character-about .character-skills .character-stats span strong {
+  display: block;
+  font-size: 24px;
+  font-family: "Cherry Bomb";
+}
+.character-page section.character-about .character-skills .character-stats span:last-of-type {
+  text-align: right;
+}
+.character-page section.character-about .character-skills .character-actions h2 {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 20px 0;
+  padding-top: 20px;
+}
+.character-page section.character-about .character-skills .character-actions p strong {
+  display: block;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.character-page section.character-about .character-skills .character-actions p + p {
+  margin-top: 20px;
+}
+.character-page section.story {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+.character-page section.quote {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 50px 20px 0;
+}
+.character-page section.quote h3 {
+  position: relative;
+  text-align: center;
+}
+.character-page section.quote h3::before, .character-page section.quote h3::after {
+  font-size: 80px;
+  font-family: "Cherry Bomb";
+  opacity: 0.4;
+  position: absolute;
+}
+@media (min-width: 600px) {
+  .character-page section.quote h3::before, .character-page section.quote h3::after {
+    display: none;
+  }
+}
+.character-page section.quote h3::before {
+  content: "“";
+  bottom: 0;
+  left: 0;
+}
+.character-page section.quote h3::after {
+  content: "”";
+  top: 0;
+  right: 0;
 }
 
 .home {
