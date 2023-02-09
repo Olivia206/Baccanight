@@ -98,9 +98,16 @@ main
         > * {
             z-index: 2;
         }
+
         .characters {
             display: flex;
             justify-content: space-between;
+            .character-sprite{
+                
+                img{
+                    width: 50px;
+                }
+            }
             .character {
                 align-items: center;
                 display: flex;

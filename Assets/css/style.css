@@ -400,6 +400,9 @@ main section {
   display: flex;
   justify-content: space-between;
 }
+.screen__game .characters .character-sprite img {
+  width: 50px;
+}
 .screen__game .characters .character {
   align-items: center;
   display: flex;
