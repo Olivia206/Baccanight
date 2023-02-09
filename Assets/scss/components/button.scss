@@ -1,5 +1,34 @@
-button {
-    background: white;
+.btns-popup {
+    text-align: center;
+    &::before {
+        align-items: center;
+        background-color: white;
+        border-radius: 100%;
+        box-shadow: $round-shadow;
+        color: $primary;
+        content: "";
+        display: flex;
+        flex-direction: column;
+        font-family: 'icomoon' !important;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        justify-content: center;
+        line-height: 1;
+        speak: never;
+        text-transform: none;
+        transition: box-shadow .3s ease;
+        height: 44px;
+        width: 44px;
+    }
+    &:hover::before {
+        box-shadow:  0px 0px 0px #C3C3C3;;
+    }
+}
+.btn {
+    &__menu::before {
+        content: '#{$icon-close}';
+    }
 }
 
 .controls {
