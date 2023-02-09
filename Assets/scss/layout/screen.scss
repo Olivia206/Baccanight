@@ -44,6 +44,13 @@ main
                 margin-right: auto;
             }
         }
+        &:not(.screen__dialog) {
+            background-image: url("/assets/images/background-museum.svg");
+            background-size: cover;
+            &::before{
+                background: transparentize($color: $body-background, $amount: 0.5);
+            }
+        }
     }
     &__dialog {
         align-items: flex-end;

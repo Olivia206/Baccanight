@@ -269,6 +269,13 @@ main section {
   margin-left: auto;
   margin-right: auto;
 }
+.screen__text:not(.screen__dialog) {
+  background-image: url("/assets/images/background-museum.svg");
+  background-size: cover;
+}
+.screen__text:not(.screen__dialog)::before {
+  background: rgba(11, 19, 47, 0.5);
+}
 .screen__dialog {
   align-items: flex-end;
   background-size: cover;
