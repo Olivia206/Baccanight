@@ -5,7 +5,7 @@ export const screen = function() {
   const animEvilPath = '/assets/js/animations/anim-bouche-mechant.json';
   
   var animationEvil = lottie.loadAnimation({
-     container: document.querySelector('.animation__dialog'),
+     container: document.querySelector('.dialog__animation'),
      path: animEvilPath,
      renderer: 'svg',
      loop: true,
