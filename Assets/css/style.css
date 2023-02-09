@@ -308,7 +308,7 @@ main section {
 .screen {
   color: white;
   display: none;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   width: 100%;
 }
