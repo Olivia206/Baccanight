@@ -3,12 +3,18 @@ header {
     color: white;
   }
 }
-.game-page {
+body:not(.homepage) {
   header {
-    z-index: 20;
+    left: 0;
     position: fixed;
-    top: 20px;
-    left: 20px;
+    padding: 20px;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 .homepage {
