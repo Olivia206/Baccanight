@@ -229,6 +229,7 @@ div.btn__credits::before {
 .homepage .popup {
   flex-direction: column;
   max-height: 80vh;
+  max-width: 450px;
 }
 .homepage .popup--open {
   display: flex;
