@@ -21,15 +21,23 @@ export const startGame = function() {
         counterDefenceContent = document.querySelector(".counter"),
         progressBar = document.querySelector(".control-progress");
 
-  const animTEstPath = '/assets/js/animations/anim-melodie.json';
+  const animTEstPath = '/assets/js/animations/anim-melodie.json',
+        animEvilAttack = '/assets/js/animations/evil-attack.json';
 
- var animation = lottie.loadAnimation({
-    container: document.querySelector('#character-good-sprite'),
-    path: animTEstPath,
+  var animation = lottie.loadAnimation({
+      container: document.querySelector('#character-good-sprite'),
+      path: animTEstPath,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false
+    });
+  var animationEvilAttack = lottie.loadAnimation({
+    container: document.querySelector('#character-evil-sprite'),
+    path: animEvilAttack,
     renderer: 'svg',
     loop: false,
     autoplay: false
-  });
+  }); 
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
@@ -87,7 +95,7 @@ export const startGame = function() {
 
     if(btnAttr == "attack"){
       counterAttack += 1;
-      animTEst();
+      animation.play();
 
       if (counterAttack != 0 && counterAttack % 2  == 0) {
         btnUltimate.classList.remove("disabled");
@@ -148,7 +156,9 @@ export const startGame = function() {
     let sort = Math.floor(Math.random() * 2);
     let botAction = null;
     if (sort == 0) {
+      console.log("bot is attacking olala")
       botAction = "attack";
+      animationEvilAttack.play();
       return botAction;
     }
     else{
@@ -167,11 +177,6 @@ export const startGame = function() {
     else {
       document.querySelector(".tutorial__ultimate").classList.toggle("is-visible");
     }
-  }
-
-  function animTEst() {
-    animation.play();
-    console.log("After play");
   }
 
   controls.forEach(control => {
