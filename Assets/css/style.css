@@ -290,6 +290,15 @@ div.btn__credits::before {
   right: 1rem;
 }
 
+header {
+  padding: 20px;
+  width: 100%;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+}
+
 body.character-page header span {
   color: white;
 }
@@ -297,14 +306,8 @@ body.character-page header span {
 body:not(.homepage) header {
   left: 0;
   position: fixed;
-  padding: 20px;
   top: 0;
-  width: 100%;
   z-index: 20;
-}
-body:not(.homepage) header nav {
-  display: flex;
-  justify-content: space-between;
 }
 
 .homepage {
@@ -314,7 +317,6 @@ body:not(.homepage) header nav {
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(-50%, -33%);
   z-index: 9;
 }
 
