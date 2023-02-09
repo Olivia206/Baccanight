@@ -3,6 +3,10 @@ div.btns-popup {
     text-align: center;
     font-family: $font-secondary;
     text-transform: uppercase;
+    span {
+        font-size: 16px;
+        letter-spacing: .5px;
+    }
     &::before {
         align-items: center;
         background-color: white;

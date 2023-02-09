@@ -42,6 +42,7 @@ export const startGame = function() {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
+      updateLifeBar();
 
       if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
@@ -82,6 +83,19 @@ export const startGame = function() {
       lifebarBot.style.width = pvBot + "%";
     }
     lifebarPlayer.style.width = pvPlayer + "%";
+  }
+
+  function updateLifeBar() {
+    if (pvBot <= 50 ) {
+      lifebarBot.style.background = "orange";
+    } else if (pvBot <= 20) {
+      lifebarBot.style.background = "#B72D2D";
+    }
+    if (pvPlayer <= 50 ) {
+      lifebarPlayer.style.background = "orange";
+    } else if (pvPlayer <= 20) {
+      lifebarPlayer.style.background = "#B72D2D";
+    }
   }
 
   function playerActions(control) {

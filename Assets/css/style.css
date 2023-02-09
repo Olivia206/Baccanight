@@ -27,7 +27,7 @@
   font-display: block;
 }
 body {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 body {
@@ -52,6 +52,10 @@ div.btns-popup {
   text-align: center;
   font-family: "Roboto";
   text-transform: uppercase;
+}
+div.btns-popup span {
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 div.btns-popup::before {
   align-items: center;
@@ -225,6 +229,7 @@ div.btn__credits::before {
 .homepage .popup {
   flex-direction: column;
   max-height: 80vh;
+  max-width: 450px;
 }
 .homepage .popup--open {
   display: flex;
@@ -245,9 +250,10 @@ div.btn__credits::before {
   font-size: 0;
 }
 .homepage .popup .popup-body {
-  flex: 1;
-  overflow: auto;
   border: 2rem solid transparent;
+  flex: 1;
+  font-size: 16px;
+  overflow: auto;
 }
 .homepage .popup .popup-body p {
   font-family: "Roboto";
@@ -422,7 +428,7 @@ main section {
   padding: 0 2px;
 }
 .screen__game .characters .character .character-lifebar .lifebar-gauge div {
-  background-image: linear-gradient(90deg, #725eec 0%, #0f1658 100%);
+  background-color: #599C47;
   border-radius: 5px;
   height: 9px;
 }
