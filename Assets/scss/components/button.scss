@@ -1,5 +1,8 @@
 .btns-popup {
+    cursor: pointer;
     text-align: center;
+    font-family: $font-secondary;
+    text-transform: uppercase;
     &::before {
         align-items: center;
         background-color: white;
@@ -15,6 +18,7 @@
         font-weight: normal;
         justify-content: center;
         line-height: 1;
+        margin: 0 auto 10px;
         speak: never;
         text-transform: none;
         transition: box-shadow .3s ease;
@@ -26,8 +30,14 @@
     }
 }
 .btn {
-    &__menu::before {
-        content: '#{$icon-close}';
+    &__menu,
+    &__close {
+        &::before {
+            content: '#{$icon-close}';
+        }
+    }
+    &__credits::before {
+        content: '#{$icon-credits}';
     }
 }
 

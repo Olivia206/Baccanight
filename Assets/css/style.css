@@ -10,7 +10,13 @@
   font-display: swap;
   font-family: "Cherry Bomb";
   font-weight: normal;
-  src: url(/assets/assets/fonts/cherrybombone-regular.ttf);
+  src: url(/assets/fonts/cherrybombone-regular.ttf);
+}
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-weight: normal;
+  src: url(/assets/fonts/RobotoCondensed-Regular.ttf);
 }
 @font-face {
   font-family: "icomoon";
@@ -42,7 +48,10 @@ body {
 }
 
 .btns-popup {
+  cursor: pointer;
   text-align: center;
+  font-family: "Roboto";
+  text-transform: uppercase;
 }
 .btns-popup::before {
   align-items: center;
@@ -59,6 +68,7 @@ body {
   font-weight: normal;
   justify-content: center;
   line-height: 1;
+  margin: 0 auto 10px;
   speak: never;
   text-transform: none;
   transition: box-shadow 0.3s ease;
@@ -69,8 +79,11 @@ body {
   box-shadow: 0px 0px 0px #C3C3C3;
 }
 
-.btn__menu::before {
+.btn__menu::before, .btn__close::before {
   content: "\e900";
+}
+.btn__credits::before {
+  content: "\e901";
 }
 
 .controls {
