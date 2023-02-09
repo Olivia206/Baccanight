@@ -399,6 +399,47 @@ main section {
 .screen__game > * {
   z-index: 2;
 }
+.screen__game .lifebars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: auto;
+  margin-top: 5rem;
+  width: 100%;
+}
+.screen__game .lifebars .character-lifebar {
+  flex: 1;
+}
+.screen__game .lifebars .character-lifebar .lifebar-gauge {
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  height: 14px;
+  padding: 0 2px;
+}
+.screen__game .lifebars .character-lifebar .lifebar-gauge.lifebar-good {
+  justify-content: flex-end;
+}
+.screen__game .lifebars .character-lifebar .lifebar-gauge div {
+  background-color: #599C47;
+  border-radius: 5px;
+  height: 9px;
+}
+.screen__game .lifebars .separator {
+  align-items: center;
+  background-image: url(/assets/images/vs-separator.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: #070F2B;
+  display: flex;
+  font-size: 32px;
+  justify-content: center;
+  height: 75px;
+  position: absolute;
+  width: 90px;
+}
 .screen__game .characters {
   display: flex;
   justify-content: space-between;
@@ -417,23 +458,6 @@ main section {
   top: 0;
   left: 0;
   object-fit: fill;
-}
-.screen__game .characters .character .character-lifebar {
-  margin-bottom: 20px;
-  width: 100%;
-}
-.screen__game .characters .character .character-lifebar .lifebar-gauge {
-  align-items: center;
-  background: white;
-  border-radius: 20px;
-  display: flex;
-  height: 14px;
-  padding: 0 2px;
-}
-.screen__game .characters .character .character-lifebar .lifebar-gauge div {
-  background-color: #599C47;
-  border-radius: 5px;
-  height: 9px;
 }
 .screen a {
   background: white;

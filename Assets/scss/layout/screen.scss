@@ -101,6 +101,47 @@ main
         > * {
             z-index: 2;
         }
+        .lifebars {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: auto;
+            margin-top: 5rem;
+            width: 100%;
+            .character-lifebar {
+                flex: 1;
+                .lifebar-gauge {
+                    align-items: center;
+                    background: white;
+                    border-radius: 20px;
+                    display: flex;
+                    height: 14px;
+                    padding: 0 2px;
+                    &.lifebar-good {
+                        justify-content: flex-end;
+                    }
+                    div {
+                        background-color: $green;
+                        border-radius: 5px;
+                        height: 9px;
+                    }
+                }
+            }
+            .separator {
+                align-items: center;
+                background-image: url(/assets/images/vs-separator.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                color: $primary;
+                display: flex;
+                font-size: 32px;
+                justify-content: center;
+                height: 75px;
+                position: absolute;
+                width: 90px;
+            }
+        }
         .characters {
             display: flex;
             justify-content: space-between;
@@ -118,23 +159,6 @@ main
                     left: 0;
                     object-fit: fill;
                   }
-                }
-                .character-lifebar {
-                    margin-bottom: 20px;
-                    width: 100%;
-                    .lifebar-gauge {
-                        align-items: center;
-                        background: white;
-                        border-radius: 20px;
-                        display: flex;
-                        height: 14px;
-                        padding: 0 2px;
-                        div {
-                            background-color: $green;
-                            border-radius: 5px;
-                            height: 9px;
-                        }
-                    }
                 }
             }
         }
