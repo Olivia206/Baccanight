@@ -790,6 +790,27 @@ main section {
   top: 0;
   right: 0;
 }
+.character-page section.quote p {
+  margin: 40px 0;
+}
+.character-page section.quote a {
+  background: white;
+  border-radius: 20px;
+  box-shadow: -1px 5px 0px #C4C4C4;
+  color: #070F2B;
+  display: table;
+  font-size: 18px;
+  font-family: "Cherry Bomb";
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: box-shadow 0.3s ease;
+}
+.character-page section.quote a:hover {
+  box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
+}
 
 .home {
   align-items: center;
