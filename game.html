@@ -69,26 +69,29 @@
         <a  href="#screen-game" data-open-screen="screen-game">Défier en duel !</a>
       </div>
 
-      <div class="screen screen__game js-screen" id="screen-game">
+      <div class="screen screen__game js-screen is-visible" id="screen-game">
+        <div class="lifebars">
+          <div class="character-lifebar">
+            <div class="lifebar-gauge lifebar-good">
+              <div style="width: 100%;"></div>
+            </div>
+          </div>
+          <div class="separator">vs</div>
+          <div class="character-lifebar">
+            <div class="lifebar-gauge lifebar-evil">
+              <div style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
         <div class="characters">
           <div class="character character__good">
             <div class="character-sprite" id="character-good-sprite">
               <img src="/assets/images/characters/joueurDeLuth.png" alt="">
             </div>
-            <div class="character-lifebar">
-              <div class="lifebar-gauge lifebar-good">
-                <div style="width: 100%;"></div>
-              </div>
-            </div>
           </div>
           <div class="character character__evil">
             <div class="character-sprite">
               <img src="/assets/images/characters/pedro-simple.png" alt="">
-            </div>
-            <div class="character-lifebar">
-              <div class="lifebar-gauge lifebar-evil">
-                <div style="width: 100%"></div>
-              </div>
             </div>
           </div>
         </div>
