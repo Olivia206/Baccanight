@@ -68,15 +68,19 @@ main
         flex-direction: column;
         height: 100vh;
         justify-content: flex-end;
-        &:first-child {
+        &#screen-dialog-1 {
             background-image: url("/assets/images/dialog-1.svg");
         }
-        &:last-child {
+        &#screen-dialog-2 {
             background-image: url("/assets/images/dialog-2.svg");
         }
         span {
+            float: left;
+            font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
+            text-align: left;
+            width: 100%;
         }
     }
     &__game {
