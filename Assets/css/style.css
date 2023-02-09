@@ -10,7 +10,15 @@
   font-display: swap;
   font-family: "Cherry Bomb";
   font-weight: normal;
-  src: url(/assets/fonts/cherrybombone-regular.ttf);
+  src: url(/assets/assets/fonts/cherrybombone-regular.ttf);
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("/assets/fonts/icomoon/icomoon.eot");
+  src: url("/assets/fonts/icomoon/icomoon.eot") format("embedded-opentype"), url("/assets/fonts/icomoon/icomoon.ttf") format("truetype"), url("/assets/fonts/icomoon/icomoon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
 body {
   font-size: 16px;
@@ -33,8 +41,36 @@ body {
   font-size: 4rem;
 }
 
-button {
-  background: white;
+.btns-popup {
+  text-align: center;
+}
+.btns-popup::before {
+  align-items: center;
+  background-color: white;
+  border-radius: 100%;
+  box-shadow: -1px 3px 0px #C3C3C3;
+  color: #070F2B;
+  content: "";
+  display: flex;
+  flex-direction: column;
+  font-family: "icomoon" !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  justify-content: center;
+  line-height: 1;
+  speak: never;
+  text-transform: none;
+  transition: box-shadow 0.3s ease;
+  height: 44px;
+  width: 44px;
+}
+.btns-popup:hover::before {
+  box-shadow: 0px 0px 0px #C3C3C3;
+}
+
+.btn__menu::before {
+  content: "\e900";
 }
 
 .controls {
@@ -137,6 +173,7 @@ header span {
 }
 
 .disabled {
+  border-radius: 100%;
   filter: grayscale(1);
   opacity: 0.7;
   pointer-events: none;

@@ -2,5 +2,18 @@
   font-display: swap;
   font-family: "Cherry Bomb";
   font-weight: normal;
-  src: url(/assets/fonts/cherrybombone-regular.ttf);
+  src: url(/assets/assets/fonts/cherrybombone-regular.ttf);
+}
+
+// icons
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/assets/fonts/icomoon/icomoon.eot');
+  src:  url('/assets/fonts/icomoon/icomoon.eot') format('embedded-opentype'),
+    url('/assets/fonts/icomoon/icomoon.ttf') format('truetype'),
+    url('/assets/fonts/icomoon/icomoon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
