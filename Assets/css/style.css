@@ -383,15 +383,16 @@ main section {
   background-size: cover;
 }
 .screen__game::after {
-  z-index: 1;
-  content: "";
-  position: absolute;
+  background-image: url("/assets/images/gradientGameBottom.svg");
+  background-position: bottom;
   bottom: 0;
-  right: 0;
+  content: "";
   left: 0;
   opacity: 0.9;
-  background-image: url("/assets/images/gradientGameBottom.svg");
+  position: absolute;
+  right: 0;
   top: 65px;
+  z-index: 1;
 }
 .screen__game > * {
   z-index: 2;
