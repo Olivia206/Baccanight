@@ -53,6 +53,10 @@ div.btns-popup {
   font-family: "Roboto";
   text-transform: uppercase;
 }
+div.btns-popup span {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
 div.btns-popup::before {
   align-items: center;
   background-color: white;
