@@ -33,6 +33,10 @@ body {
   font-size: 4rem;
 }
 
+button {
+  background: white;
+}
+
 .controls {
   display: flex;
   justify-content: space-between;
