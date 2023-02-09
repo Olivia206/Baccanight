@@ -88,12 +88,12 @@ export const startGame = function() {
   function updateLifeBar() {
     if (pvBot <= 50 ) {
       lifebarBot.style.background = "orange";
-    } else if (pvBot <= 15) {
+    } else if (pvBot <= 20) {
       lifebarBot.style.background = "#B72D2D";
     }
     if (pvPlayer <= 50 ) {
       lifebarPlayer.style.background = "orange";
-    } else if (pvPlayer <= 15) {
+    } else if (pvPlayer <= 1520) {
       lifebarPlayer.style.background = "#B72D2D";
     }
   }
