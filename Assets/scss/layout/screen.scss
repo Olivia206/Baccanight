@@ -151,6 +151,14 @@ main
         .characters {
             display: flex;
             justify-content: space-between;
+            position: relative;
+            bottom: 50px;
+
+            .character__good, .character__evil{
+                img{
+                    width: 110px;
+                }
+            }
             .character {
                 align-items: center;
                 display: flex;
@@ -160,6 +168,7 @@ main
                 .character-sprite#character-good-sprite{
                   position: relative;
                   svg{
+                    display: none;
                     position: absolute;
                     top: 0;
                     left: 0;

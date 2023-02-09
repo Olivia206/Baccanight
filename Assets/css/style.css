@@ -445,7 +445,7 @@ main section {
   align-items: center;
   background: white;
   border-radius: 20px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+  box-shadow: 0px 4px 4px 0px #00000040;
   display: flex;
   height: 14px;
   padding: 0 2px;
@@ -474,6 +474,11 @@ main section {
 .screen__game .characters {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  bottom: 50px;
+}
+.screen__game .characters .character__good img, .screen__game .characters .character__evil img {
+  width: 110px;
 }
 .screen__game .characters .character {
   align-items: center;
@@ -485,6 +490,7 @@ main section {
   position: relative;
 }
 .screen__game .characters .character .character-sprite#character-good-sprite svg {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
