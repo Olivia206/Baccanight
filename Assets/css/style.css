@@ -175,7 +175,31 @@ div.btn__credits::before {
   width: 100%;
 }
 
-.large-popup a, .large-popup button {
+.popup {
+  z-index: 50;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  min-height: 70%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 10px;
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+}
+.popup--open {
+  display: block;
+}
+.popup.large-popup {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background-color: #0B132F;
+  background-image: linear-gradient(90deg, rgba(114, 94, 236, 0.2) 0%, rgba(15, 22, 88, 0.2) 100%);
+  color: #FFFFFF;
+}
+.popup.large-popup a, .popup.large-popup button {
   background: none;
   border: none;
   color: #070F2B;
@@ -194,8 +218,51 @@ div.btn__credits::before {
   text-transform: uppercase;
   transition: box-shadow 0.3s ease;
 }
-.large-popup a:hover, .large-popup button:hover {
+.popup.large-popup a:hover, .popup.large-popup button:hover {
   box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
+}
+
+.homepage .popup {
+  flex-direction: column;
+  max-height: 80vh;
+}
+.homepage .popup--open {
+  display: flex;
+}
+.homepage .popup-head {
+  display: flex;
+  position: relative;
+  padding: 2rem 2rem 0;
+}
+.homepage .popup-head > div {
+  margin-bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(25%, -25%);
+}
+.homepage .popup-head > div span {
+  font-size: 0;
+}
+.homepage .popup .popup-body {
+  flex: 1;
+  overflow: auto;
+  border: 2rem solid transparent;
+}
+.homepage .popup .popup-body p {
+  font-family: "Roboto";
+}
+.homepage .popup .popup-body p a {
+  color: #6D9EBF;
+}
+
+.game-page .popup {
+  padding: 2rem;
+}
+.game-page .popup__btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 header span {
@@ -497,37 +564,6 @@ main section {
   .home > section .home__img {
     width: 100%;
   }
-}
-
-.popup {
-  z-index: 50;
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 70%;
-  min-height: 70%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 2rem;
-  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
-}
-.popup .popup__btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-.popup--open {
-  display: block;
-}
-.popup.large-popup {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  background-color: #0B132F;
-  background-image: linear-gradient(90deg, rgba(114, 94, 236, 0.2) 0%, rgba(15, 22, 88, 0.2) 100%);
-  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=style.css.map */
