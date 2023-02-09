@@ -10,7 +10,13 @@
   font-display: swap;
   font-family: "Cherry Bomb";
   font-weight: normal;
-  src: url(/assets/assets/fonts/cherrybombone-regular.ttf);
+  src: url(/assets/fonts/cherrybombone-regular.ttf);
+}
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-weight: normal;
+  src: url(/assets/fonts/RobotoCondensed-Regular.ttf);
 }
 @font-face {
   font-family: "icomoon";
@@ -41,10 +47,13 @@ body {
   font-size: 4rem;
 }
 
-.btns-popup {
+div.btns-popup {
+  cursor: pointer;
   text-align: center;
+  font-family: "Roboto";
+  text-transform: uppercase;
 }
-.btns-popup::before {
+div.btns-popup::before {
   align-items: center;
   background-color: white;
   border-radius: 100%;
@@ -59,18 +68,22 @@ body {
   font-weight: normal;
   justify-content: center;
   line-height: 1;
+  margin: 0 auto 10px;
   speak: never;
   text-transform: none;
   transition: box-shadow 0.3s ease;
   height: 44px;
   width: 44px;
 }
-.btns-popup:hover::before {
+div.btns-popup:hover::before {
   box-shadow: 0px 0px 0px #C3C3C3;
 }
 
-.btn__menu::before {
+div.btn__menu::before, div.btn__close::before {
   content: "\e900";
+}
+div.btn__credits::before {
+  content: "\e901";
 }
 
 .controls {
@@ -162,14 +175,49 @@ body {
   width: 100%;
 }
 
-header {
+.large-popup a, .large-popup button {
+  background: none;
+  border: none;
+  color: #070F2B;
+  cursor: pointer;
+  background: white;
+  border-radius: 20px;
+  box-shadow: -1px 5px 0px #C4C4C4;
+  color: #070F2B;
+  display: table;
+  font-family: "Cherry Bomb";
+  font-size: 18px;
+  margin: 60px auto 0;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: box-shadow 0.3s ease;
+}
+.large-popup a:hover, .large-popup button:hover {
+  box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
+}
+
+header span {
+  color: white;
+}
+
+.game-page header {
   z-index: 20;
   position: fixed;
   top: 20px;
   left: 20px;
 }
-header span {
-  color: white;
+
+.homepage {
+  position: relative;
+}
+.homepage header {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-50%, -33%);
+  z-index: 9;
 }
 
 .disabled {
@@ -372,16 +420,6 @@ main section {
   opacity: 1;
   transform: translate(-50%, 0%) scale(1);
   transition-delay: 0.2s;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: auto;
-}
-.nav .nav__btn span {
-  color: #fff;
 }
 
 .home {
