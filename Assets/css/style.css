@@ -397,6 +397,9 @@ main section {
 .screen__dialog#screen-dialog-2 {
   background-image: url("/assets/images/dialog-2.svg");
 }
+.screen__dialog#screen-dialog-3 {
+  background-image: url("/assets/images/dialog-3.svg");
+}
 .screen__dialog span {
   float: left;
   font-size: 24px;
@@ -692,7 +695,7 @@ main section {
 .character-page section.character-about .character-illustration::before, .character-page section.character-about .character-illustration::after {
   aspect-ratio: 1/1;
   border-radius: 100%;
-  border: 1px solid rgba(105, 111, 255, 0.2784313725);
+  border: 1px solid #696FFF47;
   content: "";
   position: absolute;
   z-index: 1;
