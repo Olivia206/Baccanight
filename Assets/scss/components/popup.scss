@@ -64,9 +64,10 @@
             }
         }
         .popup-body {
-            flex: 1;
-            overflow: auto;
             border: 2rem solid transparent;
+            flex: 1;
+            font-size: 16px;
+            overflow: auto;
             p {
                 font-family: $font-secondary;
                 a {

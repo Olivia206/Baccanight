@@ -249,9 +249,10 @@ div.btn__credits::before {
   font-size: 0;
 }
 .homepage .popup .popup-body {
-  flex: 1;
-  overflow: auto;
   border: 2rem solid transparent;
+  flex: 1;
+  font-size: 16px;
+  overflow: auto;
 }
 .homepage .popup .popup-body p {
   font-family: "Roboto";
