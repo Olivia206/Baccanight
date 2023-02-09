@@ -382,18 +382,6 @@ main section {
   background-image: url("/assets/images/background-museum.svg");
   background-size: cover;
 }
-.screen__game::after {
-  background-image: url("/assets/images/gradientGameBottom.svg");
-  background-position: bottom;
-  bottom: 0;
-  content: "";
-  left: 0;
-  opacity: 0.9;
-  position: absolute;
-  right: 0;
-  top: 65px;
-  z-index: 1;
-}
 .screen__game > * {
   z-index: 2;
 }
