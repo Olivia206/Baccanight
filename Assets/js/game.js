@@ -93,7 +93,7 @@ export const startGame = function() {
     }
     if (pvPlayer <= 50 ) {
       lifebarPlayer.style.background = "orange";
-    } else if (pvPlayer <= 1520) {
+    } else if (pvPlayer <= 20) {
       lifebarPlayer.style.background = "#B72D2D";
     }
   }
