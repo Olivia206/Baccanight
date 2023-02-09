@@ -407,6 +407,9 @@ main section {
 .screen__dialog#screen-dialog-3 {
   background-image: url("/assets/images/dialog-3.svg");
 }
+.screen__dialog p {
+  text-align: left;
+}
 .screen__dialog span {
   float: left;
   font-size: 24px;
