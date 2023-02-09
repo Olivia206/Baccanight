@@ -158,10 +158,11 @@ main
     max-width: 600px;
     padding: 20px;
     position: absolute;
-    top: 10%;
+    top: 1rem;
     transform: translate(-50%, -2%) scale(.9);
     width: 90%;
     transition: transform .5s ease, opacity .4s ease;
+    z-index: 99;
     @media (min-width: 920px) {
         padding: 40px;
     }
