@@ -5,20 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <title>Game</title>
+  <title>Çaravage le jeu • Jouer</title>
 </head>
 <body class="game-page">
 
   <header>
-    <div class="btns-popup btn__menu" id="btn-menu">
-      <span>Quitter</span>
+    <nav>
+      <div class="btns-popup btn__menu" id="btn-menu">
+        <span>Quitter</span>
+      </div>
+    </nav>
+    <div class="popup large-popup" id="popup-menu">
+      <a href="/index.html">Quitter la partie</a>
+      <button class="btns-popup"><span>Retour au jeu</span></button>
     </div>
   </header>
-
-  <div class="popup large-popup" id="popup-menu">
-    <a href="/index.html">Quitter la partie</a>
-    <button class="btns-popup"><span>Retour au jeu</span></button>
-  </div>
 
   <main>
     <section id="screen-manager-game">
@@ -54,17 +55,23 @@
       </div>
 
       <div class="screen screen__text screen__dialog js-screen" id="screen-dialog-1">
-        <div class="dialog__animation anim-1"></div>
-        <div class="dialog__text">
+        <div>
           <span>Pedro de Moya</span>
           <p>GRR ! Vous ne m’arrêterez JAMAIS, vous n’êtes qu’un vulgaire musicien fait de peinture !</p>
         </div>
         <a  href="#screen-dialog-2" data-open-screen="screen-dialog-2">Continuer</a>
       </div>
 
-      <div class="screen screen__text js-screen screen__dialog" id="screen-dialog-2">
-        <div class="dialog__animation anim-2"></div>
-        <div class="dialog__text">
+      <div class="screen screen__text screen__dialog js-screen" id="screen-dialog-2">
+        <div>
+          <span>Le joueur de luth, dit “Lil' Luth”</span>
+          <p>Halte là Pedrito, moi et mon luth nous chanterons en travers de votre chemin. Vous ne PASSEREZ PAS !</p>
+        </div>
+        <a  href="#screen-dialog-3" data-open-screen="screen-dialog-3">Continuer</a>
+      </div>
+
+      <div class="screen screen__text js-screen screen__dialog" id="screen-dialog-3">
+        <div>
           <span>Pedro de Moya</span>
           <p>J’éteindrai cette immonde lanterne coûte que coûte !</p>
         </div>
@@ -88,12 +95,12 @@
         <div class="characters">
           <div class="character character__good">
             <div class="character-sprite" id="character-good-sprite">
-              <img src="/assets/images/character-2.svg" alt="">
+              <img src="/assets/images/characters/joueurDeLuth.svg" alt="">
             </div>
           </div>
           <div class="character character__evil" id="character-evil-sprite">
             <div class="character-sprite">
-              <img src="/assets/images/character-1.svg" alt="">
+              <img src="/assets/images/characters/pedro-pinceau.svg" alt="">
             </div>
           </div>
         </div>

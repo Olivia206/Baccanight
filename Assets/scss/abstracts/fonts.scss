@@ -4,3 +4,23 @@
   font-weight: normal;
   src: url(/assets/fonts/cherrybombone-regular.ttf);
 }
+
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-weight: normal;
+  src: url(/assets/fonts/RobotoCondensed-Regular.ttf);
+}
+
+// icons
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/assets/fonts/icomoon/icomoon.eot');
+  src:  url('/assets/fonts/icomoon/icomoon.eot') format('embedded-opentype'),
+    url('/assets/fonts/icomoon/icomoon.ttf') format('truetype'),
+    url('/assets/fonts/icomoon/icomoon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}

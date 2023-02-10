@@ -47,12 +47,12 @@ export const startGame = function() {
 
   function gameControls(control){
     
-    if (pvBot > 0) {
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
-    }
-    if (pvBot <= 0) {
+      updateLifeBar();
+
+      if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
     }
@@ -85,8 +85,27 @@ export const startGame = function() {
         pvBot -= 0;
         pvPlayer -= 0;
     }
+    if (pvBot <= 0) {
+      lifebarBot.style.width = "0%";
+    } else {
+      lifebarBot.style.width = pvBot + "%";
+    }
     lifebarPlayer.style.width = pvPlayer + "%";
-    lifebarBot.style.width = pvBot + "%";
+  }
+
+  function updateLifeBar() {
+    if (pvBot <= 50 ) {
+      lifebarBot.style.background = "orange";
+    } 
+    if (pvBot <= 20) {
+      lifebarBot.style.background = "#B72D2D";
+    }
+    if (pvPlayer <= 50 ) {
+      lifebarPlayer.style.background = "orange";
+    }
+    if (pvPlayer <= 20) {
+      lifebarPlayer.style.background = "#B72D2D";
+    }
   }
 
   function playerActions(control) {

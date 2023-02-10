@@ -1,4 +1,5 @@
 .disabled {
+    border-radius: 100%;
     filter: grayscale(1);
     opacity: .7;
     pointer-events: none;
@@ -11,7 +12,8 @@ main
 .screen {
     color: white;
     display: none;
-    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
     position: relative;
     width: 100%;
     &:not(&__game) {
@@ -43,62 +45,48 @@ main
                 margin-right: auto;
             }
         }
+        &:not(.screen__dialog) {
+            background-image: url("/assets/images/background-museum.svg");
+            background-size: cover;
+            &::before{
+                background: transparentize($color: $body-background, $amount: 0.5);
+                content: '';
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                right: 0;
+                left: 0;
+            }
+            > * {
+                position: relative;
+            }
+        }
     }
     &__dialog {
+        align-items: flex-end;
+        background-size: cover;
+        flex-direction: column;
+        height: 100vh;
         justify-content: flex-end;
-        .dialog__text {
-            position: relative;
-            z-index: 5;
+        &#screen-dialog-1 {
+            background-image: url("/assets/images/dialog-1.svg");
         }
-        .dialog__animation {
-            bottom: 0;
-            position: absolute;
-            width: 100vw;
-            @media (min-width: 600px) {
-                top: 0
-            }
-            &::before,
-            &::after {
-                background-position: bottom;
-                background-repeat: no-repeat;
-                content: "";
-                height: 100%;
-                position: absolute;
-                left: 0;
-                width: 100%;
-            }
-            &::before {
-                background-image: url('/assets/images/light-effects-dialog.svg');
-                background-size: 245%;
-                top: 0;
-                z-index: 1;
-                @media (min-width: 600px) {
-                    background-size: 150%;
-                }
-            }
-            &::after {
-                background-image: linear-gradient(180deg, rgba(6, 14, 42, 0) 28.65%, #060E2A 68.23%);
-                background-size: contain;
-                bottom: 0;
-                z-index: 3;
-            }
-            svg {
-                position: relative;
-                display: block;
-                margin: 0 auto;
-                transform: scale(1) !important;
-                transition: transform .3s ease;
-                transition-delay: 2s;
-                width: 90% !important;
-                z-index: 2;
-                @media (min-width: 600px) {
-                    width: 100% !important;
-                }
-            }
+        &#screen-dialog-2 {
+            background-image: url("/assets/images/dialog-2.svg");
+        }
+        &#screen-dialog-3 {
+            background-image: url("/assets/images/dialog-3.svg");
+        }
+        p {
+            text-align: left;
         }
         span {
+            float: left;
+            font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
+            text-align: left;
+            width: 100%;
         }
     }
 
@@ -109,49 +97,92 @@ main
     &__game {
         justify-content: flex-end;
         padding: 40px;
+        background-image: url("/assets/images/background-museum.svg");
+        background-size: cover;
+        &::after{
+            background-image: url("/assets/images/gradientGameBottom.svg");
+            background-position: bottom;
+            background-repeat-y: no-repeat;
+            bottom: 0;
+            content: '';
+            left: 0;
+            opacity: 0.9;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: 65px;
+            z-index: 1;
+        }
+        > * {
+            z-index: 2;
+        }
+        .lifebars {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+            margin-bottom: auto;
+            margin-top: 5rem;
+            width: 100%;
+            .character-lifebar {
+                flex: 1;
+                .lifebar-gauge {
+                    align-items: center;
+                    background: white;
+                    border-radius: 20px;
+                    box-shadow: 0px 4px 4px 0px #00000040;
+                    display: flex;
+                    height: 14px;
+                    padding: 0 2px;
+                    &.lifebar-good {
+                        justify-content: flex-end;
+                    }
+                    div {
+                        background-color: $green;
+                        border-radius: 5px;
+                        height: 9px;
+                    }
+                }
+            }
+            .separator {
+                align-items: center;
+                background-image: url(/assets/images/vs-separator.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                color: $primary;
+                display: flex;
+                font-size: 32px;
+                justify-content: center;
+                height: 75px;
+                position: absolute;
+                width: 90px;
+            }
+        }
         .characters {
             display: flex;
             justify-content: space-between;
+            position: relative;
+            bottom: 50px;
 
+            .character__good, .character__evil{
+                img{
+                    width: 110px;
+                }
+            }
             .character {
               position: relative;
               width: fit-content;
 
-              .character-sprite{
-                position: absolute;
-                height: 250px;
-                aspect-ratio: 175/140;
-                overflow-x: hidden;
-                svg{
-                  position: absolute;
-                  left: 0;
-                }
-
-                &#character-good-sprite{
-                  left: -50px;
-                  bottom: 0;
-                }
-                &#character-evil-sprite{
-                  right: -50px;
-                  bottom: 0;
-                }
-              }
-                .character-lifebar {
-                    margin-bottom: 20px;
-                    width: 100%;
-                    .lifebar-gauge {
-                        align-items: center;
-                        background: white;
-                        border-radius: 20px;
-                        display: flex;
-                        height: 14px;
-                        padding: 0 2px;
-                        div {
-                            background-image: $gradient;
-                            border-radius: 5px;
-                            height: 9px;
-                        }
-                    }
+                .character-sprite#character-good-sprite{
+                  position: relative;
+                  svg{
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    object-fit: fill;
+                  }
                 }
             }
         }
@@ -159,6 +190,7 @@ main
     a {
         background: white;
         border-radius: 20px;
+        box-shadow: $btn-shadow;
         color: $primary;
         display: table;
         font-size: 18px;
@@ -167,25 +199,75 @@ main
         text-decoration: none;
         text-align: center;
         text-transform: uppercase;
-        z-index: 9;
+        transition: box-shadow .3s ease;
+        &:hover {
+            box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
+        }
     }
+}
+.tutorials {
+    z-index: 25;
 }
 .tutorial,
 .modal {
-    background-color: transparentize($color: beige, $amount: .2);
+    background-color: transparentize($color: white, $amount: .1);
+    border-radius: 10px;
     color: $primary;
     left: 50%;
     opacity: 0;
     max-width: 600px;
-    padding: 40px;
+    padding: 20px;
+    pointer-events: none;
     position: absolute;
-    top: 10%;
+    top: 1rem;
     transform: translate(-50%, -2%) scale(.9);
     width: 90%;
     transition: transform .5s ease, opacity .4s ease;
+    @media (min-width: 920px) {
+        padding: 40px;
+    }
+    &__victory {
+        z-index: 25;
+    }
+    &__attack {
+        p strong{
+            color: $blue;
+        }
+    }
+    &__ultimate {
+        p strong {
+            color: $red;
+        }
+    }
+    &__defence {
+        p strong {
+            color: $green;
+        }
+    }
+    p {
+        font-size: 24px;
+        text-align: center;
+        text-transform: uppercase;
+        strong {
+            display: block;
+            font-size: 28px;
+            margin-top: 20px;
+            @media (min-width: 920px) {
+                margin-top: 15px;
+            }
+        }
+        + p {
+            font-size: 14px;
+            margin-top: 20px;
+            @media (min-width: 920px) {
+                margin-top: 10px;
+            }
+        }
+    }
     &.is-visible {
         opacity: 1;
         transform: translate(-50%, 0%) scale(1);
         transition-delay: .2s;
+        pointer-events: all;
     }
 }

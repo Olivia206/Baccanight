@@ -1,8 +1,69 @@
+div.btns-popup,
+.btn-primary {
+    cursor: pointer;
+    text-align: center;
+    font-family: $font-secondary;
+    text-decoration: none;
+    text-transform: uppercase;
+    span {
+        color: white;
+        font-size: 16px;
+        letter-spacing: .5px;
+    }
+    &::before {
+        align-items: center;
+        background-color: white;
+        border-radius: 100%;
+        box-shadow: $round-shadow;
+        color: $primary;
+        content: "";
+        display: flex;
+        flex-direction: column;
+        font-family: 'icomoon' !important;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        justify-content: center;
+        line-height: 1;
+        margin: 0 auto 10px;
+        speak: never;
+        text-transform: none;
+        transition: box-shadow .3s ease;
+        height: 44px;
+        width: 44px;
+    }
+    &:hover::before {
+        box-shadow:  0px 0px 0px #C3C3C3;;
+    }
+}
+div.btn {
+    &__menu,
+    &__close {
+        &::before {
+            content: '#{$icon-close}';
+        }
+    }
+    &__credits::before {
+        content: '#{$icon-credits}';
+    }
+}
+.btn-primary {
+    &.btn__home::before {
+        content: '#{$icon-home}';
+    }
+    &.btn__game::before {
+        content: '#{$icon-game}';
+    }
+    &.btn__character::before {
+        content: '#{$icon-character}';
+    }
+}
+
 .controls {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    @media (min-width: 920px) {
+    @media (min-width: 600px) {
         justify-content: center;
         gap: 40px;
     }
@@ -13,14 +74,20 @@
         background-position: center;
         background-repeat: no-repeat;
         border-radius: 100%;
+        box-shadow: $round-shadow;
         color: $primary;
+        cursor: pointer;
         display: flex;
         height: 70px;
         justify-content: center;
         margin-top: 44px;
         text-align: center;
         text-transform: uppercase;
+        transition: box-shadow .3s ease;
         width: 70px;
+        &:hover {
+            box-shadow:  0px 0px 0px #C3C3C3;;
+        }
         &:not(.disabled) {
             filter: grayscale(0);
         }

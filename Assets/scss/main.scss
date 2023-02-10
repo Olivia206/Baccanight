@@ -9,9 +9,10 @@
 @import "base/default";
 
 @import "components/button";
+@import "components/popup";
 
 @import "layout/header";
 @import "layout/screen";
 
+@import "sections/character";
 @import "sections/home";
-@import "sections/popup";

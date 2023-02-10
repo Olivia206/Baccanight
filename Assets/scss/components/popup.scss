@@ -1,0 +1,91 @@
+.popup{
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: $primary;
+    display: none;
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    left: 50%;
+    min-height: 70%;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    z-index: 50;
+    &--open{
+        display: block;
+    }
+    &.large-popup{
+        background-color: $body-background;
+        background-image: $gradient-light;
+        border-radius: 0;
+        color: $secondary;
+        height: 100%;
+        width: 100%;
+        a, button {
+            @include reset-btn;
+            background: white;
+            border-radius: 20px;
+            box-shadow: $btn-shadow;
+            color: $primary;
+            display: table;
+            font-family: $font-primary;
+            font-size: 18px;
+            margin: 60px auto 0;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            transition: box-shadow .3s ease;
+            &:hover {
+                box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
+            }
+        }
+    }
+}
+.homepage {
+    .popup {
+        flex-direction: column;
+        max-height: 80vh;
+        max-width: 450px;
+        &--open {
+            display: flex;
+        }
+        &-head {
+            display: flex;
+            position: relative;
+            padding:  2rem 2rem 0;
+            > div {
+                margin-bottom: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform: translate(25%,-25%);
+                span {
+                font-size: 0;
+                }
+            }
+        }
+        .popup-body {
+            border: 2rem solid transparent;
+            flex: 1;
+            font-size: 16px;
+            overflow: auto;
+            p {
+                font-family: $font-secondary;
+                a {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}
+.game-page {
+    .popup {
+        padding: 2rem;
+    }
+    .popup__btn{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}

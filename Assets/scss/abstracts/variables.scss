@@ -2,10 +2,10 @@
 $primary : #070F2B;
 $secondary : #FFFFFF;
 
-$blue : #1794DB;
+$blue : #6D9EBF;
 $purple : #43229D;
-$green : #2E8916;
-$red : #9C2424;
+$green : #599C47;
+$red : #B72D2D;
 $body-background: #0B132F;
 
 $gradient: linear-gradient(90deg, rgba(114,94,236,1) 0%, rgba(15,22,88,1) 100%);
@@ -13,7 +13,8 @@ $gradient-light: linear-gradient(90deg, rgba(114,94,236,.2) 0%, rgba(15,22,88,.2
 
 // FONTS
 
-$font : "Cherry Bomb";
+$font-primary : "Cherry Bomb";
+$font-secondary : "Roboto";
 
 
 // SHADOWS
@@ -21,3 +22,11 @@ $font : "Cherry Bomb";
 $round-shadow : -1px 3px 0px #C3C3C3;
 $btn-shadow : -1px 5px 0px #C4C4C4;;
 $text-shadow: -3px 0px 0px #838383, -6px -2px 0px #5E6D89;
+
+// ICONS
+
+$icon-close: "\e900";
+$icon-home: "\e902";
+$icon-credits: "\e901";
+$icon-game: "\e903";
+$icon-character: "\e904";

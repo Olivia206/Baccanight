@@ -1,9 +1,32 @@
 header {
-  z-index: 20;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  span {
-    color: white;
+  padding: 20px;
+  width: 100%;
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+body.character-page {
+  header {
+    span {
+      color: white;
+    }
+  }
+}
+body:not(.homepage) {
+  header {
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+  }
+}
+.homepage {
+  position: relative;
+  header {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
   }
 }
