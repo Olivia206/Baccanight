@@ -1,4 +1,4 @@
-import { animationManager } from './animation-manager.js';
+// import { animationManager } from './animation-manager.js';
 
 export const startGame = function() {
   let pvPlayer = 100;
@@ -28,6 +28,7 @@ export const startGame = function() {
   const animPlayerUltimatePath = '/assets/js/animations/anim-player-ultimate.json',
         animPlayerIdlePath = '/assets/js/animations/anim-player-idle.json',
         animEvilAttackPath = '/assets/js/animations/anim-evil-attack.json',
+        animEvilDefencePath = '/assets/js/animations/anim-evil-defence.json',
         animEvilDeathPath = '/assets/js/animations/anim-evil-death.json';
 
   // Animations player
@@ -52,6 +53,13 @@ export const startGame = function() {
   var animationEvilAttack = lottie.loadAnimation({
     container: animBotContainer,
     path: animEvilAttackPath,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false
+  });
+  var animationEvilDefence = lottie.loadAnimation({
+    container: animBotContainer,
+    path: animEvilDefencePath,
     renderer: 'svg',
     loop: false,
     autoplay: false
@@ -208,11 +216,15 @@ export const startGame = function() {
     if (sort == 0) {
       console.log("bot is attacking olala")
       botAction = "attack";
+      animationEvilAttack.goToAndStop(0);
       animationEvilAttack.play();
       return botAction;
     }
     else{
+      console.log("bot is defending too bad")
       botAction = "defence";
+      animationEvilDefence.goToAndStop(0);
+      animationEvilDefence.play();
       return botAction;
     }
   }
