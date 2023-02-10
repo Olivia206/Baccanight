@@ -9,9 +9,9 @@ export const startGame = function() {
   let counterUltimate = 0;
   let maxDefence = 3;
 
-  const damageAttack = 25,
-        damageUltimateAttack = 35,
-        damageDefence = 10;
+  const damageAttack = 10,
+        damageUltimateAttack = 20,
+        damageDefence = 5;
 
   const lifebarPlayer = document.querySelector(".lifebar-good div"),
         lifebarBot = document.querySelector(".lifebar-evil div"),
@@ -22,6 +22,7 @@ export const startGame = function() {
         modalVictory = document.querySelector(".modal__victory"),
         counterDefenceContent = document.querySelector(".counter"),
         progressBar = document.querySelector(".control-progress"),
+        animPlayerIdleContainer = document.querySelector('#character-good-idle'),
         animPlayerContainer = document.querySelector('#character-good-sprite'),
         animBotContainer = document.querySelector('#character-evil-sprite'),
         animBotDeathContainer = document.querySelector('#character-evil-death');
@@ -35,7 +36,7 @@ export const startGame = function() {
   // Animations pj
 
   var animationPlayerIdle = lottie.loadAnimation({
-    container: animPlayerContainer,
+    container: animPlayerIdleContainer,
     path: animPlayerIdlePath,
     renderer: 'svg',
     loop: true,
@@ -87,6 +88,7 @@ export const startGame = function() {
 
     let bot = botActions();
     let player = playerActions(control);
+
     updatePv(player, bot);
     updateLifeBar();
 
@@ -95,11 +97,6 @@ export const startGame = function() {
       control.parentNode.classList.add("disabled");
       setTimeout(animDeath, 1500);
     }
-  }
-  function animDeath() {
-    animBotContainer.style.display = "none";
-    animBotDeathContainer.style.display = "block";
-    animationEvilDeath.play()
   }
 
   function updatePv(playerAction, botAction) {
@@ -173,6 +170,8 @@ export const startGame = function() {
         progressBar.style.cssText += '--num: 27';
       }
 
+      setTimeout(animIdlePlayer, 1500);
+
       playerAction = btnAttr;
       return playerAction;
     }
@@ -245,8 +244,19 @@ export const startGame = function() {
     }
   }
 
+  function animIdlePlayer() {
+    animPlayerIdleContainer.style.display = "block";
+  }
+
+  function animDeath() {
+    animBotContainer.style.display = "none";
+    animBotDeathContainer.style.display = "block";
+    animationEvilDeath.play()
+  }
+
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
+      animPlayerIdleContainer.style.display = "none";
       if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
         btnAttack.classList.add("disabled");

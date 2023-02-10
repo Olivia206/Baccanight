@@ -60,7 +60,7 @@ body {
   height: 200px;
   width: 140px;
 }
-.character .character-sprite#character-evil-death {
+.character .character-sprite#character-evil-death, .character .character-sprite#character-evil-sprite, .character .character-sprite#character-good-sprite {
   display: none;
 }
 .character .character-sprite svg {
