@@ -609,7 +609,7 @@ main section {
 
 .character-page {
   font-family: "Roboto";
-  padding-top: 150px;
+  padding-top: 70px;
 }
 .character-page header {
   background-color: #070F2B;
@@ -697,11 +697,11 @@ main section {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: 4rem;
+  margin: 4rem auto;
 }
 @media (min-width: 600px) {
   .character-page section.character-about .character-illustration {
-    margin-right: 4rem;
+    margin-right: 6rem;
     margin-bottom: 0;
   }
 }
@@ -725,6 +725,7 @@ main section {
 .character-page section.character-about .character-illustration img {
   position: relative;
   z-index: 2;
+  width: 10rem;
 }
 .character-page section.character-about .character-skills .character-stats {
   align-items: center;
