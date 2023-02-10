@@ -26,13 +26,15 @@ export const startGame = function() {
         animPlayerContainer = document.querySelector('#character-good-sprite'),
         animBotIdleContainer = document.querySelector('#character-evil-idle'),
         animBotContainer = document.querySelector('#character-evil-sprite'),
-        animBotDeathContainer = document.querySelector('#character-evil-death');
+        animBotDeathContainer = document.querySelector('#character-evil-death'),
+        animVictoryContainer = document.querySelector('#character-good-victory');
 
-  const animPlayerIdlePath = '/assets/js/animations/anim-player-idle.json',
-        animPlayerPath = '/assets/js/animations/anim-player-idle.json',
-        animEvilIdlePath = '/assets/js/animations/anim-evil-idle.json',
+  const animPlayerIdlePath = '/assets/js/animations/anims-player/anim-player-idle.json',
+        animPlayerPath = '/assets/js/animations/anims-player/anim-player-idle.json',
+        animEvilIdlePath = '/assets/js/animations/anims-evil/anim-evil-idle.json',
         animEvilPath = '/assets/js/animations/all-anim-evil.json',
-        animEvilDeathPath = '/assets/js/animations/anim-evil-death.json';
+        animPlayerVictoryPath = '/assets/js/animations/anims-endings/anim-evil-death.json',
+        animEvilDeathPath = '/assets/js/animations/anims-endings/anim-evil-death.json';
 
   // Animations pj
 
@@ -46,6 +48,13 @@ export const startGame = function() {
   var animationPlayer = lottie.loadAnimation({
     container: animPlayerContainer,
     path: animPlayerPath,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false
+  });
+  var animationPlayerVictory = lottie.loadAnimation({
+    container: animVictoryContainer,
+    path: animPlayerVictoryPath,
     renderer: 'svg',
     loop: false,
     autoplay: false
