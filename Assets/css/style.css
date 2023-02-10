@@ -377,7 +377,7 @@ main section {
   margin-right: auto;
 }
 .screen__text:not(.screen__dialog) {
-  background-image: url("/assets/images/background-museum.svg");
+  background-image: url("/assets/images/background-museum.png");
   background-size: cover;
 }
 .screen__text:not(.screen__dialog)::before {
@@ -422,7 +422,7 @@ main section {
 .screen__game {
   justify-content: flex-end;
   padding: 40px;
-  background-image: url("/assets/images/background-museum.svg");
+  background-image: url("/assets/images/background-museum.png");
   background-size: cover;
 }
 .screen__game::after {
