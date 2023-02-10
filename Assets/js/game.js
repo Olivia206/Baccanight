@@ -1,3 +1,5 @@
+import { animationManager } from './animation-manager.js';
+
 export const startGame = function() {
   let pvPlayer = 100;
   let pvBot = 100;
