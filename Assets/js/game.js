@@ -21,19 +21,19 @@ export const startGame = function() {
         counterDefenceContent = document.querySelector(".counter"),
         progressBar = document.querySelector(".control-progress");
 
-  const animTEstPath = '/assets/js/animations/anim-melodie.json',
-        animEvilAttack = '/assets/js/animations/anim-attaque-pinceau.json';
+  const animPlayerAttackPath = '/assets/js/animations/anim-player-ultimate.json',
+        animEvilAttackPath = '/assets/js/animations/anim-attaque-pinceau.json';
 
   var animation = lottie.loadAnimation({
       container: document.querySelector('#character-good-sprite'),
-      path: animTEstPath,
+      path: animPlayerAttackPath,
       renderer: 'svg',
       loop: false,
       autoplay: false
     });
   var animationEvilAttack = lottie.loadAnimation({
     container: document.querySelector('#character-evil-sprite'),
-    path: animEvilAttack,
+    path: animEvilAttackPath,
     renderer: 'svg',
     loop: false,
     autoplay: false
@@ -114,7 +114,9 @@ export const startGame = function() {
 
     if(btnAttr == "attack"){
       counterAttack += 1;
+      animation.goToAndStop(0);
       animation.play();
+      console.log(animation)
 
       if (counterAttack != 0 && counterAttack % 2  == 0) {
         btnUltimate.classList.remove("disabled");

@@ -201,6 +201,7 @@ main
             justify-content: space-between;
             position: relative;
             bottom: 50px;
+            margin: 0 -30px;
 
             .character__good, .character__evil{
                 img{
@@ -211,14 +212,30 @@ main
               position: relative;
               width: fit-content;
 
-                .character-sprite#character-good-sprite{
+                .character-sprite#character-good-sprite, .character-sprite#character-evil-sprite{
                   position: relative;
+                  height: 200px;
+                  width: 140px;
                   svg{
-                    display: none;
-                    position: absolute;
+                    overflow: visible;
+                    clipPath {
+                      display: none;
+                    }
+                  }
+                }
+                .character-sprite#character-good-sprite{
+                  z-index: 20;
+                  svg{
                     top: 0;
                     left: 0;
-                    object-fit: fill;
+                  }
+                }
+                .character-sprite#character-evil-sprite{
+                  z-index: 10;
+                  svg{
+                    // display: none;
+                    top: 0;
+                    right: 0;
                   }
                 }
             }

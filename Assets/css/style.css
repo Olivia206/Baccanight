@@ -536,6 +536,7 @@ main section {
   justify-content: space-between;
   position: relative;
   bottom: 50px;
+  margin: 0 -30px;
 }
 .screen__game .characters .character__good img, .screen__game .characters .character__evil img {
   width: 110px;
@@ -544,15 +545,30 @@ main section {
   position: relative;
   width: fit-content;
 }
-.screen__game .characters .character .character-sprite#character-good-sprite {
+.screen__game .characters .character .character-sprite#character-good-sprite, .screen__game .characters .character .character-sprite#character-evil-sprite {
   position: relative;
+  height: 200px;
+  width: 140px;
+}
+.screen__game .characters .character .character-sprite#character-good-sprite svg, .screen__game .characters .character .character-sprite#character-evil-sprite svg {
+  overflow: visible;
+}
+.screen__game .characters .character .character-sprite#character-good-sprite svg clipPath, .screen__game .characters .character .character-sprite#character-evil-sprite svg clipPath {
+  display: none;
+}
+.screen__game .characters .character .character-sprite#character-good-sprite {
+  z-index: 20;
 }
 .screen__game .characters .character .character-sprite#character-good-sprite svg {
-  display: none;
-  position: absolute;
   top: 0;
   left: 0;
-  object-fit: fill;
+}
+.screen__game .characters .character .character-sprite#character-evil-sprite {
+  z-index: 10;
+}
+.screen__game .characters .character .character-sprite#character-evil-sprite svg {
+  top: 0;
+  right: 0;
 }
 .screen a {
   background: white;
