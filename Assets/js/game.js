@@ -66,7 +66,7 @@ export const startGame = function() {
     autoplay: false
   });
   var animationEvilDeath = lottie.loadAnimation({
-    container: animBotContainer,
+    container: animBotDeathContainer,
     path: animEvilDeathPath,
     renderer: 'svg',
     loop: false,
