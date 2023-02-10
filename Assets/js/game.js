@@ -22,7 +22,7 @@ export const startGame = function() {
         progressBar = document.querySelector(".control-progress");
 
   const animTEstPath = '/assets/js/animations/anim-melodie.json',
-        animEvilAttack = '/assets/js/animations/evil-attack.json';
+        animEvilAttack = '/assets/js/animations/anim-attaque-pinceau.json';
 
   var animation = lottie.loadAnimation({
       container: document.querySelector('#character-good-sprite'),
@@ -37,7 +37,7 @@ export const startGame = function() {
     renderer: 'svg',
     loop: false,
     autoplay: false
-  }); 
+  });
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
@@ -46,7 +46,7 @@ export const startGame = function() {
   }
 
   function gameControls(control){
-    
+
       let bot = botActions();
       let player = playerActions(control);
       updatePv(player, bot);
@@ -96,7 +96,7 @@ export const startGame = function() {
   function updateLifeBar() {
     if (pvBot <= 50 ) {
       lifebarBot.style.background = "orange";
-    } 
+    }
     if (pvBot <= 20) {
       lifebarBot.style.background = "#B72D2D";
     }
@@ -135,20 +135,17 @@ export const startGame = function() {
     else if(btnAttr == "defence"){
       maxDefence -= 1;
       counterDefenceContent.innerHTML = "x" + maxDefence;
+      counterDefence += 1;
 
-      if (counterDefence === 2) {
+      if (counterDefence === 3) {
+        console.log("counterDefence = " + counterDefence);
         control.classList.add("disabled");
       }
       else {
-        counterDefence += 1;
-
-        if (counterAttack != 2) {
-          btnDefence.classList.add("disabled");
-        }
         if (counterDefence === 1) {
           toggleTutorial(btnAttr);
+          btnDefence.classList.add("disabled");
         }
-
         playerAction = btnAttr;
         return playerAction;
       }
