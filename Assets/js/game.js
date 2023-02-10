@@ -23,7 +23,8 @@ export const startGame = function() {
         counterDefenceContent = document.querySelector(".counter"),
         progressBar = document.querySelector(".control-progress"),
         animPlayerContainer = document.querySelector('#character-good-sprite'),
-        animBotContainer = document.querySelector('#character-evil-sprite');
+        animBotContainer = document.querySelector('#character-evil-sprite'),
+        animBotDeathContainer = document.querySelector('#character-evil-death');
 
   const animPlayerUltimatePath = '/assets/js/animations/anim-player-ultimate.json',
         animPlayerIdlePath = '/assets/js/animations/anim-player-idle.json',
@@ -217,7 +218,7 @@ export const startGame = function() {
       console.log("bot is attacking olala")
       botAction = "attack";
       animationEvilAttack.goToAndStop(0);
-      animationEvilAttack.play();
+      animationEvilAttack.playSegments([0,5],true);
       return botAction;
     }
     else{
