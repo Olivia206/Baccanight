@@ -63,19 +63,56 @@ main
         }
     }
     &__dialog {
-        align-items: flex-end;
-        background-size: cover;
-        flex-direction: column;
-        height: 100vh;
         justify-content: flex-end;
-        &#screen-dialog-1 {
-            background-image: url("/assets/images/dialog-1.svg");
+        .dialog__text {
+            position: relative;
+            z-index: 5;
         }
-        &#screen-dialog-2 {
-            background-image: url("/assets/images/dialog-2.svg");
-        }
-        &#screen-dialog-3 {
-            background-image: url("/assets/images/dialog-3.svg");
+        .dialog__animation {
+            bottom: 0;
+            position: absolute;
+            width: 100vw;
+            @media (min-width: 600px) {
+                top: 0
+            }
+            &::before,
+            &::after {
+                background-position: bottom;
+                background-repeat: no-repeat;
+                content: "";
+                height: 100%;
+                position: absolute;
+                left: 0;
+                width: 100%;
+            }
+            &::before {
+                background-image: url('/assets/images/light-effects-dialog.svg');
+                background-size: 245%;
+                top: 0;
+                z-index: 1;
+                @media (min-width: 600px) {
+                    background-size: 150%;
+                }
+            }
+            &::after {
+                background-image: linear-gradient(180deg, rgba(6, 14, 42, 0) 28.65%, #060E2A 68.23%);
+                background-size: contain;
+                bottom: 0;
+                z-index: 3;
+            }
+            svg {
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                transform: scale(1) !important;
+                transition: transform .3s ease;
+                transition-delay: 2s;
+                width: 90% !important;
+                z-index: 2;
+                @media (min-width: 600px) {
+                    width: 100% !important;
+                }
+            }
         }
         p {
             text-align: left;
@@ -196,10 +233,12 @@ main
         font-size: 18px;
         margin: 60px auto 0;
         padding: 10px 20px;
+        position: relative;
         text-decoration: none;
         text-align: center;
         text-transform: uppercase;
         transition: box-shadow .3s ease;
+        z-index: 4;
         &:hover {
             box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
         }
