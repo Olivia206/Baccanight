@@ -26,26 +26,43 @@ export const startGame = function() {
         animBotContainer = document.querySelector('#character-evil-sprite'),
         animBotDeathContainer = document.querySelector('#character-evil-death');
 
-  const animPlayerPath = '/assets/js/animations/anim-player-idle.json',
+  const animPlayerIdlePath = '/assets/js/animations/anim-player-idle.json',
+        animPlayerPath = '/assets/js/animations/anim-player-idle.json',
+        animEvilIdlePath = '/assets/js/animations/anim-evil-idle.json',
         animEvilPath = '/assets/js/animations/anim-evil-attack.json',
         animEvilDeathPath = '/assets/js/animations/anim-evil-death.json';
 
-  // Animations player
+  // Animations pj
 
-  var animationPlayer = lottie.loadAnimation({
+  var animationPlayerIdle = lottie.loadAnimation({
     container: animPlayerContainer,
-    path: animPlayerPath,
+    path: animPlayerIdlePath,
     renderer: 'svg',
     loop: true,
     autoplay: false
   });
-  // Animations bot
+  var animationPlayer = lottie.loadAnimation({
+    container: animPlayerContainer,
+    path: animPlayerPath,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false
+  });
+
+  // Animations pnj
 
   var animationEvil = lottie.loadAnimation({
     container: animBotContainer,
     path: animEvilPath,
     renderer: 'svg',
     loop: false,
+    autoplay: false
+  });
+  var animationEvilIdle = lottie.loadAnimation({
+    container: animBotContainer,
+    path: animEvilIdlePath,
+    renderer: 'svg',
+    loop: true,
     autoplay: false
   });
   var animationEvilDeath = lottie.loadAnimation({
@@ -56,8 +73,8 @@ export const startGame = function() {
     autoplay: false
   });
 
-  animationPlayer.play();
-  animationEvil.play();
+  animationPlayerIdle.play();
+  animationEvilIdle.play();
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
@@ -179,7 +196,7 @@ export const startGame = function() {
       }
     }
     else {
-      // animationPlayerUltimate.play();
+      // animationPlayer.playSegments([0,5],true);
       counterUltimate += 1;
       progressBar.style.cssText += '--num: 0';
 
