@@ -502,16 +502,15 @@ main section {
   position: relative;
   width: fit-content;
 }
-.screen__game .characters .character .character-sprite {
-  position: absolute;
-  height: 250px;
-  aspect-ratio: 175/140;
-  overflow-x: hidden;
+.screen__game .characters .character .character-sprite#character-good-sprite {
+  position: relative;
 }
 .screen__game .characters .character .character-sprite#character-good-sprite svg {
   display: none;
   position: absolute;
+  top: 0;
   left: 0;
+  object-fit: fill;
 }
 .screen a {
   background: white;
