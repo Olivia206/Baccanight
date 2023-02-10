@@ -458,7 +458,7 @@ main section {
   align-items: center;
   background: white;
   border-radius: 20px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+  box-shadow: 0px 4px 4px 0px #00000040;
   display: flex;
   height: 14px;
   padding: 0 2px;
@@ -707,7 +707,7 @@ main section {
 .character-page section.character-about .character-illustration::before, .character-page section.character-about .character-illustration::after {
   aspect-ratio: 1/1;
   border-radius: 100%;
-  border: 1px solid rgba(105, 111, 255, 0.2784313725);
+  border: 1px solid #696FFF47;
   content: "";
   position: absolute;
   z-index: 1;
