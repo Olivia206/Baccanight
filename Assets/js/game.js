@@ -26,41 +26,24 @@ export const startGame = function() {
         animBotContainer = document.querySelector('#character-evil-sprite'),
         animBotDeathContainer = document.querySelector('#character-evil-death');
 
-  const animPlayerUltimatePath = '/assets/js/animations/anim-player-ultimate.json',
-        animPlayerIdlePath = '/assets/js/animations/anim-player-idle.json',
-        animEvilAttackPath = '/assets/js/animations/anim-evil-attack.json',
-        animEvilDefencePath = '/assets/js/animations/anim-evil-defence.json',
+  const animPlayerPath = '/assets/js/animations/anim-player-idle.json',
+        animEvilPath = '/assets/js/animations/anim-evil-attack.json',
         animEvilDeathPath = '/assets/js/animations/anim-evil-death.json';
 
   // Animations player
 
-  var animationPlayerIdle = lottie.loadAnimation({
+  var animationPlayer = lottie.loadAnimation({
     container: animPlayerContainer,
-    path: animPlayerIdlePath,
+    path: animPlayerPath,
     renderer: 'svg',
     loop: true,
     autoplay: false
   });
-  var animationPlayerUltimate = lottie.loadAnimation({
-      container: animPlayerContainer,
-      path: animPlayerUltimatePath,
-      renderer: 'svg',
-      loop: false,
-      autoplay: false
-    });
-
   // Animations bot
 
-  var animationEvilAttack = lottie.loadAnimation({
+  var animationEvil = lottie.loadAnimation({
     container: animBotContainer,
-    path: animEvilAttackPath,
-    renderer: 'svg',
-    loop: false,
-    autoplay: false
-  });
-  var animationEvilDefence = lottie.loadAnimation({
-    container: animBotContainer,
-    path: animEvilDefencePath,
+    path: animEvilPath,
     renderer: 'svg',
     loop: false,
     autoplay: false
@@ -73,7 +56,8 @@ export const startGame = function() {
     autoplay: false
   });
 
-  animationPlayerIdle.play();
+  animationPlayer.play();
+  animationEvil.play();
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
@@ -96,6 +80,8 @@ export const startGame = function() {
     }
   }
   function animDeath() {
+    animBotContainer.style.display = "none";
+    animBotDeathContainer.style.display = "block";
     animationEvilDeath.play()
   }
 
@@ -155,7 +141,7 @@ export const startGame = function() {
 
     if(btnAttr == "attack"){
       counterAttack += 1;
-      animationPlayerUltimate.goToAndStop(0);
+      // animationPlayerUltimate.goToAndStop(0);
 
       if (counterAttack != 0 && counterAttack % 2  == 0) {
         btnUltimate.classList.remove("disabled");
@@ -193,7 +179,7 @@ export const startGame = function() {
       }
     }
     else {
-      animationPlayerUltimate.play();
+      // animationPlayerUltimate.play();
       counterUltimate += 1;
       progressBar.style.cssText += '--num: 0';
 
@@ -217,15 +203,15 @@ export const startGame = function() {
     if (sort == 0) {
       console.log("bot is attacking olala")
       botAction = "attack";
-      animationEvilAttack.goToAndStop(0);
-      animationEvilAttack.playSegments([0,5],true);
+      // animationEvilAttack.goToAndStop(0);
+      // animationEvilAttack.playSegments([0,5],true);
       return botAction;
     }
     else{
       console.log("bot is defending too bad")
       botAction = "defence";
-      animationEvilDefence.goToAndStop(0);
-      animationEvilDefence.play();
+      // animationEvilDefence.goToAndStop(0);
+      // animationEvilDefence.play();
       return botAction;
     }
   }

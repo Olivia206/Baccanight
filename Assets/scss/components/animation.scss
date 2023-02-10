@@ -1,0 +1,18 @@
+.character {
+    .character-sprite {
+        position: relative;
+        height: 200px;
+        width: 140px;
+        &#character-evil-death {
+            display: none;
+        }
+        svg{
+            left: 0;
+            overflow: visible;
+            top: 0;
+            clipPath {
+                display: none;
+            }
+        }
+    }
+}
