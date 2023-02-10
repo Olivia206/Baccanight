@@ -71,6 +71,9 @@ body {
 .character .character-sprite svg clipPath {
   display: none;
 }
+.character.character__evil svg {
+  width: 120% !important;
+}
 
 div.btns-popup,
 .btn-primary {
@@ -359,6 +362,7 @@ main section {
   display: none;
   height: 100vh;
   max-height: 100vh;
+  overflow: hidden;
   position: relative;
   width: 100%;
 }

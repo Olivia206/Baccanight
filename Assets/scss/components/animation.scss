@@ -17,4 +17,9 @@
             }
         }
     }
+    &.character__evil {
+        svg {
+            width: 120% !important;
+        }
+    }
 }

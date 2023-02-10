@@ -24,13 +24,14 @@ export const startGame = function() {
         progressBar = document.querySelector(".control-progress"),
         animPlayerIdleContainer = document.querySelector('#character-good-idle'),
         animPlayerContainer = document.querySelector('#character-good-sprite'),
+        animBotIdleContainer = document.querySelector('#character-evil-idle'),
         animBotContainer = document.querySelector('#character-evil-sprite'),
         animBotDeathContainer = document.querySelector('#character-evil-death');
 
   const animPlayerIdlePath = '/assets/js/animations/anim-player-idle.json',
         animPlayerPath = '/assets/js/animations/anim-player-idle.json',
         animEvilIdlePath = '/assets/js/animations/anim-evil-idle.json',
-        animEvilPath = '/assets/js/animations/anim-evil-attack.json',
+        animEvilPath = '/assets/js/animations/all-anim-evil.json',
         animEvilDeathPath = '/assets/js/animations/anim-evil-death.json';
 
   // Animations pj
@@ -60,7 +61,7 @@ export const startGame = function() {
     autoplay: false
   });
   var animationEvilIdle = lottie.loadAnimation({
-    container: animBotContainer,
+    container: animBotIdleContainer,
     path: animEvilIdlePath,
     renderer: 'svg',
     loop: true,
@@ -219,15 +220,22 @@ export const startGame = function() {
     if (sort == 0) {
       console.log("bot is attacking olala")
       botAction = "attack";
-      // animationEvilAttack.goToAndStop(0);
-      // animationEvilAttack.playSegments([0,5],true);
+
+      animationEvil.goToAndStop(210);
+      animationEvil.playSegments([210,300],true);
+      
+      setTimeout(animIdleBot, 3000);
       return botAction;
     }
     else{
       console.log("bot is defending too bad")
       botAction = "defence";
-      // animationEvilDefence.goToAndStop(0);
-      // animationEvilDefence.play();
+      
+      animationEvil.goToAndStop(0);
+      animationEvil.playSegments([0,260],true);
+      
+      setTimeout(animIdleBot, 5000);
+
       return botAction;
     }
   }
@@ -244,19 +252,31 @@ export const startGame = function() {
     }
   }
 
+  function animIdleBot() {
+    animBotContainer.style.display = "none";
+    animBotIdleContainer.style.display = "block";
+  }
+
   function animIdlePlayer() {
+    animPlayerContainer.style.display = "none";
     animPlayerIdleContainer.style.display = "block";
   }
 
   function animDeath() {
     animBotContainer.style.display = "none";
+    animPlayerIdleContainer.style.display = "none";
+    animBotIdleContainer.style.display = "none";
     animBotDeathContainer.style.display = "block";
     animationEvilDeath.play()
   }
 
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
+
       animPlayerIdleContainer.style.display = "none";
+      animBotIdleContainer.style.display = "none";
+      animBotContainer.style.display = "block";
+
       if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
         btnAttack.classList.add("disabled");
