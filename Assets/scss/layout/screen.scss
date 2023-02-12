@@ -1,7 +1,6 @@
 .disabled {
     border-radius: 100%;
     filter: grayscale(1);
-    opacity: .7;
     pointer-events: none;
 }
 main
@@ -14,6 +13,7 @@ main
     display: none;
     height: 100vh;
     max-height: 100vh;
+    overflow: hidden;
     position: relative;
     width: 100%;
     &:not(&__game) {
@@ -61,6 +61,11 @@ main
                 position: relative;
             }
         }
+        &#screen-dialog-2 {
+            background-image: url("/assets/images/dialog-2.svg");
+            background-position: 70%;
+            background-size: cover;
+        }
         &#screen-ending-3 {
             background-image: url("/assets/images/tableaux/canva.webp");
             background-position: 70%;
@@ -68,19 +73,56 @@ main
         }
     }
     &__dialog {
-        align-items: flex-end;
-        background-size: cover;
-        flex-direction: column;
-        height: 100vh;
         justify-content: flex-end;
-        &#screen-dialog-1 {
-            background-image: url("/assets/images/dialog-1.svg");
+        .dialog__text {
+            position: relative;
+            z-index: 5;
         }
-        &#screen-dialog-2 {
-            background-image: url("/assets/images/dialog-2.svg");
-        }
-        &#screen-dialog-3 {
-            background-image: url("/assets/images/dialog-3.svg");
+        .dialog__animation {
+            bottom: 0;
+            position: absolute;
+            width: 100vw;
+            @media (min-width: 600px) {
+                top: 0
+            }
+            &::before,
+            &::after {
+                background-position: bottom;
+                background-repeat: no-repeat;
+                content: "";
+                height: 100%;
+                position: absolute;
+                left: 0;
+                width: 100%;
+            }
+            &::before {
+                background-image: url('/assets/images/light-effects-dialog.svg');
+                background-size: 245%;
+                top: 0;
+                z-index: 1;
+                @media (min-width: 600px) {
+                    background-size: 150%;
+                }
+            }
+            &::after {
+                background-image: linear-gradient(180deg, rgba(6, 14, 42, 0) 28.65%, #060E2A 68.23%);
+                background-size: contain;
+                bottom: 0;
+                z-index: 3;
+            }
+            svg {
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                transform: scale(1) !important;
+                transition: transform .3s ease;
+                transition-delay: 2s;
+                width: 90% !important;
+                z-index: 2;
+                @media (min-width: 600px) {
+                    width: 100% !important;
+                }
+            }
         }
         p {
             text-align: left;
@@ -93,6 +135,11 @@ main
             text-align: left;
             width: 100%;
         }
+    }
+
+    &.is-visible .anim-2 svg {
+        transform: scale(1.2) !important;
+        transition-delay: 2s;
     }
     &__game {
         justify-content: flex-end;
@@ -164,6 +211,7 @@ main
             justify-content: space-between;
             position: relative;
             bottom: 50px;
+            margin: 0 -30px;
 
             .character__good, .character__evil{
                 img{
@@ -171,21 +219,8 @@ main
                 }
             }
             .character {
-                align-items: center;
-                display: flex;
-                flex-direction: column-reverse;
-                width: fit-content;
-
-                .character-sprite#character-good-sprite{
-                  position: relative;
-                  svg{
-                    display: none;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    object-fit: fill;
-                  }
-                }
+              position: relative;
+              width: fit-content;
             }
         }
     }
@@ -198,10 +233,12 @@ main
         font-size: 18px;
         margin: 60px auto 0;
         padding: 10px 20px;
+        position: relative;
         text-decoration: none;
         text-align: center;
         text-transform: uppercase;
         transition: box-shadow .3s ease;
+        z-index: 4;
         &:hover {
             box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
         }

@@ -1,0 +1,31 @@
+.character {
+    height: 200px;
+    .character-sprite {
+        position: relative;
+        height: 200px;
+        width: 140px;
+        display: none;
+        &.is-visible{
+          display: block;
+        }
+        // &#character-evil-death,
+        // &#character-evil-sprite,
+        // &#character-good-sprite,
+        // &#character-good-victory {
+        //     display: none;
+        // }
+        svg{
+            left: 0;
+            overflow: visible;
+            top: 0;
+            clipPath {
+                display: none;
+            }
+        }
+    }
+    &.character__evil {
+        svg {
+            width: 120% !important;
+        }
+    }
+}

@@ -59,6 +59,30 @@ body {
   font-size: 4rem;
 }
 
+.character {
+  height: 200px;
+}
+.character .character-sprite {
+  position: relative;
+  height: 200px;
+  width: 140px;
+  display: none;
+}
+.character .character-sprite.is-visible {
+  display: block;
+}
+.character .character-sprite svg {
+  left: 0;
+  overflow: visible;
+  top: 0;
+}
+.character .character-sprite svg clipPath {
+  display: none;
+}
+.character.character__evil svg {
+  width: 120% !important;
+}
+
 div.btns-popup,
 .btn-primary {
   cursor: pointer;
@@ -333,7 +357,6 @@ body:not(.homepage) header {
 .disabled {
   border-radius: 100%;
   filter: grayscale(1);
-  opacity: 0.7;
   pointer-events: none;
 }
 
@@ -347,6 +370,7 @@ main section {
   display: none;
   height: 100vh;
   max-height: 100vh;
+  overflow: hidden;
   position: relative;
   width: 100%;
 }
@@ -396,26 +420,73 @@ main section {
 .screen__text:not(.screen__dialog) > * {
   position: relative;
 }
+.screen__text#screen-dialog-2 {
+  background-image: url("/assets/images/dialog-2.svg");
+  background-position: 70%;
+  background-size: cover;
+}
 .screen__text#screen-ending-3 {
   background-image: url("/assets/images/tableaux/canva.webp");
   background-position: 70%;
   background-size: cover;
 }
 .screen__dialog {
-  align-items: flex-end;
-  background-size: cover;
-  flex-direction: column;
-  height: 100vh;
   justify-content: flex-end;
 }
-.screen__dialog#screen-dialog-1 {
-  background-image: url("/assets/images/dialog-1.svg");
+.screen__dialog .dialog__text {
+  position: relative;
+  z-index: 5;
 }
-.screen__dialog#screen-dialog-2 {
-  background-image: url("/assets/images/dialog-2.svg");
+.screen__dialog .dialog__animation {
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
 }
-.screen__dialog#screen-dialog-3 {
-  background-image: url("/assets/images/dialog-3.svg");
+@media (min-width: 600px) {
+  .screen__dialog .dialog__animation {
+    top: 0;
+  }
+}
+.screen__dialog .dialog__animation::before, .screen__dialog .dialog__animation::after {
+  background-position: bottom;
+  background-repeat: no-repeat;
+  content: "";
+  height: 100%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.screen__dialog .dialog__animation::before {
+  background-image: url("/assets/images/light-effects-dialog.svg");
+  background-size: 245%;
+  top: 0;
+  z-index: 1;
+}
+@media (min-width: 600px) {
+  .screen__dialog .dialog__animation::before {
+    background-size: 150%;
+  }
+}
+.screen__dialog .dialog__animation::after {
+  background-image: linear-gradient(180deg, rgba(6, 14, 42, 0) 28.65%, #060E2A 68.23%);
+  background-size: contain;
+  bottom: 0;
+  z-index: 3;
+}
+.screen__dialog .dialog__animation svg {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  transform: scale(1) !important;
+  transition: transform 0.3s ease;
+  transition-delay: 2s;
+  width: 90% !important;
+  z-index: 2;
+}
+@media (min-width: 600px) {
+  .screen__dialog .dialog__animation svg {
+    width: 100% !important;
+  }
 }
 .screen__dialog p {
   text-align: left;
@@ -427,6 +498,10 @@ main section {
   margin-bottom: 20px;
   text-align: left;
   width: 100%;
+}
+.screen.is-visible .anim-2 svg {
+  transform: scale(1.2) !important;
+  transition-delay: 2s;
 }
 .screen__game {
   justify-content: flex-end;
@@ -468,7 +543,7 @@ main section {
   align-items: center;
   background: white;
   border-radius: 20px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+  box-shadow: 0px 4px 4px 0px #00000040;
   display: flex;
   height: 14px;
   padding: 0 2px;
@@ -499,25 +574,14 @@ main section {
   justify-content: space-between;
   position: relative;
   bottom: 50px;
+  margin: 0 -30px;
 }
 .screen__game .characters .character__good img, .screen__game .characters .character__evil img {
   width: 110px;
 }
 .screen__game .characters .character {
-  align-items: center;
-  display: flex;
-  flex-direction: column-reverse;
-  width: fit-content;
-}
-.screen__game .characters .character .character-sprite#character-good-sprite {
   position: relative;
-}
-.screen__game .characters .character .character-sprite#character-good-sprite svg {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: fill;
+  width: fit-content;
 }
 .screen a {
   background: white;
@@ -528,10 +592,12 @@ main section {
   font-size: 18px;
   margin: 60px auto 0;
   padding: 10px 20px;
+  position: relative;
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
   transition: box-shadow 0.3s ease;
+  z-index: 4;
 }
 .screen a:hover {
   box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
@@ -720,7 +786,7 @@ main section {
 .character-page section.character-about .character-illustration::before, .character-page section.character-about .character-illustration::after {
   aspect-ratio: 1/1;
   border-radius: 100%;
-  border: 1px solid rgba(105, 111, 255, 0.2784313725);
+  border: 1px solid #696FFF47;
   content: "";
   position: absolute;
   z-index: 1;

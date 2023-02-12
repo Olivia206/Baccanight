@@ -7,9 +7,9 @@ export const startGame = function() {
   let counterUltimate = 0;
   let maxDefence = 3;
 
-  const damageAttack = 25,
-        damageUltimateAttack = 35,
-        damageDefence = 10;
+  const damageAttack = 15,
+        damageUltimateAttack = 25,
+        damageDefence = 5;
 
   const lifebarPlayer = document.querySelector(".lifebar-good div"),
         lifebarBot = document.querySelector(".lifebar-evil div"),
@@ -19,34 +19,164 @@ export const startGame = function() {
         btnDefence = document.querySelector(".control__defence"),
         modalVictory = document.querySelector(".modal__victory"),
         counterDefenceContent = document.querySelector(".counter"),
-        progressBar = document.querySelector(".control-progress");
+        progressBar = document.querySelector(".control-progress"),
+        animPlayerIdleContainer = document.querySelector('#character-good-idle'),
+        animPlayerContainer = document.querySelector('#character-good-sprite'),
+        animBotIdleContainer = document.querySelector('#character-evil-idle'),
+        animBotContainer = document.querySelector('#character-evil-sprite'),
+        animBotDeathContainer = document.querySelector('#character-evil-death'),
+        animVictoryContainer = document.querySelector('#character-good-victory');
 
-  const animTEstPath = '/assets/js/animations/anim-melodie.json';
+  const animPlayerIdlePath = '/assets/js/animations/anims-player/anim-player-idle.json',
+        animPlayerPath = '/assets/js/animations/all-anim-player.json',
+        animEvilIdlePath = '/assets/js/animations/anims-evil/anim-evil-idle.json',
+        animEvilPath = '/assets/js/animations/all-anim-evil.json',
+        animPlayerVictoryPath = '/assets/js/animations/anims-endings/anim-player-victory.json',
+        animEvilDeathPath = '/assets/js/animations/anims-endings/anim-evil-death.json';
 
- var animation = lottie.loadAnimation({
-    container: document.querySelector('#character-good-sprite'),
-    path: animTEstPath,
+  // Animations pc
+
+  var animationPlayerIdle = lottie.loadAnimation({
+    container: animPlayerIdleContainer,
+    path: animPlayerIdlePath,
+    renderer: 'svg',
+    loop: true,
+    autoplay: false
+  });
+  var animationPlayer = lottie.loadAnimation({
+    container: animPlayerContainer,
+    path: animPlayerPath,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false
+  });
+  var animationPlayerVictory = lottie.loadAnimation({
+    container: animVictoryContainer,
+    path: animPlayerVictoryPath,
     renderer: 'svg',
     loop: false,
     autoplay: false
   });
 
+  // Animations npc
+
+  var animationEvil = lottie.loadAnimation({
+    container: animBotContainer,
+    path: animEvilPath,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false
+  });
+  var animationEvilIdle = lottie.loadAnimation({
+    container: animBotIdleContainer,
+    path: animEvilIdlePath,
+    renderer: 'svg',
+    loop: true,
+    autoplay: false
+  });
+  var animationEvilDeath = lottie.loadAnimation({
+    container: animBotDeathContainer,
+    path: animEvilDeathPath,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false
+  });
+
+  if (pvBot > 0) {
+    animationPlayerIdle.play();
+    animationEvilIdle.play();
+  }
+
   if (counterAttack === 0) {
     toggleTutorial("attack");
-  } else if (counterAttack === 1 && counterDefence === 0) {
+  }
+  else if (counterAttack === 1 && counterDefence === 0) {
     toggleTutorial("defence");
   }
 
-  function gameControls(control){
-    
-      let bot = botActions();
-      let player = playerActions(control);
-      updatePv(player, bot);
-      updateLifeBar();
+  function toggleIsVisible(player, bot) {
+    if(player === "ultimate" && bot === "attack"){
+      animPlayerIdleContainer.classList.toggle("is-visible");
+      animBotIdleContainer.classList.toggle("is-visible");
 
-      if (pvBot <= 0) {
+      animPlayerContainer.classList.toggle("is-visible");
+    }
+    else if(pvBot <= 0) {
+      animPlayerIdleContainer.classList.toggle("is-visible");
+      animBotIdleContainer.classList.toggle("is-visible");
+
+      animBotDeathContainer.classList.toggle("is-visible");
+      animVictoryContainer.classList.toggle("is-visible");
+    }
+    else{
+
+      animPlayerIdleContainer.classList.toggle("is-visible");
+      animBotIdleContainer.classList.toggle("is-visible");
+
+      animPlayerContainer.classList.toggle("is-visible");
+      animBotContainer.classList.toggle("is-visible");
+    }
+    console.log("toggle");
+  }
+
+  function gameControls(control){
+    let bot = botActions();
+    let player = playerActions(control);
+    toggleIsVisible(player, bot);
+    updatePv(player, bot);
+    updateAnimations(player, bot);
+    updateLifeBar();
+
+    if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
+      setTimeout(animDeath, 1500);
+    }
+    setTimeout(() => {
+      toggleIsVisible(player, bot)
+    }, 3500);
+  }
+
+  function updateAnimations (playerAction, botAction) {
+    if (playerAction === "attack" && botAction === "defence") {
+      animationPlayer.goToAndStop(742);
+      animationPlayer.playSegments([742,850],true);
+
+      animationEvil.goToAndStop(0);
+      animationEvil.playSegments([0,200],true);
+    }
+    else if (playerAction === "attack" && botAction === "attack") {
+      animationPlayer.goToAndStop(742);
+      animationPlayer.playSegments([742,850],true);
+
+      animationEvil.goToAndStop(210);
+      animationEvil.playSegments([210,300],true);
+
+    }
+    else if (playerAction === "ultimate" && botAction === "attack") {
+      animationPlayer.goToAndStop(230);
+      animationPlayer.playSegments([230,320],true);
+    }
+    else if (playerAction === "ultimate" && botAction === "defence") {
+      animationPlayer.goToAndStop(850);
+      animationPlayer.playSegments([850,950],true);
+
+      animationEvil.goToAndStop(0);
+      animationEvil.playSegments([0,200],true);
+    }
+    else if (playerAction === "defence" && botAction === "attack") {
+      animationPlayer.goToAndStop(0);
+      animationPlayer.playSegments([0,220],true);
+
+      animationEvil.goToAndStop(210);
+      animationEvil.playSegments([210,300],true);
+    }
+    else if (playerAction === "defence" && botAction === "defence") {
+      animationPlayer.goToAndStop(0);
+      animationPlayer.playSegments([0,220],true);
+
+      animationEvil.goToAndStop(0);
+      animationEvil.playSegments([0,200],true);
     }
   }
 
@@ -88,7 +218,7 @@ export const startGame = function() {
   function updateLifeBar() {
     if (pvBot <= 50 ) {
       lifebarBot.style.background = "orange";
-    } 
+    }
     if (pvBot <= 25) {
       lifebarBot.style.background = "#B72D2D";
     }
@@ -106,7 +236,6 @@ export const startGame = function() {
 
     if(btnAttr == "attack"){
       counterAttack += 1;
-      animTEst();
 
       if (counterAttack != 0 && counterAttack % 2  == 0) {
         btnUltimate.classList.remove("disabled");
@@ -127,20 +256,21 @@ export const startGame = function() {
     else if(btnAttr == "defence"){
       maxDefence -= 1;
       counterDefenceContent.innerHTML = "x" + maxDefence;
+      counterDefence += 1;
 
-      if (counterDefence === 2) {
+      animationPlayer.goToAndStop(0);
+      animationPlayer.playSegments([0,120],true);
+
+      if (counterDefence === 3) {
+        console.log("counterDefence = " + counterDefence);
         control.classList.add("disabled");
       }
       else {
-        counterDefence += 1;
 
-        if (counterAttack != 2) {
-          btnDefence.classList.add("disabled");
-        }
         if (counterDefence === 1) {
           toggleTutorial(btnAttr);
+          btnDefence.classList.add("disabled");
         }
-
         playerAction = btnAttr;
         return playerAction;
       }
@@ -167,11 +297,18 @@ export const startGame = function() {
     let sort = Math.floor(Math.random() * 2);
     let botAction = null;
     if (sort == 0) {
+      console.log("bot is attacking olala")
       botAction = "attack";
+
       return botAction;
     }
     else{
+      console.log("bot is defending too bad")
       botAction = "defence";
+
+      animationEvil.goToAndStop(0);
+      animationEvil.playSegments([0,260],true);
+
       return botAction;
     }
   }
@@ -188,12 +325,23 @@ export const startGame = function() {
     }
   }
 
-  function animTEst() {
-    animation.play();
+  function animDeath() {
+    console.log("c la muerte")
+    animPlayerContainer.style.display = "none";
+    animPlayerIdleContainer.style.display = "none";
+    animBotContainer.style.display = "none";
+    animBotIdleContainer.style.display = "none";
+
+    animBotDeathContainer.style.display = "block";
+    animVictoryContainer.style.display = "block";
+
+    animationPlayerVictory.play();
+    animationEvilDeath.play();
   }
 
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
+
       if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
         btnAttack.classList.add("disabled");
