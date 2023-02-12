@@ -1,5 +1,3 @@
-// import { animationManager } from './animation-manager.js';
-
 export const startGame = function() {
   let pvPlayer = 100;
   let pvBot = 100;
@@ -83,7 +81,7 @@ export const startGame = function() {
     loop: false,
     autoplay: false
   });
-  
+
   if (pvBot > 0) {
     animationPlayerIdle.play();
     animationEvilIdle.play();
@@ -142,7 +140,7 @@ export const startGame = function() {
       if (pvBot > 0) {
         setTimeout(animIdlePlayer, 4000);
         setTimeout(animIdleBot, 4000);
-      } 
+      }
     }
     else if (playerAction === "ultimate" && botAction === "defence") {
       animationPlayer.goToAndStop(850);
@@ -151,16 +149,16 @@ export const startGame = function() {
       if (pvBot > 0) {
         setTimeout(animIdlePlayer, 4000);
         setTimeout(animIdleBot, 4000);
-      } 
+      }
     }
     else if (playerAction === "defence" && botAction === "attack") {
       animationEvil.goToAndStop(210);
       animationEvil.playSegments([210,300],true);
-      
+
       if (pvBot > 0) {
         setTimeout(animIdleBot, 3000);
       }
-   
+
     }
   }
 
@@ -233,7 +231,7 @@ export const startGame = function() {
       } else {
         progressBar.style.cssText += '--num: 27';
       }
-      
+
       playerAction = btnAttr;
       return playerAction;
     }
@@ -281,46 +279,29 @@ export const startGame = function() {
     }
   }
 
-  let isAnimating = false;
+  function botActions() {
+    let sort = Math.floor(Math.random() * 2);
+    let botAction = null;
+    if (sort == 0) {
+      console.log("bot is attacking olala")
+      botAction = "attack";
 
       return botAction;
     }
     else{
       console.log("bot is defending too bad")
       botAction = "defence";
-      
+
       animationEvil.goToAndStop(0);
       animationEvil.playSegments([0,260],true);
-      
+
       if (pvBot > 0) {
         setTimeout(animIdleBot, 5000);
       }
 
-  let sort = Math.floor(Math.random() * 2);
-  let botAction = null;
-  if (sort == 0) {
-    console.log("bot is attacking olala");
-    botAction = "attack";
-
-    isAnimating = true;
-    animationEvil.goToAndStop(210);
-    animationEvil.playSegments([210, 300], true, () => {
-      animIdleBot();
-      isAnimating = false;
-    });
-  } else {
-    console.log("bot is defending too bad");
-    botAction = "defence";
-
-    isAnimating = true;
-    animationEvil.goToAndStop(0);
-    animationEvil.playSegments([0, 200], true, () => {
-      animIdleBot();
-      isAnimating = false;
-    });
+      return botAction;
+    }
   }
-  return botAction;
-}
 
   function toggleTutorial(type) {
     if (type === "attack") {
@@ -352,7 +333,7 @@ export const startGame = function() {
     animPlayerIdleContainer.style.display = "none";
     animBotContainer.style.display = "none";
     animBotIdleContainer.style.display = "none";
-    
+
     animBotDeathContainer.style.display = "block";
     animVictoryContainer.style.display = "block";
 
