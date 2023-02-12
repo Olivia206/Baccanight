@@ -2,18 +2,18 @@ export const screen = function() {
   let idCurrentSection = "screen-narrative-1";
   const sections = document.querySelectorAll(".js-screen");
 
-  const animEvilPath = '/assets/js/animations/anims-evil/anim-evil-dialog.json';
-  
+  const animEvilDialoguePath = '/assets/js/animations/anims-evil/anim-evil-dialog.json';
+
   var animationEvil1 = lottie.loadAnimation({
      container: document.querySelector('.dialog__animation.anim-1'),
-     path: animEvilPath,
+     path: animEvilDialoguePath,
      renderer: 'svg',
      loop: true,
      autoplay: false
    });
   var animationEvil2 = lottie.loadAnimation({
      container: document.querySelector('.dialog__animation.anim-2'),
-     path: animEvilPath,
+     path: animEvilDialoguePath,
      renderer: 'svg',
      loop: true,
      autoplay: false
