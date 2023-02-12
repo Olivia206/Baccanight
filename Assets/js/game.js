@@ -102,12 +102,65 @@ export const startGame = function() {
     let player = playerActions(control);
 
     updatePv(player, bot);
+    updateAnimations(player, bot);
     updateLifeBar();
 
     if (pvBot <= 0) {
       modalVictory.classList.add("is-visible");
       control.parentNode.classList.add("disabled");
       setTimeout(animDeath, 1500);
+    }
+  }
+
+  function updateAnimations (playerAction, botAction) {
+    if (playerAction === "attack" && botAction === "defence") {
+      animationPlayer.goToAndStop(742);
+      animationPlayer.playSegments([742,850],true);
+
+      if (pvBot > 0) {
+        setTimeout(animIdlePlayer, 3000);
+        setTimeout(animIdleBot, 3000);
+      }
+    }
+    else if (playerAction === "attack" && botAction === "attack") {
+      animBotIdleContainer.style.display = "none";
+
+      animationPlayer.goToAndStop(120);
+      animationPlayer.playSegments([120,230],true);
+
+      if (pvBot > 0) {
+        setTimeout(animIdlePlayer, 4000);
+        setTimeout(animIdleBot, 4000);
+      }
+    }
+    else if (playerAction === "ultimate" && botAction === "attack") {
+      animBotIdleContainer.style.display = "none";
+
+      animationPlayer.goToAndStop(230);
+      animationPlayer.playSegments([230,320],true);
+
+      if (pvBot > 0) {
+        setTimeout(animIdlePlayer, 4000);
+        setTimeout(animIdleBot, 4000);
+      } 
+    }
+    else if (playerAction === "ultimate" && botAction === "defence") {
+      animationPlayer.goToAndStop(850);
+      animationPlayer.playSegments([850,950],true);
+
+      if (pvBot > 0) {
+        setTimeout(animIdlePlayer, 4000);
+        setTimeout(animIdleBot, 4000);
+      } 
+    }
+    else if (playerAction === "defence" && botAction === "attack") {
+      animationEvil.goToAndStop(210);
+      animationEvil.playSegments([210,300],true);
+      
+      if (pvBot > 0) {
+        setTimeout(animIdleBot, 3000);
+      }
+   
     }
   }
 
@@ -167,7 +220,6 @@ export const startGame = function() {
 
     if(btnAttr == "attack"){
       counterAttack += 1;
-      // animationPlayerUltimate.goToAndStop(0);
 
       if (counterAttack != 0 && counterAttack % 2  == 0) {
         btnUltimate.classList.remove("disabled");
@@ -181,10 +233,7 @@ export const startGame = function() {
       } else {
         progressBar.style.cssText += '--num: 27';
       }
-      if (pvBot > 0) {
-        setTimeout(animIdlePlayer, 1500);
-      }
-
+      
       playerAction = btnAttr;
       return playerAction;
     }
@@ -192,6 +241,13 @@ export const startGame = function() {
       maxDefence -= 1;
       counterDefenceContent.innerHTML = "x" + maxDefence;
       counterDefence += 1;
+
+      animationPlayer.goToAndStop(0);
+      animationPlayer.playSegments([0,120],true);
+
+      if (pvBot > 0) {
+        setTimeout(animIdlePlayer, 3500);
+      }
 
       if (counterDefence === 3) {
         console.log("counterDefence = " + counterDefence);
@@ -208,7 +264,6 @@ export const startGame = function() {
       }
     }
     else {
-      // animationPlayer.playSegments([0,5],true);
       counterUltimate += 1;
       progressBar.style.cssText += '--num: 0';
 
@@ -233,12 +288,6 @@ export const startGame = function() {
       console.log("bot is attacking olala")
       botAction = "attack";
 
-      animationEvil.goToAndStop(210);
-      animationEvil.playSegments([210,300],false);
-      
-      if (pvBot > 0) {
-        setTimeout(animIdleBot, 3000);
-      }
       return botAction;
     }
     else{
@@ -246,7 +295,7 @@ export const startGame = function() {
       botAction = "defence";
       
       animationEvil.goToAndStop(0);
-      animationEvil.playSegments([0,260],false);
+      animationEvil.playSegments([0,260],true);
       
       if (pvBot > 0) {
         setTimeout(animIdleBot, 5000);
@@ -300,6 +349,7 @@ export const startGame = function() {
       animPlayerIdleContainer.style.display = "none";
       animBotIdleContainer.style.display = "none";
       animBotContainer.style.display = "block";
+      animPlayerContainer.style.display = "block";
 
       if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
