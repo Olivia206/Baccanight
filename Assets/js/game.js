@@ -116,7 +116,6 @@ export const startGame = function() {
       animPlayerContainer.classList.toggle("is-visible");
       animBotContainer.classList.toggle("is-visible");
     }
-    document.querySelector("#control-container").classList.toggle("disabled");
   }
 
   function gameControls(control){
