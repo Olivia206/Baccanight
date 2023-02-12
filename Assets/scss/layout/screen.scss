@@ -76,6 +76,7 @@ main
         .dialog__animation {
             bottom: 0;
             position: absolute;
+            top: 0;
             width: 100vw;
             @media (min-width: 600px) {
                 top: 0
