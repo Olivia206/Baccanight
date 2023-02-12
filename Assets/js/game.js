@@ -91,7 +91,7 @@ export const startGame = function() {
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
-  } 
+  }
   else if (counterAttack === 1 && counterDefence === 0) {
     toggleTutorial("defence");
   }
@@ -281,12 +281,7 @@ export const startGame = function() {
     }
   }
 
-  function botActions() {
-    let sort = Math.floor(Math.random() * 2);
-    let botAction = null;
-    if (sort == 0) {
-      console.log("bot is attacking olala")
-      botAction = "attack";
+  let isAnimating = false;
 
       return botAction;
     }
@@ -301,9 +296,31 @@ export const startGame = function() {
         setTimeout(animIdleBot, 5000);
       }
 
-      return botAction;
-    }
+  let sort = Math.floor(Math.random() * 2);
+  let botAction = null;
+  if (sort == 0) {
+    console.log("bot is attacking olala");
+    botAction = "attack";
+
+    isAnimating = true;
+    animationEvil.goToAndStop(210);
+    animationEvil.playSegments([210, 300], true, () => {
+      animIdleBot();
+      isAnimating = false;
+    });
+  } else {
+    console.log("bot is defending too bad");
+    botAction = "defence";
+
+    isAnimating = true;
+    animationEvil.goToAndStop(0);
+    animationEvil.playSegments([0, 200], true, () => {
+      animIdleBot();
+      isAnimating = false;
+    });
   }
+  return botAction;
+}
 
   function toggleTutorial(type) {
     if (type === "attack") {
