@@ -20,11 +20,13 @@
         background-image: $gradient-light;
         border-radius: 0;
         color: $secondary;
-        display: flex;
         flex-direction: column;
         justify-content: center;
         height: 100%;
         width: 100%;
+        &.popup--open {
+            display: flex;
+        }
         a, button {
             @include reset-btn;
             background: white;
