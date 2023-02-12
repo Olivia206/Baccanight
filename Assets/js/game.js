@@ -94,11 +94,28 @@ export const startGame = function() {
     toggleTutorial("defence");
   }
 
-  function gameControls(control){
+  function toggleIsVisible(player, bot) {
+    if(player === "ultimate" && bot === "attack"){
+      animPlayerIdleContainer.classList.toggle("is-visible");
+      animBotIdleContainer.classList.toggle("is-visible");
 
+      animPlayerContainer.classList.toggle("is-visible");
+    }
+    else{
+
+      animPlayerIdleContainer.classList.toggle("is-visible");
+      animBotIdleContainer.classList.toggle("is-visible");
+
+      animPlayerContainer.classList.toggle("is-visible");
+      animBotContainer.classList.toggle("is-visible");
+    }
+    console.log("toggle");
+  }
+
+  function gameControls(control){
     let bot = botActions();
     let player = playerActions(control);
-
+    toggleIsVisible(player, bot);
     updatePv(player, bot);
     updateAnimations(player, bot);
     updateLifeBar();
@@ -108,6 +125,9 @@ export const startGame = function() {
       control.parentNode.classList.add("disabled");
       setTimeout(animDeath, 1500);
     }
+    setTimeout(() => {
+      toggleIsVisible(player, bot)
+    }, 3500);
   }
 
   function updateAnimations (playerAction, botAction) {
@@ -115,50 +135,41 @@ export const startGame = function() {
       animationPlayer.goToAndStop(742);
       animationPlayer.playSegments([742,850],true);
 
-      if (pvBot > 0) {
-        setTimeout(animIdlePlayer, 3000);
-        setTimeout(animIdleBot, 3000);
-      }
+      animationEvil.goToAndStop(210);
+      animationEvil.playSegments([210,300],true);
     }
     else if (playerAction === "attack" && botAction === "attack") {
-      animBotIdleContainer.style.display = "none";
+      animationPlayer.goToAndStop(742);
+      animationPlayer.playSegments([742,850],true);
 
-      animationPlayer.goToAndStop(120);
-      animationPlayer.playSegments([120,230],true);
+      animationEvil.goToAndStop(210);
+      animationEvil.playSegments([210,300],true);
 
-      if (pvBot > 0) {
-        setTimeout(animIdlePlayer, 4000);
-        setTimeout(animIdleBot, 4000);
-      }
     }
     else if (playerAction === "ultimate" && botAction === "attack") {
-      animBotIdleContainer.style.display = "none";
-
       animationPlayer.goToAndStop(230);
       animationPlayer.playSegments([230,320],true);
-
-      if (pvBot > 0) {
-        setTimeout(animIdlePlayer, 4000);
-        setTimeout(animIdleBot, 4000);
-      }
     }
     else if (playerAction === "ultimate" && botAction === "defence") {
       animationPlayer.goToAndStop(850);
       animationPlayer.playSegments([850,950],true);
 
-      if (pvBot > 0) {
-        setTimeout(animIdlePlayer, 4000);
-        setTimeout(animIdleBot, 4000);
-      }
-    }
-    else if (playerAction === "defence" && botAction === "attack") {
       animationEvil.goToAndStop(210);
       animationEvil.playSegments([210,300],true);
+    }
+    else if (playerAction === "defence" && botAction === "attack") {
+      animationPlayer.goToAndStop(0);
+      animationPlayer.playSegments([0,220],true);
 
-      if (pvBot > 0) {
-        setTimeout(animIdleBot, 3000);
-      }
+      animationEvil.goToAndStop(210);
+      animationEvil.playSegments([210,300],true);
+    }
+    else if (playerAction === "defence" && botAction === "defence") {
+      animationPlayer.goToAndStop(0);
+      animationPlayer.playSegments([0,220],true);
 
+      animationEvil.goToAndStop(210);
+      animationEvil.playSegments([210,300],true);
     }
   }
 
@@ -243,10 +254,6 @@ export const startGame = function() {
       animationPlayer.goToAndStop(0);
       animationPlayer.playSegments([0,120],true);
 
-      if (pvBot > 0) {
-        setTimeout(animIdlePlayer, 3500);
-      }
-
       if (counterDefence === 3) {
         console.log("counterDefence = " + counterDefence);
         control.classList.add("disabled");
@@ -295,10 +302,6 @@ export const startGame = function() {
       animationEvil.goToAndStop(0);
       animationEvil.playSegments([0,260],true);
 
-      if (pvBot > 0) {
-        setTimeout(animIdleBot, 5000);
-      }
-
       return botAction;
     }
   }
@@ -313,18 +316,6 @@ export const startGame = function() {
     else {
       document.querySelector(".tutorial__ultimate").classList.toggle("is-visible");
     }
-  }
-
-  function animIdleBot() {
-    console.log('idle bot')
-    animBotContainer.style.display = "none";
-    animBotIdleContainer.style.display = "block";
-  }
-
-  function animIdlePlayer() {
-    console.log('idle player')
-    animPlayerContainer.style.display = "none";
-    animPlayerIdleContainer.style.display = "block";
   }
 
   function animDeath() {
@@ -343,11 +334,6 @@ export const startGame = function() {
 
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
-
-      animPlayerIdleContainer.style.display = "none";
-      animBotIdleContainer.style.display = "none";
-      animBotContainer.style.display = "block";
-      animPlayerContainer.style.display = "block";
 
       if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");

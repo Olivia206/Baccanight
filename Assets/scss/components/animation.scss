@@ -4,12 +4,16 @@
         position: relative;
         height: 200px;
         width: 140px;
-        &#character-evil-death,
-        &#character-evil-sprite,
-        &#character-good-sprite,
-        &#character-good-victory {
-            display: none;
+        display: none;
+        &.is-visible{
+          display: block;
         }
+        // &#character-evil-death,
+        // &#character-evil-sprite,
+        // &#character-good-sprite,
+        // &#character-good-victory {
+        //     display: none;
+        // }
         svg{
             left: 0;
             overflow: visible;
