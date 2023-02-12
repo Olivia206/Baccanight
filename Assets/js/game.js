@@ -100,7 +100,7 @@ export const startGame = function() {
       animBotIdleContainer.classList.toggle("is-visible");
 
       animPlayerContainer.classList.toggle("is-visible");
-    } 
+    }
     else if(pvBot <= 0) {
       animPlayerIdleContainer.classList.toggle("is-visible");
       animBotIdleContainer.classList.toggle("is-visible");
@@ -142,8 +142,8 @@ export const startGame = function() {
       animationPlayer.goToAndStop(742);
       animationPlayer.playSegments([742,850],true);
 
-      animationEvil.goToAndStop(210);
-      animationEvil.playSegments([210,300],true);
+      animationEvil.goToAndStop(0);
+      animationEvil.playSegments([0,200],true);
     }
     else if (playerAction === "attack" && botAction === "attack") {
       animationPlayer.goToAndStop(742);
@@ -161,8 +161,8 @@ export const startGame = function() {
       animationPlayer.goToAndStop(850);
       animationPlayer.playSegments([850,950],true);
 
-      animationEvil.goToAndStop(210);
-      animationEvil.playSegments([210,300],true);
+      animationEvil.goToAndStop(0);
+      animationEvil.playSegments([0,200],true);
     }
     else if (playerAction === "defence" && botAction === "attack") {
       animationPlayer.goToAndStop(0);
@@ -175,8 +175,8 @@ export const startGame = function() {
       animationPlayer.goToAndStop(0);
       animationPlayer.playSegments([0,220],true);
 
-      animationEvil.goToAndStop(210);
-      animationEvil.playSegments([210,300],true);
+      animationEvil.goToAndStop(0);
+      animationEvil.playSegments([0,200],true);
     }
   }
 
@@ -218,7 +218,7 @@ export const startGame = function() {
   function updateLifeBar() {
     if (pvBot <= 50 ) {
       lifebarBot.style.background = "orange";
-    } 
+    }
     if (pvBot <= 25) {
       lifebarBot.style.background = "#B72D2D";
     }
