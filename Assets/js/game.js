@@ -7,8 +7,8 @@ export const startGame = function() {
   let counterUltimate = 0;
   let maxDefence = 3;
 
-  const damageAttack = 10,
-        damageUltimateAttack = 20,
+  const damageAttack = 15,
+        damageUltimateAttack = 25,
         damageDefence = 5;
 
   const lifebarPlayer = document.querySelector(".lifebar-good div"),
@@ -100,6 +100,13 @@ export const startGame = function() {
       animBotIdleContainer.classList.toggle("is-visible");
 
       animPlayerContainer.classList.toggle("is-visible");
+    } 
+    else if(pvBot <= 0) {
+      animPlayerIdleContainer.classList.toggle("is-visible");
+      animBotIdleContainer.classList.toggle("is-visible");
+
+      animBotDeathContainer.classList.toggle("is-visible");
+      animVictoryContainer.classList.toggle("is-visible");
     }
     else{
 
