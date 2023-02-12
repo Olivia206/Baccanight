@@ -46,7 +46,7 @@ main
             }
         }
         &:not(.screen__dialog) {
-            background-image: url("/assets/images/background-museum.svg");
+            background-image: url("/assets/images/background-museum.png");
             background-size: cover;
             &::before{
                 background: transparentize($color: $body-background, $amount: 0.5);
@@ -60,6 +60,11 @@ main
             > * {
                 position: relative;
             }
+        }
+        &#screen-ending-3 {
+            background-image: url("/assets/images/tableaux/canva.webp");
+            background-position: 70%;
+            background-size: cover;
         }
     }
     &__dialog {
@@ -134,7 +139,7 @@ main
     &__game {
         justify-content: flex-end;
         padding: 40px;
-        background-image: url("/assets/images/background-museum.svg");
+        background-image: url("/assets/images/background-museum.png");
         background-size: cover;
         &::after{
             background-image: url("/assets/images/gradientGameBottom.svg");
@@ -231,6 +236,11 @@ main
         z-index: 4;
         &:hover {
             box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
+        }
+    }
+    &__ending{
+        .letter{
+            width: 100%;
         }
     }
 }

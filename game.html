@@ -75,7 +75,7 @@
           <div class="dialog__animation anim-2"></div>
           <div class="dialog__text">
             <span>Pedro de Moya</span>
-            <p>J’éteindrai cette immonde lanterne coûte que coûte !</p>
+          <p>Que nenni, pauvre fou ! J’éteindrai cette immonde lanterne coûte que coûte !</p>
           </div>
           <a  href="#screen-game" data-open-screen="screen-game">Défier en duel !</a>
         </div>
@@ -156,11 +156,62 @@
           screen ending
           <a href="/index.html">Revenir à l'accueil</a>
         </div>
-      </section>
-    </main>
-  </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.10/lottie.js"></script>
-  <script type="module" src="./assets/js/main.js"></script>
-  <script src="/assets/js/popup.js"></script>
-</html>
+        <div class="modal modal__victory">
+          <p>Félicitations, vous avez vaincu Pedro et sauvé le musée !</p>
+          <a  href="#screen-ending-1" data-open-screen="screen-ending-1">Suivant</a>
+        </div>
+      </div>
+
+      <div class="screen screen__text screen__ending js-screen" id="screen-ending-1">
+        <div>
+          <p>Le lendemain matin, quelle n’est pas la surprise de la conservatrice des Beaux Arts lorsqu’elle découvre, malgré l’absence de trace d’intrusion ou de déclenchement d’alarme, les traces d’un affrontement… singulier.</p>
+          <a  href="#screen-ending-2" data-open-screen="screen-ending-2">Suivant</a>
+        </div>
+      </div>
+
+      <div class="screen screen__text screen__ending js-screen" id="screen-ending-2">
+        <div>
+          <p>Tâches de peintures et plumes éparpillées jonchent le sol du musée, sans que les tableaux ne soient abîmés.</p>
+          <br>
+          <p>Sur l’oeuvre caravagesque <i>Saint Sébastien soigné par Irène</i>, au niveau de la lanterne, un post-it est accroché.</p>
+          <a  href="#screen-ending-3" data-open-screen="screen-ending-3">Suivant</a>
+        </div>
+      </div>
+
+      <div class="screen screen__text screen__ending js-screen" id="screen-ending-3">
+        <div class="letter">
+          <img src="/assets/images/postIt.svg" alt="Sur le post-it il est écrit : « Mon devoir est accompli, je m'en vais rejoindre le sommeil éternel... » La lettre est signée Lil'Luth, pour vous servir.">
+          <a  href="#screen-ending-4" data-open-screen="screen-ending-4">Suivant</a>
+        </div>
+      </div>
+
+      <div class="screen screen__text screen__ending js-screen" id="screen-ending-4">
+        <div>
+          <p>Perplexe, la conservatrice examine les lieux, jusqu’à remarquer quelques anomalies sur les murs qu’elle connaît si bien…</p>
+          <br>
+          <p>« Que s’est-il passé ? Pedro de Moya n’était pas… comme ça ? Et… cette note… Qui est ce “Lil’ Luth” ? »</p>
+          <a  href="#screen-ending-5" data-open-screen="screen-ending-5">Suivant</a>
+        </div>
+      </div>
+
+      <div class="screen screen__text screen__ending js-screen" id="screen-ending-5">
+        <div>
+          <p>...</p>
+          <a  href="#screen-ending-6" data-open-screen="screen-ending-6">Suivant</a>
+        </div>
+      </div>
+
+      <div class="screen screen__text screen__ending js-screen" id="screen-ending-6">
+        <div>
+          <p>Avec un soupir et un léger sourire, la conservatrice se détourne, pour ouvrir les portes du musée : « Certains mystères doivent rester à jamais dans l’obscurité du Caravage… »</p>
+          <a href="/index.html">Revenir à l'accueil</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.10/lottie.js"></script>
+<script type="module" src="./assets/js/main.js"></script>
+<script src="/assets/js/popup.js"></script>
+  </html>

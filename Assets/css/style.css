@@ -28,19 +28,23 @@
   font-display: block;
 }
 body {
-  font-size: 20px;
+  font-size: 22px;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2 {
-  font-family: "Cherry Bomb";
+  font-family: "Cherry Bomb", Arial;
+  font-weight: normal;
+}
+
+h3 {
   font-weight: normal;
 }
 
 body {
   background-color: #0B132F;
   color: white;
-  font-family: "Cherry Bomb";
+  font-family: "Cherry Bomb", Arial;
 }
 
 .logo {
@@ -83,7 +87,7 @@ div.btns-popup,
 .btn-primary {
   cursor: pointer;
   text-align: center;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -262,7 +266,7 @@ div.btn__credits::before {
   box-shadow: -1px 5px 0px #C4C4C4;
   color: #070F2B;
   display: table;
-  font-family: "Cherry Bomb";
+  font-family: "Cherry Bomb", Arial;
   font-size: 18px;
   margin: 60px auto 0;
   padding: 10px 20px;
@@ -305,7 +309,7 @@ div.btn__credits::before {
   overflow: auto;
 }
 .homepage .popup .popup-body p {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial;
 }
 .homepage .popup .popup-body p a {
   color: #6D9EBF;
@@ -401,7 +405,7 @@ main section {
   margin-right: auto;
 }
 .screen__text:not(.screen__dialog) {
-  background-image: url("/assets/images/background-museum.svg");
+  background-image: url("/assets/images/background-museum.png");
   background-size: cover;
 }
 .screen__text:not(.screen__dialog)::before {
@@ -415,6 +419,11 @@ main section {
 }
 .screen__text:not(.screen__dialog) > * {
   position: relative;
+}
+.screen__text#screen-ending-3 {
+  background-image: url("/assets/images/tableaux/canva.webp");
+  background-position: 70%;
+  background-size: cover;
 }
 .screen__dialog {
   justify-content: flex-end;
@@ -492,7 +501,7 @@ main section {
 .screen__game {
   justify-content: flex-end;
   padding: 40px;
-  background-image: url("/assets/images/background-museum.svg");
+  background-image: url("/assets/images/background-museum.png");
   background-size: cover;
 }
 .screen__game::after {
@@ -588,6 +597,9 @@ main section {
 .screen a:hover {
   box-shadow: 0px 0px 0px #838383, 0px 0px 0px #5E6D89;
 }
+.screen__ending .letter {
+  width: 100%;
+}
 
 .tutorials {
   z-index: 25;
@@ -669,8 +681,8 @@ main section {
 }
 
 .character-page {
-  font-family: "Roboto";
-  padding-top: 150px;
+  font-family: "Roboto", Arial;
+  padding-top: 70px;
 }
 .character-page header {
   background-color: #070F2B;
@@ -721,7 +733,7 @@ main section {
   text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
 }
 .character-page main h2 {
-  font-family: "Cherry Bomb";
+  font-family: "Cherry Bomb", Arial;
   margin-bottom: 20px;
   text-transform: uppercase;
   text-align: center;
@@ -758,11 +770,11 @@ main section {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: 4rem;
+  margin: 4rem auto;
 }
 @media (min-width: 600px) {
   .character-page section.character-about .character-illustration {
-    margin-right: 4rem;
+    margin-right: 6rem;
     margin-bottom: 0;
   }
 }
@@ -786,6 +798,7 @@ main section {
 .character-page section.character-about .character-illustration img {
   position: relative;
   z-index: 2;
+  width: 10rem;
 }
 .character-page section.character-about .character-skills .character-stats {
   align-items: center;
@@ -799,7 +812,7 @@ main section {
 .character-page section.character-about .character-skills .character-stats span strong {
   display: block;
   font-size: 24px;
-  font-family: "Cherry Bomb";
+  font-family: "Cherry Bomb", Arial;
 }
 .character-page section.character-about .character-skills .character-stats span:last-of-type {
   text-align: right;
@@ -832,7 +845,7 @@ main section {
 }
 .character-page section.quote h3::before, .character-page section.quote h3::after {
   font-size: 80px;
-  font-family: "Cherry Bomb";
+  font-family: "Cherry Bomb", Arial;
   opacity: 0.4;
   position: absolute;
 }
@@ -861,7 +874,7 @@ main section {
   color: #070F2B;
   display: table;
   font-size: 18px;
-  font-family: "Cherry Bomb";
+  font-family: "Cherry Bomb", Arial;
   margin: 0 auto 20px;
   padding: 10px 20px;
   text-decoration: none;
