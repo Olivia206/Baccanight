@@ -30,13 +30,13 @@ export const startGame = function() {
         animVictoryContainer = document.querySelector('#character-good-victory');
 
   const animPlayerIdlePath = '/assets/js/animations/anims-player/anim-player-idle.json',
-        animPlayerPath = '/assets/js/animations/anims-player/anim-player-idle.json',
+        animPlayerPath = '/assets/js/animations/all-anim-player.json',
         animEvilIdlePath = '/assets/js/animations/anims-evil/anim-evil-idle.json',
         animEvilPath = '/assets/js/animations/all-anim-evil.json',
-        animPlayerVictoryPath = '/assets/js/animations/anims-endings/anim-evil-death.json',
+        animPlayerVictoryPath = '/assets/js/animations/anims-endings/anim-player-victory.json',
         animEvilDeathPath = '/assets/js/animations/anims-endings/anim-evil-death.json';
 
-  // Animations pj
+  // Animations pc
 
   var animationPlayerIdle = lottie.loadAnimation({
     container: animPlayerIdleContainer,
@@ -60,7 +60,7 @@ export const startGame = function() {
     autoplay: false
   });
 
-  // Animations pnj
+  // Animations npc
 
   var animationEvil = lottie.loadAnimation({
     container: animBotContainer,
@@ -83,9 +83,11 @@ export const startGame = function() {
     loop: false,
     autoplay: false
   });
-
-  animationPlayerIdle.play();
-  animationEvilIdle.play();
+  
+  if (pvBot > 0) {
+    animationPlayerIdle.play();
+    animationEvilIdle.play();
+  }
 
   if (counterAttack === 0) {
     toggleTutorial("attack");
@@ -179,8 +181,9 @@ export const startGame = function() {
       } else {
         progressBar.style.cssText += '--num: 27';
       }
-
-      setTimeout(animIdlePlayer, 1500);
+      if (pvBot > 0) {
+        setTimeout(animIdlePlayer, 1500);
+      }
 
       playerAction = btnAttr;
       return playerAction;
@@ -231,9 +234,11 @@ export const startGame = function() {
       botAction = "attack";
 
       animationEvil.goToAndStop(210);
-      animationEvil.playSegments([210,300],true);
+      animationEvil.playSegments([210,300],false);
       
-      setTimeout(animIdleBot, 3000);
+      if (pvBot > 0) {
+        setTimeout(animIdleBot, 3000);
+      }
       return botAction;
     }
     else{
@@ -241,9 +246,11 @@ export const startGame = function() {
       botAction = "defence";
       
       animationEvil.goToAndStop(0);
-      animationEvil.playSegments([0,260],true);
+      animationEvil.playSegments([0,260],false);
       
-      setTimeout(animIdleBot, 5000);
+      if (pvBot > 0) {
+        setTimeout(animIdleBot, 5000);
+      }
 
       return botAction;
     }
@@ -262,21 +269,29 @@ export const startGame = function() {
   }
 
   function animIdleBot() {
+    console.log('idle bot')
     animBotContainer.style.display = "none";
     animBotIdleContainer.style.display = "block";
   }
 
   function animIdlePlayer() {
+    console.log('idle player')
     animPlayerContainer.style.display = "none";
     animPlayerIdleContainer.style.display = "block";
   }
 
   function animDeath() {
-    animBotContainer.style.display = "none";
+    console.log("c la muerte")
+    animPlayerContainer.style.display = "none";
     animPlayerIdleContainer.style.display = "none";
+    animBotContainer.style.display = "none";
     animBotIdleContainer.style.display = "none";
+    
     animBotDeathContainer.style.display = "block";
-    animationEvilDeath.play()
+    animVictoryContainer.style.display = "block";
+
+    animationPlayerVictory.play();
+    animationEvilDeath.play();
   }
 
   controls.forEach(control => {

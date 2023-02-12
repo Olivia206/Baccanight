@@ -2,7 +2,7 @@ export const screen = function() {
   let idCurrentSection = "screen-narrative-1";
   const sections = document.querySelectorAll(".js-screen");
 
-  const animEvilPath = '/assets/js/animations/anim-evil-dialog.json';
+  const animEvilPath = '/assets/js/animations/anims-evil/anim-evil-dialog.json';
   
   var animationEvil1 = lottie.loadAnimation({
      container: document.querySelector('.dialog__animation.anim-1'),
