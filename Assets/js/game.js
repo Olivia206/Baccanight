@@ -116,7 +116,7 @@ export const startGame = function() {
       animPlayerContainer.classList.toggle("is-visible");
       animBotContainer.classList.toggle("is-visible");
     }
-    console.log("toggle");
+    document.querySelector("#control-container").classList.toggle("disabled");
   }
 
   function gameControls(control){
@@ -326,7 +326,9 @@ export const startGame = function() {
   }
 
   function animDeath() {
-    console.log("c la muerte")
+    console.log("c la muerte");
+    document.querySelector("#control-container").classList.add("disabled");
+
     animPlayerContainer.style.display = "none";
     animPlayerIdleContainer.style.display = "none";
     animBotContainer.style.display = "none";
@@ -341,7 +343,8 @@ export const startGame = function() {
 
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
-
+      //console.log(control.parentNode)
+      // control.parentNode.classList.toggle("disabled");
       if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
         btnAttack.classList.add("disabled");
@@ -356,6 +359,8 @@ export const startGame = function() {
         toggleTutorial("ultimate");
       }
       gameControls(control);
+
+
     })
   });
 }
