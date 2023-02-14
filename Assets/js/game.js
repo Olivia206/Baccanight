@@ -13,6 +13,7 @@ export const startGame = function() {
 
   const lifebarPlayer = document.querySelector(".lifebar-good div"),
         lifebarBot = document.querySelector(".lifebar-evil div"),
+        controlsContainer = document.querySelector("#control-container"),
         controls = document.querySelectorAll(".control"),
         btnUltimate = document.querySelector(".control__ultimate"),
         btnAttack = document.querySelector(".control__attack"),
@@ -132,7 +133,8 @@ export const startGame = function() {
       setTimeout(animDeath, 1500);
     }
     setTimeout(() => {
-      toggleIsVisible(player, bot)
+      toggleIsVisible(player, bot);
+      controlsContainer.classList.remove("disabled");
     }, 3500);
   }
 
@@ -326,7 +328,7 @@ export const startGame = function() {
 
   function animDeath() {
     console.log("c la muerte");
-    document.querySelector("#control-container").classList.add("disabled");
+    controlsContainer.classList.add("disabled");
 
     animPlayerContainer.style.display = "none";
     animPlayerIdleContainer.style.display = "none";
@@ -343,7 +345,7 @@ export const startGame = function() {
   controls.forEach(control => {
     control.addEventListener("click", ()=>{
       //console.log(control.parentNode)
-      // control.parentNode.classList.toggle("disabled");
+      controlsContainer.classList.add("disabled");
       if (counterAttack === 0) {
         btnDefence.classList.remove("disabled");
         btnAttack.classList.add("disabled");
